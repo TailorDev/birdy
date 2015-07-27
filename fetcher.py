@@ -1,105 +1,133 @@
 #!/usr/bin/python
 
-"""Fetcher.
+doc = """Fetcher.
 
 Usage:
-  fetcher.py [-d <db>] [-F <format>...] [-t <term>] [-n <nb>]
+  fetcher.py -s <search> [-d <db>] [-F <format>...] [-n <nb>]
   fetcher.py (-h | --help)
 
 Examples:
-  fetcher.py -d nucleotide -F gb -F fasta -t matK -n 10
+  fetcher.py -d nucleotide -F gb -F fasta -s matK -n 10
 
 Options:
   -h --help        Show this screen.
   -d=<db>          data base [default: nucleotide]
   -F=<format>      File format [default: fasta].
-  -t=<term>        Search term [default: matk].
-  -n=<nb>          File per format [default: 10].
+  -s=<search>      Search term.
+  -n=<nb>          File(s) per format [default: 10].
 
 """
 
 from docopt import docopt
 from Bio_Eutils import Entrez
+from schema import Schema, And, Or, Use, SchemaError, Optional
 import random
+import os
+
 
 Entrez.email = 'loiseauc48@gmail.com'
 
 
-def conversion(file_per_format, formats_list):
-    """
-    Fonction permettant de calculer le nombre d'IDs
-    a requeter et definitions d'un ordre aleatoire
-    file_per_format : Nombre de fichier voulu par type de format
-    formats_list : liste des diferent formats voulu
-    return : le nombre de fichier total ainsi qu'un ordre aleatoire
-    """
-    nb_file = file_per_format * (len(formats_list))
-    liste = list(range(nb_file))
-    rand_list = random.sample(liste, nb_file)
-    return rand_list, nb_file
+def search_db(db, search, file_per_format, formats):
+    """Fetches IDs.
 
+    Retrieves IDs from specified NCBI data base like 'nucleotide', and
+    -a long description-
 
-def search_db(nb_file, data_base, terms):
+    Args:
+        db : NCBI data base
+        search : keyword
+        file_per_format : number of file per formats
+        formats : List of formats
+
+    Returns:
+        A list of IDs corresponding on the 'search' keywards.
+        For exemple :
+
+        ['894216361', '894216359', '894216357', '894216355',
+        '894216353', '894216351', '894216349', '894216348',
+        '894216347', '894216346']
     """
-    Search IDs on NCBI data bases
-    nb_file : number of IDs
-    data_base : NCBI data base
-    terms : keyword
-    return : IDs list
-    """
-    i = random.randint(1, 1000000)
-    handle = Entrez.esearch(db=data_base, retmax=nb_file, retstart=i, term=terms)
+
+    nb_file = file_per_format * (len(formats))
+    i = random.randint(1, 100)
+
+    handle = Entrez.esearch(db=db, retmax=nb_file, retstart=i, term=search)
     pub_search = Entrez.read(handle)
     handle.close()
+
     return pub_search['IdList']
 
 
-def fetch_db(data_base, id_list, formats_list, file_per_format, rand_list):
+def fetch_db(db, IDs, formats, file_per_format):
+    """Fetches datas about IDs
+
+    Retrieves datas about IDs in specified formats, in NCBI
+    data bases and load it in "Result" directory
+
+    Args:
+        db : NCBI data base
+        IDs : IDs list
+        file_per_format : number of file per formats
+        formats : List of formats
     """
-    requete sur les IDs et extrait les fichiers correspondante sur NCBI
-    et les enregistre dans le repertoire "Result" du repertoire courrant
-    data_base : base de donnees de la requete
-    id_list : liste d'IDs sur lesquelles sont faite la requete.
-    formats_list : liste des diferent formats voulu
-    file_per_format : nombre de fichier voulu par format
-    rand_list : ordre aleatoire
-    """
-    loop = file_per_format
+
+    rand_list = random.sample(list(range(len(IDs))), len(IDs))
     i = 0
+
     # Fetch matching entries
-    for format_single in formats_list:
-        extension = '.' + format_single
-        while i < loop:
+    for fmt in formats:
+        extension = '.' + fmt
+        for n in range(file_per_format):
             start = rand_list[i]
             handle = Entrez.efetch(
-                db=data_base, id=id_list,
+                db=db, id=IDs,
                 retmax=1, retstart=start,
-                rettype=format_single, retmode="text"
+                rettype=fmt, retmode="text"
                 )
             output = handle.read()
-            num = id_list[start]
+            num = IDs[start]
             file_name = 'Result/Test' + str(num) + extension
             with open(file_name, 'w') as f:
                 f.write(output)
             i += 1
             handle.close()
-        loop = loop + file_per_format
 
 
-def result(
-        formats_list, terms="gene",
-        file_per_format=10, data_base="nucleotide"):
-    result_conversion = conversion(file_per_format, formats_list)
-    id_list = search_db(
-        result_conversion[1],
-        data_base, terms)
-    fetch_db(
-        data_base, id_list,
-        formats_list, file_per_format,
-        result_conversion[0])
+def result(formats, search, file_per_format, db):
+
+    IDs = search_db(db, search, file_per_format, formats)
+
+    fetch_db(db, IDs, formats, file_per_format)
 
 
 if __name__ == "__main__":
     # execute only if run as a script
-    args = docopt(__doc__)
-    result(args['-F'], args['-t'], int(args['-n']), args['-d'])
+    args = docopt(doc)
+
+    schema = Schema({
+        '-s': And(str, len),
+        Optional('-n'): And(Use(int), lambda n: 1 <= n <= 99),
+        Optional('-F'): And(list),
+        Optional('--help'): bool,
+        Optional('-d'): And(str, Use(str.lower), lambda s: s in (
+            'pubmed', 'protein', 'nucleotide', 'nuccore', 'nucgss',
+            'nucest', 'structure', 'genome', 'books', 'cancerchromosomes',
+            'cdd', 'gap', 'domains', 'gene', 'genomeprj', 'gensat', 'geo',
+            'gds', 'homologene', 'journals', 'mesh', 'ncbisearch',
+            'nlmcatalog', 'omia', 'omim', 'pmc', 'popset', 'probe',
+            'proteinclusters', 'pcassay', 'pccompound', 'pcsubstance',
+            'snp', 'taxonomy', 'toolkit', 'unigene', 'unists'))})
+    try:
+        args = schema.validate(args)
+    except SchemaError as e:
+        exit(e)
+
+
+
+    formats = args['-F']
+    search = args['-s']
+    file_per_format = int(args['-n'])
+    db = args['-d']
+
+    result(formats, search, file_per_format, db)
