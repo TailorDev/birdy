@@ -1,0 +1,292 @@
+#!/usr/bin/env python
+
+doc = """Fetcher.
+
+Usage:
+  fetcher --DB <database>... [-s <search>] [-d <db>] [-F <format>...] [-n <nb>]
+  fetcher (-h | --help)
+
+Examples:
+  fetcher --DB NCBI -d nucleotide -F gb -F fasta -s gene --DB PDB -F pdb -n 10
+
+Options:
+  -h --help        Show this screen.
+  -d=<db>          NCBI data bases [default: nucleotide]
+  -F=<format>      File format [default: fasta pdb].
+  -s=<search>      Search term [default: gene].
+  -n=<nb>          File(s) per format [default: 10].
+  --DB=<database>  data base.
+
+"""
+
+from docopt import docopt
+from Bio_Eutils import Entrez
+from schema import Schema, And, Use, SchemaError, Optional
+
+import random
+import requests
+import urllib.request
+
+
+Entrez.email = 'loiseauc48@gmail.com'
+
+
+def id_NCBI(db, search, file_per_format, formats):
+    """Fetches IDs.
+
+    Retrieves IDs from specified NCBI data base like 'nucleotide'
+
+    Args:
+        db : NCBI data base
+        search : keyword
+        file_per_format : number of file per formats
+        formats : List of formats
+
+    Returns:
+        A list of IDs corresponding on the 'search' keywards.
+        For exemple :
+
+        ['894216361', '894216359', '894216357', '894216355',
+        '894216353', '894216351', '894216349', '894216348',]
+    """
+
+    nb_file = file_per_format * (len(formats))
+    i = random.randint(1, 100)
+
+    handle = Entrez.esearch(db=db, retmax=nb_file, retstart=i, term=search)
+    pub_search = Entrez.read(handle)
+    handle.close()
+
+    return pub_search['IdList']
+
+
+def fetch_NCBI(db, IDs, formats, file_per_format):
+    """Fetches datas about IDs
+
+    Retrieves datas about IDs in specified formats, in NCBI
+    data bases and load it in "Result" directory
+
+    Args:
+        db : NCBI data base
+        IDs : IDs list
+        file_per_format : number of file per formats
+        formats : List of formats
+    """
+
+    rand_list = random.sample(list(range(len(IDs))), len(IDs))
+    i = 0
+
+    # Fetch matching entries
+    for fmt in formats:
+        extension = '.' + fmt
+        for n in range(file_per_format):
+            start = rand_list[i]
+            handle = Entrez.efetch(
+                db=db, id=IDs,
+                retmax=1, retstart=start,
+                rettype=fmt, retmode="text"
+                )
+            output = handle.read()
+            num = IDs[start]
+            file_name = 'Result/Test' + str(num) + extension
+            with open(file_name, 'w') as f:
+                f.write(output)
+            i += 1
+            handle.close()
+
+
+def id_PDB():
+    """Fetches IDs.
+
+    Retrieves IDs from PDB data base
+
+    Args:
+        None
+
+    Returns:
+        A list of all IDs.
+        For exemple :
+
+        ['4Z1S', '4Z1X', '4Z1Y', '4Z24', '4Z25', '4Z26',
+         '4Z28', '4Z29', '4Z2B', '4Z2F', '4Z2G', '4Z2H',
+         '4Z2I', '4Z2J', '4Z2K', '4Z2L', '4Z2O', '4Z2P']
+    """
+
+    url = (
+        'http://www.rcsb.org/pdb/rest/customReport.csv?pdbids=*&' +
+        'customReportColumns=structureId&format=csv&service=wsfile')
+    r = requests.get(url)
+    IDs = r.text.split('"\n"')
+    IDs[0] = IDs[0].split('"')
+    IDs[0] = IDs[0][1]
+    IDs[-1] = IDs[-1].split('"')
+    IDs[-1] = IDs[-1][0]
+    print(IDs)
+    return IDs
+
+
+def fetch_PDB_pdb(IDs, file_per_format):
+    """Fetches datas about random IDs
+
+    Retrieves datas about a random list of n IDs, in pdb formats,
+    in PDB data bases and load it in "Result" directory. "n" is
+    the number of files per formats
+    --- /!\ gzipped format /!\ ---
+
+    Args:
+        IDs : IDs list
+        file_per_format : number of files per formats
+    """
+
+    rand_list = random.sample(list(range(len(IDs))), file_per_format)
+
+    for i in range(file_per_format):
+        url = (
+            'ftp://ftp.ebi.ac.uk/pub/databases/rcsb/pdb-remediated' +
+            '/data/structures/divided/pdb/')
+        ID = IDs[rand_list[i]]
+        ID = ID.lower()
+        code = ID[:-1]
+        code = code[1:]
+        url = url + code + '/pdb' + ID + '.ent.gz'
+        file_name = 'Result/pdb' + ID + '.ent.gz'
+        urllib.request.urlretrieve(url, file_name)
+
+
+def fetch_PDB_mmCIF(IDs, file_per_format):
+    """Fetches datas about random IDs
+
+    Retrieves datas about a random list of n IDs, in mmCIF formats,
+    in PDB data bases and load it in "Result" directory. "n" is
+    the number of files per formats
+    --- /!\ gzipped format /!\ ---
+
+    Args:
+        IDs : IDs list
+        file_per_format : number of files per formats
+    """
+
+    rand_list = random.sample(list(range(len(IDs))), file_per_format)
+
+    for i in range(file_per_format):
+        url = (
+            'ftp://ftp.ebi.ac.uk/pub/databases/rcsb/pdb-remediated' +
+            '/data/structures/divided/mmCIF/')
+        ID = IDs[rand_list[i]]
+        ID = ID.lower()
+        code = ID[:-1]
+        code = code[1:]
+        url = url + code + '/' + ID + '.cif.gz'
+        file_name = 'Result/mmCIF' + ID + '.cif'
+        urllib.request.urlretrieve(url, file_name)
+
+
+def result_PDB(file_per_format, fmt):
+    """Result
+
+    Manages fonctions about PDB database
+
+    Args:
+        file_per_format : number of files per formats
+        fmt : List of formats
+    """
+
+    IDs = id_PDB()
+    count = True
+
+    if 'pdb' in fmt:
+        #fetch_PDB_pdb(IDs, file_per_format)
+        count = False
+
+    if 'mmCIF' in fmt:
+        #fetch_PDB_mmCIF(IDs, file_per_format)
+        count = False
+
+    if count:
+        print('Those formats :')
+        print(fmt)
+        print('are not alowed. Try with "pdb" or "mmCIF"')
+
+
+def result_NCBI(formats, search, file_per_format, db):
+    """Result
+
+    Manages fonctions about NCBI database
+
+    Args:
+        file_per_format : number of files per formats
+        formats : List of formats
+        search : keyword
+        db : NCBI data base
+    """
+
+    fmts = ['fasta', 'gp', 'est', 'gb']
+    form = []
+
+    for fmt in fmts:
+        if fmt in formats:
+            form.append(fmt)
+
+    if form:
+        IDs = id_NCBI(db, search, file_per_format, form)
+        fetch_NCBI(db, IDs, form, file_per_format)
+    else:
+        print('Those formats :')
+        print(formats)
+        print('are not alowed. Try with "fasta", "gp", "est", or "gb"')
+
+
+def validation(args):
+    """Data validation
+
+    Checks Manages fonctions about NCBI database
+
+    Args:
+        file_per_format : number of files per formats
+        formats : List of formats
+        search : keyword
+        db : NCBI data base
+    """
+
+    schema = Schema({
+        '--DB': And(list),
+        Optional('-s'): And(str, len),
+        Optional('-n'): And(Use(int), lambda n: 1 <= n <= 99),
+        Optional('-F'): And(list),
+        Optional('--help'): bool,
+        Optional('-d'): And(str, Use(str.lower), lambda s: s in (
+            'protein', 'nucleotide', 'nuccore', 'nucgss', 'homologene',
+            'popset', 'nucest', 'sequences', 'snp'))})
+
+    try:
+        args = schema.validate(args)
+    except SchemaError as e:
+        exit(e)
+
+    return args
+
+
+if __name__ == "__main__":
+    # execute only if run as a script
+    args = docopt(doc)
+    args = validation(args)
+
+    database = args['--DB']
+    formats = args['-F']
+    search = args['-s']
+    file_per_format = int(args['-n'])
+    db = args['-d']
+    count = True
+
+    if 'PDB' in database:
+        result_PDB(file_per_format, formats)
+        count = False
+
+    if 'NCBI' in database:
+        result_NCBI(formats, search, file_per_format, db)
+        count = False
+
+    if count:
+        print('Those databases :')
+        print(database)
+        print('are not alowed. Try with "NCBI" or "PDB"')
