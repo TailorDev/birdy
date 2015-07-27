@@ -3,7 +3,8 @@
 doc = """Fetcher.
 
 Usage:
-  fetcher --DB <database>... [-s <search>] [-d <db>] [-F <format>...] [-n <nb>]
+  fetcher --DB <database>... [-s <search>] [-d <db>...]
+          [-F <format>...] [-n <nb>]
   fetcher (-h | --help)
 
 Examples:
@@ -11,7 +12,7 @@ Examples:
 
 Options:
   -h --help        Show this screen.
-  -d=<db>          NCBI data bases [default: nucleotide]
+  -d=<db>          NCBI and KEGG data bases [default: nucleotide]
   -F=<format>      File format [default: fasta pdb].
   -s=<search>      Search term [default: gene].
   -n=<nb>          File(s) per format [default: 10].
@@ -60,6 +61,52 @@ def id_NCBI(db, search, file_per_format, formats):
     return pub_search['IdList']
 
 
+def id_PDB():
+    """Fetches IDs.
+
+    Retrieves IDs from PDB data base
+
+    Args:
+        None
+
+    Returns:
+        A list of all IDs.
+        For exemple :
+
+        ['4Z1S', '4Z1X', '4Z1Y', '4Z24', '4Z25', '4Z26',
+         '4Z28', '4Z29', '4Z2B', '4Z2F', '4Z2G', '4Z2H',
+         '4Z2I', '4Z2J', '4Z2K', '4Z2L', '4Z2O', '4Z2P']
+    """
+
+    url = (
+        'http://www.rcsb.org/pdb/rest/customReport.csv?pdbids=*&' +
+        'customReportColumns=structureId&format=csv&service=wsfile')
+    r = requests.get(url)
+    IDs = r.text.split('"\n"')
+    IDs[0] = IDs[0].split('"')
+    IDs[0] = IDs[0][1]
+    IDs[-1] = IDs[-1].split('"')
+    IDs[-1] = IDs[-1][0]
+    print(IDs)
+    return IDs
+
+
+def id_KEGG(databases):
+
+    url = ('http://rest.kegg.jp/list/' + db)
+    r = requests.get(url)
+
+    IDs = []
+    lines = r.text.split('\n')
+    for line in lines:
+        ID = line.split('\t')
+
+        if ID[0] != '':
+            IDs.append(ID[0])
+
+    return IDs
+
+
 def fetch_NCBI(db, IDs, formats, file_per_format):
     """Fetches datas about IDs
 
@@ -93,36 +140,6 @@ def fetch_NCBI(db, IDs, formats, file_per_format):
                 f.write(output)
             i += 1
             handle.close()
-
-
-def id_PDB():
-    """Fetches IDs.
-
-    Retrieves IDs from PDB data base
-
-    Args:
-        None
-
-    Returns:
-        A list of all IDs.
-        For exemple :
-
-        ['4Z1S', '4Z1X', '4Z1Y', '4Z24', '4Z25', '4Z26',
-         '4Z28', '4Z29', '4Z2B', '4Z2F', '4Z2G', '4Z2H',
-         '4Z2I', '4Z2J', '4Z2K', '4Z2L', '4Z2O', '4Z2P']
-    """
-
-    url = (
-        'http://www.rcsb.org/pdb/rest/customReport.csv?pdbids=*&' +
-        'customReportColumns=structureId&format=csv&service=wsfile')
-    r = requests.get(url)
-    IDs = r.text.split('"\n"')
-    IDs[0] = IDs[0].split('"')
-    IDs[0] = IDs[0][1]
-    IDs[-1] = IDs[-1].split('"')
-    IDs[-1] = IDs[-1][0]
-    print(IDs)
-    return IDs
 
 
 def fetch_PDB_pdb(IDs, file_per_format):
@@ -181,7 +198,19 @@ def fetch_PDB_mmCIF(IDs, file_per_format):
         urllib.request.urlretrieve(url, file_name)
 
 
-def result_PDB(file_per_format, fmt):
+def fetch_KEGG(IDs, file_per_format):
+
+    rand_list = random.sample(list(range(len(IDs))), file_per_format)
+
+    for i in range(file_per_format):
+        url = 'http://rest.kegg.jp/get/'
+        ID = IDs[rand_list[i]]
+        url = url + ID
+        r = requests.get(url)
+        print(r.text)
+
+
+def run_PDB(file_per_format, fmt):
     """Result
 
     Manages fonctions about PDB database
@@ -195,20 +224,21 @@ def result_PDB(file_per_format, fmt):
     count = True
 
     if 'pdb' in fmt:
-        #fetch_PDB_pdb(IDs, file_per_format)
+        fetch_PDB_pdb(IDs, file_per_format)
         count = False
 
     if 'mmCIF' in fmt:
-        #fetch_PDB_mmCIF(IDs, file_per_format)
+        fetch_PDB_mmCIF(IDs, file_per_format)
         count = False
 
+    # Error messages
     if count:
         print('Those formats :')
         print(fmt)
         print('are not alowed. Try with "pdb" or "mmCIF"')
 
 
-def result_NCBI(formats, search, file_per_format, db):
+def run_NCBI(formats, search, file_per_format, databases):
     """Result
 
     Manages fonctions about NCBI database
@@ -220,32 +250,79 @@ def result_NCBI(formats, search, file_per_format, db):
         db : NCBI data base
     """
 
+    Kdb = [
+        'protein', 'nucleotide', 'nuccore', 'nucgss', 'homologene',
+        'popset', 'nucest', 'sequences', 'snp']
+    dbs = []
+    for database in Kdb:
+        if database in databases:
+            dbs.append(database)
+
     fmts = ['fasta', 'gp', 'est', 'gb']
     form = []
-
-    for fmt in fmts:
-        if fmt in formats:
+    for fmt in formats:
+        if fmt in fmts:
             form.append(fmt)
 
-    if form:
-        IDs = id_NCBI(db, search, file_per_format, form)
-        fetch_NCBI(db, IDs, form, file_per_format)
-    else:
+    if form and dbs:
+        for db in dbs:
+            IDs = id_NCBI(db, search, file_per_format, form)
+            fetch_NCBI(db, IDs, form, file_per_format)
+    # Error messages
+    elif dbs:
         print('Those formats :')
         print(formats)
         print('are not alowed. Try with "fasta", "gp", "est", or "gb"')
+    elif form:
+        print('Those databases :')
+        print(databases)
+        print(
+            'are not alowed. Try with "protein", "nucleotide", "nuccore",' +
+            '"nucgss", "homologene", "popset", "nucest", "sequences" or "snp"')
+    else:
+        print('Formats and databases are not alowed.')
+        print('Expected formats :')
+        print('"fasta", "gp", "est", "gb"')
+        print('Expected databases :')
+        print('"protein", "nucleotide", "nuccore", "nucgss", "homologene",')
+        print('"popset", "nucest", "sequences", "snp"')
+
+
+def run_KEGG(databases, file_per_format):
+    Kdb = [
+        'pathway', 'brite', 'module', 'ko', 'genome', 'compound', 'glycan',
+        'reaction', 'rpair', 'rclass', 'enzyme', 'disease', 'drug', 'dgroup',
+        'environ', 'organism']
+    db = []
+
+    for database in Kdb:
+        if database in databases:
+            db.append(database)
+
+    if db:
+        ID = id_KEGG(db)
+        fetch_KEGG(ID, file_per_format)
+
+    # Error messages
+    else:
+        print('Those databases :')
+        print(databases)
+        print(
+            'are not alowed. Try with"pathway", "brite", "module", "ko",' +
+            '"genome", "compound", "glycan", "reaction", "rpair", "rclass",' +
+            '"enzyme", "disease", "drug", "dgroup", "environ" or "organism"')
 
 
 def validation(args):
     """Data validation
 
-    Checks Manages fonctions about NCBI database
+    Checks arguments
 
     Args:
-        file_per_format : number of files per formats
-        formats : List of formats
-        search : keyword
-        db : NCBI data base
+        args : all arguments
+
+    Returns:
+        right arguments
     """
 
     schema = Schema({
@@ -254,9 +331,7 @@ def validation(args):
         Optional('-n'): And(Use(int), lambda n: 1 <= n <= 99),
         Optional('-F'): And(list),
         Optional('--help'): bool,
-        Optional('-d'): And(str, Use(str.lower), lambda s: s in (
-            'protein', 'nucleotide', 'nuccore', 'nucgss', 'homologene',
-            'popset', 'nucest', 'sequences', 'snp'))})
+        Optional('-d'): And(list)})
 
     try:
         args = schema.validate(args)
@@ -279,14 +354,19 @@ if __name__ == "__main__":
     count = True
 
     if 'PDB' in database:
-        result_PDB(file_per_format, formats)
+        run_PDB(file_per_format, formats)
         count = False
 
     if 'NCBI' in database:
-        result_NCBI(formats, search, file_per_format, db)
+        run_NCBI(formats, search, file_per_format, db)
         count = False
 
+    if 'KEGG' in database:
+        run_KEGG(db, file_per_format)
+        count = False
+
+    # Error messages
     if count:
         print('Those databases :')
         print(database)
-        print('are not alowed. Try with "NCBI" or "PDB"')
+        print('are not alowed. Try with "NCBI", "KEGG" or "PDB"')
