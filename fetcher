@@ -4,7 +4,7 @@ doc = """Fetcher.
 
 Usage:
   fetcher --DB <database>... [-s <search>] [-d <db>...]
-          [-F <format>...] [-n <nb>]
+          [-F <format>...] [-n <nb>] [--nocache]
   fetcher (-h | --help)
 
 Examples:
@@ -12,11 +12,12 @@ Examples:
 
 Options:
   -h --help        Show this screen.
-  -d=<db>          NCBI and KEGG data bases [default: nucleotide]
-  -F=<format>      File format [default: fasta pdb].
+  -d=<db>          NCBI and KEGG data bases [default: nucleotide pathway]
+  -F=<format>      File format [default: pdb].
   -s=<search>      Search term [default: gene].
   -n=<nb>          File(s) per format [default: 10].
   --DB=<database>  data base.
+  --nocache        reload all files
 
 """
 
@@ -27,13 +28,11 @@ from schema import Schema, And, Use, SchemaError, Optional
 import random
 import requests
 import urllib.request
-
-
-Entrez.email = 'loiseauc48@gmail.com'
+import logging
 
 
 def id_NCBI(db, search, file_per_format, formats):
-    """Fetches IDs.
+    """Fetches NCBI IDs.
 
     Retrieves IDs from specified NCBI data base like 'nucleotide'
 
@@ -48,9 +47,12 @@ def id_NCBI(db, search, file_per_format, formats):
         For exemple :
 
         ['894216361', '894216359', '894216357', '894216355',
-        '894216353', '894216351', '894216349', '894216348',]
+         '894216353', '894216351', '894216349', '894216348']
     """
 
+    logging.info('Fetches NCBI IDs on %s database', db)
+
+    Entrez.email = 'loiseauc48@gmail.com'
     nb_file = file_per_format * (len(formats))
     i = random.randint(1, 100)
 
@@ -61,10 +63,10 @@ def id_NCBI(db, search, file_per_format, formats):
     return pub_search['IdList']
 
 
-def id_PDB():
-    """Fetches IDs.
+def id_PDB(cache):
+    """Fetches PDB IDs.
 
-    Retrieves IDs from PDB data base
+    Retrieves all IDs from PDB data base.
 
     Args:
         None
@@ -78,40 +80,92 @@ def id_PDB():
          '4Z2I', '4Z2J', '4Z2K', '4Z2L', '4Z2O', '4Z2P']
     """
 
-    url = (
-        'http://www.rcsb.org/pdb/rest/customReport.csv?pdbids=*&' +
-        'customReportColumns=structureId&format=csv&service=wsfile')
-    r = requests.get(url)
-    IDs = r.text.split('"\n"')
-    IDs[0] = IDs[0].split('"')
-    IDs[0] = IDs[0][1]
-    IDs[-1] = IDs[-1].split('"')
-    IDs[-1] = IDs[-1][0]
-    print(IDs)
-    return IDs
+    logging.info('Fetches PDB IDs')
+
+    if cache:
+        url = (
+            'http://www.rcsb.org/pdb/rest/customReport.csv?pdbids=*&' +
+            'customReportColumns=structureId&format=csv&service=wsfile')
+        r = requests.get(url)
+        IDs = r.text.split('"\n"')
+        IDs[0] = IDs[0].split('"')
+        IDs[0] = IDs[0][1]
+        IDs[-1] = IDs[-1].split('"')
+        IDs[-1] = IDs[-1][0]
+
+        with open('ID/PDB_ID.txt', 'w') as f:
+            for ID in IDs:
+                output = ID + '\t'
+                f.write(output)
+        f.closed
+
+        return IDs
+
+    else:
+        with open('ID/PDB_ID.txt', 'r') as f:
+            ID = f.read()
+            IDs = ID.split('\t')
+        f.closed
+        IDs = IDs[:-1]
+        return IDs
 
 
-def id_KEGG(databases):
+def id_KEGG(db, cache):
+    """Fetches KEGG IDs.
 
-    url = ('http://rest.kegg.jp/list/' + db)
-    r = requests.get(url)
+    Retrieves all IDs from specified KEGG data base like 'pathway'.
 
-    IDs = []
-    lines = r.text.split('\n')
-    for line in lines:
-        ID = line.split('\t')
+    Args:
+        db : KEGG data base
 
-        if ID[0] != '':
-            IDs.append(ID[0])
+    Returns:
+        A list of IDs corresponding on the databases.
+        For exemple :
 
-    return IDs
+        ['path:map00072', 'path:map00073', 'path:map00100', 'path:map00120',
+         'path:map00121', 'path:map00130', 'path:map00140', 'path:map00190',
+         'path:map00195', 'path:map00196', 'path:map00220', 'path:map00230',
+         'path:map00231', 'path:map00232', 'path:map00240', 'path:map00250']
+
+    """
+    logging.info('Fetches KEGG IDs on %s database', db)
+
+    file_name = 'ID/KEGG_' + db + '_ID.txt'
+
+    if cache:
+        url = ('http://rest.kegg.jp/list/' + db)
+        r = requests.get(url)
+
+        IDs = []
+        lines = r.text.split('\n')
+        for line in lines:
+            ID = line.split('\t')
+
+            if ID[0] != '':
+                IDs.append(ID[0])
+
+        with open(file_name, 'w') as f:
+            for ID in IDs:
+                output = ID + '\t'
+                f.write(output)
+        f.closed
+
+        return IDs
+
+    else:
+        with open(file_name, 'r') as f:
+            ID = f.read()
+            IDs = ID.split('\t')
+        f.closed
+        IDs = IDs[:-1]
+        return IDs
 
 
 def fetch_NCBI(db, IDs, formats, file_per_format):
     """Fetches datas about IDs
 
-    Retrieves datas about IDs in specified formats, in NCBI
-    data bases and load it in "Result" directory
+    Retrieves datas about IDs in specified formats in NCBI
+    data bases, in random order and load it in "Result" directory
 
     Args:
         db : NCBI data base
@@ -120,6 +174,11 @@ def fetch_NCBI(db, IDs, formats, file_per_format):
         formats : List of formats
     """
 
+    logging.info(
+        'Fetches NCBI datas about IDs on %s database and %s format(s)',
+        db, formats)
+
+    Entrez.email = 'loiseauc48@gmail.com'
     rand_list = random.sample(list(range(len(IDs))), len(IDs))
     i = 0
 
@@ -133,11 +192,13 @@ def fetch_NCBI(db, IDs, formats, file_per_format):
                 retmax=1, retstart=start,
                 rettype=fmt, retmode="text"
                 )
+
             output = handle.read()
             num = IDs[start]
-            file_name = 'Result/Test' + str(num) + extension
+            file_name = 'Result/NCBI' + db + str(num) + extension
             with open(file_name, 'w') as f:
                 f.write(output)
+            f.closed
             i += 1
             handle.close()
 
@@ -154,6 +215,8 @@ def fetch_PDB_pdb(IDs, file_per_format):
         IDs : IDs list
         file_per_format : number of files per formats
     """
+
+    logging.info('Fetches PDB datas about IDs on pdb format')
 
     rand_list = random.sample(list(range(len(IDs))), file_per_format)
 
@@ -183,6 +246,8 @@ def fetch_PDB_mmCIF(IDs, file_per_format):
         file_per_format : number of files per formats
     """
 
+    logging.info('Fetches PDB datas about IDs on mmCIF format')
+
     rand_list = random.sample(list(range(len(IDs))), file_per_format)
 
     for i in range(file_per_format):
@@ -194,11 +259,23 @@ def fetch_PDB_mmCIF(IDs, file_per_format):
         code = ID[:-1]
         code = code[1:]
         url = url + code + '/' + ID + '.cif.gz'
-        file_name = 'Result/mmCIF' + ID + '.cif'
+        file_name = 'Result/mmCIF' + ID + '.cif.gz'
         urllib.request.urlretrieve(url, file_name)
 
 
 def fetch_KEGG(IDs, file_per_format):
+    """Fetches datas about random IDs
+
+    Retrieves datas about a random list of n IDs, in KEGG data
+    bases and load it in "Result" directory. "n" is the number
+    of files per formats
+
+    Args:
+        IDs : IDs list
+        file_per_format : number of files per formats
+    """
+
+    logging.info('Fetches KEGG datas about IDs')
 
     rand_list = random.sample(list(range(len(IDs))), file_per_format)
 
@@ -207,10 +284,15 @@ def fetch_KEGG(IDs, file_per_format):
         ID = IDs[rand_list[i]]
         url = url + ID
         r = requests.get(url)
-        print(r.text)
+        output = r.text
+        extension = '.keg'
+        file_name = 'Result/KEGG' + ID + extension
+        with open(file_name, 'w') as f:
+            f.write(output)
+        f.closed
 
 
-def run_PDB(file_per_format, fmt):
+def run_PDB(file_per_format, fmt, cache):
     """Result
 
     Manages fonctions about PDB database
@@ -220,7 +302,9 @@ def run_PDB(file_per_format, fmt):
         fmt : List of formats
     """
 
-    IDs = id_PDB()
+    logging.info('PDB database')
+
+    IDs = id_PDB(cache)
     count = True
 
     if 'pdb' in fmt:
@@ -233,15 +317,15 @@ def run_PDB(file_per_format, fmt):
 
     # Error messages
     if count:
-        print('Those formats :')
-        print(fmt)
-        print('are not alowed. Try with "pdb" or "mmCIF"')
+        logging.error(
+            'Formats %s anot alowed. Try with "pdb" or "mmCIF"',
+            fmt)
 
 
 def run_NCBI(formats, search, file_per_format, databases):
     """Result
 
-    Manages fonctions about NCBI database
+    Checks databases and formats and manages fonctions about NCBI database
 
     Args:
         file_per_format : number of files per formats
@@ -250,10 +334,13 @@ def run_NCBI(formats, search, file_per_format, databases):
         db : NCBI data base
     """
 
+    logging.info('NCBI database')
+
     Kdb = [
         'protein', 'nucleotide', 'nuccore', 'nucgss', 'homologene',
         'popset', 'nucest', 'sequences', 'snp']
     dbs = []
+
     for database in Kdb:
         if database in databases:
             dbs.append(database)
@@ -268,49 +355,60 @@ def run_NCBI(formats, search, file_per_format, databases):
         for db in dbs:
             IDs = id_NCBI(db, search, file_per_format, form)
             fetch_NCBI(db, IDs, form, file_per_format)
+
     # Error messages
     elif dbs:
-        print('Those formats :')
-        print(formats)
-        print('are not alowed. Try with "fasta", "gp", "est", or "gb"')
+        logging.error(
+            'Formats %s not alowed. Try with "fasta", "gp", "est", or "gb"',
+            formats)
     elif form:
-        print('Those databases :')
-        print(databases)
-        print(
-            'are not alowed. Try with "protein", "nucleotide", "nuccore",' +
-            '"nucgss", "homologene", "popset", "nucest", "sequences" or "snp"')
+        logging.error(
+            'Database %s not alowed. Try with "protein", "nucleotide",' +
+            '"nuccore", "nucgss", "homologene", "popset", "nucest",' +
+            '"sequences" or "snp"', databases)
     else:
-        print('Formats and databases are not alowed.')
-        print('Expected formats :')
-        print('"fasta", "gp", "est", "gb"')
-        print('Expected databases :')
-        print('"protein", "nucleotide", "nuccore", "nucgss", "homologene",')
-        print('"popset", "nucest", "sequences", "snp"')
+        message = (
+            'Formats and databases are not alowed. Expected' +
+            'formats : "fasta", "gp", "est", "gb"; Expected databases :' +
+            '"protein", "nucleotide", "nuccore", "nucgss", "homologene",' +
+            '"popset", "nucest", "sequences", "snp"')
+        logging.error(message)
 
 
-def run_KEGG(databases, file_per_format):
+def run_KEGG(databases, file_per_format, cache):
+    """Result
+
+    Checks databases and manages fonctions about KEGG database
+
+    Args:
+        file_per_format : number of files per formats
+        databases : NCBI data base
+    """
+
+    logging.info('KEGG database')
+
     Kdb = [
         'pathway', 'brite', 'module', 'ko', 'genome', 'compound', 'glycan',
         'reaction', 'rpair', 'rclass', 'enzyme', 'disease', 'drug', 'dgroup',
         'environ', 'organism']
-    db = []
+    dbs = []
 
     for database in Kdb:
         if database in databases:
-            db.append(database)
+            dbs.append(database)
 
-    if db:
-        ID = id_KEGG(db)
-        fetch_KEGG(ID, file_per_format)
+    if dbs:
+        for db in dbs:
+            ID = id_KEGG(db, cache)
+            fetch_KEGG(ID, file_per_format)
 
     # Error messages
     else:
-        print('Those databases :')
-        print(databases)
-        print(
-            'are not alowed. Try with"pathway", "brite", "module", "ko",' +
-            '"genome", "compound", "glycan", "reaction", "rpair", "rclass",' +
-            '"enzyme", "disease", "drug", "dgroup", "environ" or "organism"')
+        logging.error(
+            'Databases %s not alowed. Try with "pathway", "brite",' +
+            ' "module", "ko", "genome", "compound", "glycan", "reaction",' +
+            ' "rpair", "rclass", "enzyme", "disease", "drug", "dgroup",' +
+            ' "environ" or "organism"', database)
 
 
 def validation(args):
@@ -325,12 +423,15 @@ def validation(args):
         right arguments
     """
 
+    logging.info('Checks arguments')
+
     schema = Schema({
         '--DB': And(list),
         Optional('-s'): And(str, len),
         Optional('-n'): And(Use(int), lambda n: 1 <= n <= 99),
         Optional('-F'): And(list),
         Optional('--help'): bool,
+        Optional('--nocache'): bool,
         Optional('-d'): And(list)})
 
     try:
@@ -341,8 +442,14 @@ def validation(args):
     return args
 
 
-if __name__ == "__main__":
-    # execute only if run as a script
+def main():
+    logging.basicConfig(
+        filename='fetcher.log',
+        format='%(asctime)s %(levelname)s:%(message)s',
+        datefmt='%m/%d/%Y %I:%M:%S %p',
+        level=logging.INFO)
+
+    logging.info('Started')
     args = docopt(doc)
     args = validation(args)
 
@@ -351,10 +458,11 @@ if __name__ == "__main__":
     search = args['-s']
     file_per_format = int(args['-n'])
     db = args['-d']
+    cache = args['--nocache']
     count = True
 
     if 'PDB' in database:
-        run_PDB(file_per_format, formats)
+        run_PDB(file_per_format, formats, cache)
         count = False
 
     if 'NCBI' in database:
@@ -362,11 +470,18 @@ if __name__ == "__main__":
         count = False
 
     if 'KEGG' in database:
-        run_KEGG(db, file_per_format)
+        run_KEGG(db, file_per_format, cache)
         count = False
 
     # Error messages
     if count:
-        print('Those databases :')
-        print(database)
-        print('are not alowed. Try with "NCBI", "KEGG" or "PDB"')
+        logging.error(
+            'Databases %s not alowed. Try with "NCBI", "KEGG" or "PDB"',
+            database)
+
+    logging.info('Finished')
+
+
+if __name__ == "__main__":
+    # execute only if run as a script
+    main()
