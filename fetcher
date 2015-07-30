@@ -69,7 +69,8 @@ def id_PDB(cache):
     Retrieves all IDs from PDB data base.
 
     Args:
-        None
+        cache : boulean, if True, reloads all IDs, if False,
+            use IDs in file "PDB_ID.txt"
 
     Returns:
         A list of all IDs.
@@ -110,13 +111,37 @@ def id_PDB(cache):
         return IDs
 
 
+def id_DSSP():
+    """Fetches DSSP IDs.
+
+    Retrieves all IDs from file "DSSP_ID.txt".
+
+    Returns:
+        A list of all IDs.
+        For exemple :
+
+        ['1cdt', '1cdu', '1cdw', '1cdy', '1cdz',
+         '1ce0', '1ce1', '1ce2', '1ce3', '1ce4',
+         '1ce5', '1ce6', '1ce7', '1ce8', '1ce9']
+    """
+
+    with open('ID/DSSP_ID.txt', 'r') as f:
+        ID = f.read()
+        IDs = ID.split('\t')
+    f.closed
+    IDs = IDs[:-1]
+    return IDs
+
+
 def id_KEGG(db, cache):
     """Fetches KEGG IDs.
 
     Retrieves all IDs from specified KEGG data base like 'pathway'.
 
     Args:
-        db : KEGG data base
+        db : KEGG database
+        cache : boulean, if True, reloads all IDs, if False,
+            use IDs in file "KEGG_(database)_ID.txt"
 
     Returns:
         A list of IDs corresponding on the databases.
@@ -230,7 +255,10 @@ def fetch_PDB_pdb(IDs, file_per_format):
         code = code[1:]
         url = url + code + '/pdb' + ID + '.ent.gz'
         file_name = 'Result/pdb' + ID + '.ent.gz'
-        urllib.request.urlretrieve(url, file_name)
+        try:
+            urllib.request.urlretrieve(url, file_name)
+        except urllib.error.URLError:
+            logging.error('ftp error with url %s on PDB database', url)
 
 
 def fetch_PDB_mmCIF(IDs, file_per_format):
@@ -260,7 +288,10 @@ def fetch_PDB_mmCIF(IDs, file_per_format):
         code = code[1:]
         url = url + code + '/' + ID + '.cif.gz'
         file_name = 'Result/mmCIF' + ID + '.cif.gz'
-        urllib.request.urlretrieve(url, file_name)
+        try:
+            urllib.request.urlretrieve(url, file_name)
+        except urllib.error.URLError:
+            logging.error('ftp error with url %s on PDB database', url)
 
 
 def fetch_KEGG(IDs, file_per_format):
@@ -290,6 +321,33 @@ def fetch_KEGG(IDs, file_per_format):
         with open(file_name, 'w') as f:
             f.write(output)
         f.closed
+
+
+def fetch_DSSP(IDs, file_per_format):
+    """Fetches datas about IDs
+
+    Retrieves datas about a random list of n IDs in DSSP data base
+    and load it in "Result" directory. "n" is the number of files
+    per formats.
+
+    Args:
+        IDs : IDs list
+        file_per_format : number of file per formats
+    """
+
+    logging.info('Fetches DSSP datas about IDs')
+
+    rand_list = random.sample(list(range(len(IDs))), file_per_format)
+
+    for i in range(file_per_format):
+        ID = IDs[rand_list[i]]
+        ID = ID.lower()
+        url = ('ftp://ftp.cmbi.ru.nl/pub/molbio/data/dssp/' + ID + '.dssp')
+        file_name = 'Result/DSSP' + ID + '.dssp'
+        try:
+            urllib.request.urlretrieve(url, file_name)
+        except urllib.error.URLError:
+            logging.error('ftp error with url %s on DSSP database', url)
 
 
 def run_PDB(file_per_format, fmt, cache):
@@ -411,6 +469,20 @@ def run_KEGG(databases, file_per_format, cache):
             ' "environ" or "organism"', database)
 
 
+def run_DSSP(file_per_format):
+    """Result
+
+    Manages fonctions about DSSP database
+
+    Args:
+        file_per_format : number of files per formats
+
+    """
+
+    IDs = id_DSSP()
+    fetch_DSSP(IDs, file_per_format)
+
+
 def validation(args):
     """Data validation
 
@@ -473,11 +545,16 @@ def main():
         run_KEGG(db, file_per_format, cache)
         count = False
 
+    if 'DSSP' in database:
+        run_DSSP(file_per_format)
+        count = False
+
     # Error messages
     if count:
-        logging.error(
-            'Databases %s not alowed. Try with "NCBI", "KEGG" or "PDB"',
-            database)
+        message = (
+            'Databases ' + database + ' not alowed. Try with "NCBI", ' +
+            '"DSSP", "KEGG" or "PDB"')
+        logging.error(message)
 
     logging.info('Finished')
 

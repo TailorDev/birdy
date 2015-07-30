@@ -1,5 +1,31 @@
-07/28/2015 04:39:11 PM INFO:Started
-07/28/2015 04:39:11 PM INFO:Checks arguments
-07/28/2015 04:39:11 PM INFO:PDB database
-07/28/2015 04:39:11 PM INFO:Fetches PDB IDs
-07/28/2015 04:39:11 PM INFO:Fetches PDB datas about IDs on mmCIF format
+07/30/2015 09:54:22 AM INFO:Started
+07/30/2015 09:54:22 AM INFO:Checks arguments
+07/30/2015 09:54:22 AM INFO:PDB database
+07/30/2015 09:54:22 AM INFO:Fetches PDB IDs
+07/30/2015 09:54:22 AM INFO:Fetches PDB datas about IDs on pdb format
+07/30/2015 09:55:32 AM INFO:Finished
+07/30/2015 09:57:14 AM INFO:Started
+07/30/2015 09:57:17 AM INFO:Started
+07/30/2015 09:57:17 AM INFO:Checks arguments
+07/30/2015 09:57:17 AM INFO:PDB database
+07/30/2015 09:57:17 AM INFO:Fetches PDB IDs
+07/30/2015 09:57:17 AM INFO:Fetches PDB datas about IDs on pdb format
+07/30/2015 09:58:11 AM INFO:Finished
+07/30/2015 09:58:54 AM INFO:Started
+07/30/2015 09:58:54 AM INFO:Checks arguments
+07/30/2015 09:58:54 AM INFO:PDB database
+07/30/2015 09:58:54 AM INFO:Fetches PDB IDs
+07/30/2015 09:58:54 AM INFO:Fetches PDB datas about IDs on pdb format
+07/30/2015 10:00:06 AM INFO:Finished
+07/30/2015 10:00:28 AM INFO:Started
+07/30/2015 10:00:28 AM INFO:Checks arguments
+07/30/2015 10:00:28 AM INFO:PDB database
+07/30/2015 10:00:28 AM INFO:Fetches PDB IDs
+07/30/2015 10:00:28 AM INFO:Fetches PDB datas about IDs on pdb format
+07/30/2015 10:01:37 AM INFO:Finished
+07/30/2015 10:03:10 AM INFO:Started
+07/30/2015 10:03:10 AM INFO:Checks arguments
+07/30/2015 10:03:10 AM INFO:PDB database
+07/30/2015 10:03:10 AM INFO:Fetches PDB IDs
+07/30/2015 10:03:10 AM INFO:Fetches PDB datas about IDs on pdb format
+07/30/2015 10:04:29 AM INFO:Finished
