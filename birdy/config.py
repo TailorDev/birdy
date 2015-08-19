@@ -35,14 +35,12 @@ path = 'Result/'
 dataset = 'dataset_time'
 
 # log file :
-log_name = 'time/logtime.log'
+log_name = 'birdy.log'
 
 # URL
 # PDB:
-url_id_pdb = 'http://www.rcsb.org/pdb/rest/customReport.csv?pdbids=*&customRe\
-portColumns=structureId&format=csv&service=wsfile'
-url_data_pdb = 'ftp://ftp.ebi.ac.uk/pub/databases/rcsb/pdb-remediated/data/st\
-ructures/divided/{fmt}/{code}/{end}'
+url_id_pdb = 'http://www.rcsb.org/pdb/rest/customReport.csv?pdbids=*&customReportColumns=structureId&format=csv&service=wsfile'
+url_data_pdb = 'ftp://ftp.ebi.ac.uk/pub/databases/rcsb/pdb-remediated/data/structures/divided/{fmt}/{code}/{end}'
 
 # KEGG
 url_kegg = 'http://rest.kegg.jp/{type}/{data}'

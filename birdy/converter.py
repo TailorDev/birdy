@@ -37,7 +37,7 @@ def ID_InterPro(cache):
     logging.info('Fetches InterPro IDs ... ok')
 
     ## ligne a supprimer !!! ############################################################################################
-    IDs = config.INTERPRO_ID
+    # IDs = config.INTERPRO_ID
     #####################################################################################################################
     return IDs
 
@@ -77,7 +77,7 @@ def fetch(number, maximum, IDs, path):
         for m in range(maximum):
             i = m + 1
             writting_output = '>' + output[i]
-            writting_f = writting_f + writting_output 
+            writting_f = writting_f + writting_output
 
         logging.info('Write in file {0}'.format(filefamily_name))
         with open(filefamily_name, 'w') as ff:
@@ -92,7 +92,7 @@ def fetch(number, maximum, IDs, path):
 def convert(formats, fmts, filename, suffix):
     for fmt in formats:
         if fmt in fmts:
-            logging.info('Convertion of {0} in {1} format'.format(filename, fmt))            
+            logging.info('Convertion of {0} in {1} format'.format(filename, fmt))
             extension = '.' + fmt.lower()
             logging.debug(extension)
             output = filename.replace(suffix, extension)
@@ -108,7 +108,7 @@ def convert(formats, fmts, filename, suffix):
 
 def clustal_align(filename):
     logging.info('Alignment of {0}'.format(filename))
-    command = './clustalw2 ' + filename
+    command = 'clustalw2 ' + filename
     try:
         call(command, shell=True)
         filename_align = filename.replace('.fasta', '.aln')
@@ -124,7 +124,7 @@ def main(path, cache):
     nb_align = config.nb_align
     formats = config.formats_converter
     count = True
-    
+
     fmt_seq = [
         'CODATA', 'EMBL', 'GCG', 'GDE', 'GENBANK', 'IG',
         'NBRF', 'RAW', 'SWISSPROT']
@@ -132,26 +132,26 @@ def main(path, cache):
         'FASTA', 'MEGA', 'MSF', 'NEXUS', 'PHYLIP', 'STOCKHOLM']
 
     logging.info('Data loading')
-    #ID = ID_InterPro(cache)
-    #file_name = fetch(family_number, nb_align, ID, path)
+    ID = ID_InterPro(cache)
+    file_name = fetch(family_number, nb_align, ID, path)
 
     ############################################################""
-    filesf_name = []
-    files_name = []
-    IDs = [
-        'IPR002351', 'IPR002366', 'IPR002369', 'IPR023418', 'IPR002404',
-        'IPR002420', 'IPR031145', 'IPR023266', 'IPR002363', 'IPR016271']
-    for ID in IDs:
-        filefamily_name = config.IPR_name.format(path=path, ID=ID, indice="_align", fmt='fasta')
-        file_nameseq = config.IPR_name.format(path=path, ID=ID, indice="", fmt='fasta')
-        filesf_name.append(filefamily_name)
-        files_name.append(file_nameseq)
+    # filesf_name = []
+    # files_name = []
+    # IDs = [
+    #     'IPR002351', 'IPR002366', 'IPR002369', 'IPR023418', 'IPR002404',
+    #     'IPR002420', 'IPR031145', 'IPR023266', 'IPR002363', 'IPR016271']
+    # for ID in IDs:
+    #     filefamily_name = config.IPR_name.format(path=path, ID=ID, indice="_align", fmt='fasta')
+    #     file_nameseq = config.IPR_name.format(path=path, ID=ID, indice="", fmt='fasta')
+    #     filesf_name.append(filefamily_name)
+    #     files_name.append(file_nameseq)
 
-    file_name = [files_name, filesf_name]
+    # file_name = [files_name, filesf_name]
     ##########################################################################################
 
     logging.info('Data loading ... ok\n')
-    
+
     logging.info('Sequence convertion')
     for file_name_seq in file_name[0]:
         suffix = '.fasta'
