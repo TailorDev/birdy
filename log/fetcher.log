@@ -1,0 +1,91 @@
+07/30/2015 09:54:22 AM INFO:Started
+07/30/2015 09:54:22 AM INFO:Checks arguments
+07/30/2015 09:54:22 AM INFO:PDB database
+07/30/2015 09:54:22 AM INFO:Fetches PDB IDs
+07/30/2015 09:54:22 AM INFO:Fetches PDB datas about IDs on pdb format
+07/30/2015 09:55:32 AM INFO:Finished
+07/30/2015 09:57:14 AM INFO:Started
+07/30/2015 09:57:17 AM INFO:Started
+07/30/2015 09:57:17 AM INFO:Checks arguments
+07/30/2015 09:57:17 AM INFO:PDB database
+07/30/2015 09:57:17 AM INFO:Fetches PDB IDs
+07/30/2015 09:57:17 AM INFO:Fetches PDB datas about IDs on pdb format
+07/30/2015 09:58:11 AM INFO:Finished
+07/30/2015 09:58:54 AM INFO:Started
+07/30/2015 09:58:54 AM INFO:Checks arguments
+07/30/2015 09:58:54 AM INFO:PDB database
+07/30/2015 09:58:54 AM INFO:Fetches PDB IDs
+07/30/2015 09:58:54 AM INFO:Fetches PDB datas about IDs on pdb format
+07/30/2015 10:00:06 AM INFO:Finished
+07/30/2015 10:00:28 AM INFO:Started
+07/30/2015 10:00:28 AM INFO:Checks arguments
+07/30/2015 10:00:28 AM INFO:PDB database
+07/30/2015 10:00:28 AM INFO:Fetches PDB IDs
+07/30/2015 10:00:28 AM INFO:Fetches PDB datas about IDs on pdb format
+07/30/2015 10:01:37 AM INFO:Finished
+07/30/2015 10:03:10 AM INFO:Started
+07/30/2015 10:03:10 AM INFO:Checks arguments
+07/30/2015 10:03:10 AM INFO:PDB database
+07/30/2015 10:03:10 AM INFO:Fetches PDB IDs
+07/30/2015 10:03:10 AM INFO:Fetches PDB datas about IDs on pdb format
+07/30/2015 10:04:29 AM INFO:Finished08/05/2015 12:13:30 PM INFO:Started
+08/05/2015 12:13:30 PM INFO:Checks arguments
+08/05/2015 12:13:30 PM INFO:NCBI database
+08/05/2015 12:13:30 PM INFO:Fetches NCBI IDs on nucleotide database
+08/05/2015 12:13:31 PM INFO:Fetches NCBI datas about IDs on nucleotide database and ['fasta'] format(s)
+08/05/2015 12:13:34 PM INFO:Finished
+08/05/2015 03:54:02 PM INFO:Started
+08/05/2015 03:54:02 PM INFO:Finished
+08/05/2015 04:29:40 PM INFO:Started
+08/05/2015 04:29:47 PM INFO:Started
+08/05/2015 04:29:47 PM INFO:Checks arguments
+08/05/2015 04:30:55 PM INFO:Started
+08/05/2015 04:30:55 PM INFO:Checks arguments
+08/05/2015 04:31:05 PM INFO:Started
+08/05/2015 04:31:05 PM INFO:Checks arguments
+08/05/2015 04:31:08 PM INFO:Started
+08/05/2015 04:31:08 PM INFO:Checks arguments
+08/05/2015 04:31:10 PM INFO:Started
+08/05/2015 04:31:10 PM INFO:Checks arguments
+08/05/2015 04:31:47 PM INFO:Started
+08/05/2015 04:31:47 PM INFO:Checks arguments
+08/05/2015 04:31:49 PM INFO:Started
+08/05/2015 04:31:49 PM INFO:Checks arguments
+08/05/2015 04:31:52 PM INFO:Started
+08/05/2015 04:31:52 PM INFO:Checks arguments
+08/05/2015 04:31:53 PM INFO:Started
+08/05/2015 04:31:53 PM INFO:Checks arguments
+08/05/2015 04:31:54 PM INFO:Started
+08/05/2015 04:31:54 PM INFO:Checks arguments
+08/05/2015 04:31:54 PM INFO:Started
+08/05/2015 04:31:54 PM INFO:Checks arguments
+08/05/2015 04:31:55 PM INFO:Started
+08/05/2015 04:31:55 PM INFO:Checks arguments
+08/05/2015 04:31:55 PM INFO:Started
+08/05/2015 04:31:55 PM INFO:Checks arguments
+08/05/2015 04:32:42 PM INFO:Started
+08/05/2015 04:32:42 PM INFO:Checks arguments
+08/05/2015 04:32:42 PM INFO:Finished
+08/05/2015 04:32:43 PM INFO:Started
+08/05/2015 04:32:43 PM INFO:Checks arguments
+08/05/2015 04:32:43 PM INFO:Finished
+08/05/2015 04:37:36 PM INFO:Started
+08/05/2015 04:37:36 PM INFO:Checks arguments
+08/05/2015 04:37:51 PM INFO:Started
+08/05/2015 04:37:51 PM INFO:Checks arguments
+08/05/2015 04:37:51 PM INFO:Finished
+08/05/2015 05:04:02 PM INFO:Started
+08/05/2015 05:04:02 PM INFO:Checks arguments
+08/05/2015 05:04:02 PM INFO:Finished
+08/05/2015 05:05:30 PM INFO:Started
+08/05/2015 05:05:30 PM INFO:Checks arguments
+08/05/2015 05:05:30 PM INFO:Finished
+08/05/2015 05:06:01 PM INFO:Started
+08/05/2015 05:06:01 PM INFO:Checks arguments
+08/05/2015 05:06:01 PM INFO:Finished
+08/05/2015 05:08:05 PM INFO:Started
+08/05/2015 05:08:05 PM INFO:Checks arguments
+08/05/2015 05:08:05 PM INFO:Finished
+08/05/2015 05:08:54 PM INFO:Started
+08/05/2015 05:08:54 PM INFO:Checks arguments
+08/05/2015 05:08:54 PM INFO:Finished

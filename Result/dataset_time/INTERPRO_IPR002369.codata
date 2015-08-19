@@ -1,0 +1,66 @@
+ENTRY           A2A863  #type complete
+SUMMARY         #length 1818  #molecular-weight 201650  #checksum 2412
+SEQUENCE
+                 5        10        15        20        25        30
+       1 M A G P C C S P W V K L L L L A A M L S A S L P G D L A N R
+      31 C K K A Q V K S C T E C I R V D K S C A Y C T D E L F K E R
+      61 R C N T Q A E L L A A G C R G E S I L V M E S S L E I T E N
+      91 T Q I D T S L H R S Q V S P Q G L Q V R L R P G E E R S F V
+     121 F Q V F E P L E S P V D L Y I L M D F S N S M S D D L D N L
+     151 K Q M G Q N L A K I L R Q L T S D Y T I G F G K F V D K V S
+     181 V P Q T D M R P E K L K E P W P N S D P P F S F K N V I S L
+     211 T E N V E E F W N K L Q G E R I S G N L D A P E G G F D A I
+     241 L Q T A V C T R D I G W R A D S T H L L V F S T E S A F H Y
+     271 E A D G A N V L A G I M N R N D E K C H L D A S G A Y T Q Y
+     301 K T Q D Y P S V P T L V R L L A K H N I I P I F A V T N Y S
+     331 Y S Y Y E K L H K Y F P V S S L G V L Q E D S S N I V E L L
+     361 E E A F Y R I R S N L D I R A L D S P R G L R T E V T S D T
+     391 L Q K T E T G S F H I K R G E V G T Y N V H L R A V E D I D
+     421 G T H V C Q L A K E D Q G G N I H L K P S F S D G L R M D A
+     451 S V I C D V C P C E L Q K E V R S A R C H F R G D F M C G H
+     481 C V C N E G W S G K T C N C S T G S L S D T Q P C L R E G E
+     511 D K P C S G H G E C Q C G R C V C Y G E G R Y E G H F C E Y
+     541 D N F Q C P R T S G F L C N D R G R C S M G E C V C E P G W
+     571 T G R S C D C P L S N A T C I D S N G G I C N G R G Y C E C
+     601 G R C H C N Q Q S L Y T D T T C E I N Y S A I R L G L C E D
+     631 L R S C V Q C Q A W G T G E K K G R A C D D C P F K V K M V
+     661 D E L K K A E E V V E Y C S F R D E D D D C T Y S Y N V E G
+     691 D G S P G P N S T V L V H K K K D C P P G S F W W L I P L L
+     721 I F L L L L L A L L L L L C W K Y C A C C K A C L G L L P C
+     751 C N R G H M V G F K E D H Y M L R E N L M A S D H L D T P M
+     781 L R S G N L K G R D T V R W K I T N N V Q R P G F A T H A A
+     811 S T S P T E L V P Y G L S L R L G R L C T E N L M K P G T R
+     841 E C D Q L R Q E V E E N L N E V Y R Q V S G A H K L Q Q T K
+     871 F R Q Q P N T G K K Q D H T I V D T V L L A P R S A K Q M L
+     901 L K L T E K Q V E Q G S F H E L K V A P G Y Y T V T A E Q D
+     931 A R G M V E F Q E G V E L V D V R V P L F I R P E D D D E K
+     961 Q L L V E A I D V P V G T A T L G R R L V N I T I I K E Q A
+     991 S G V V S F E Q P E Y S V S R G D Q V A R I P V I R H I L D
+    1021 N G K S Q V S Y S T Q D N T A H G H R D Y V P V E G E L L F
+    1051 H P G E T W K E L Q V K L L E L Q E V D S L L R G R Q V R R
+    1081 F Q V Q L S N P K F G A R L G Q P S T T T V I L G E H D E T
+    1111 D R S L I N Q T L S S P P P P H G D L G A P Q N P N A K A A
+    1141 G S R K I H F N W L P P P G K P M G Y R V K Y W I Q G D S E
+    1171 S E A H L L D S K V P S V E L T N L Y P Y C D Y E M K V C A
+    1201 Y G A Q G E G P Y S S L V S C R T H Q E V P S E P G R L A F
+    1231 N V V S S T V T Q L S W A E P A E T N G E I T A Y E V C Y G
+    1261 L V N E D N R P I G P M K K V L V D N P K N R M L L I E N L
+    1291 R E S Q P Y R Y T V K A R N G A G W G P E R E A I I N L A T
+    1321 Q P K R P M S I P I I P D I P I V D A Q G G E D Y E N F L M
+    1351 Y S D D V L R S P A S S Q R P S V S D D T G C G W K F E P L
+    1381 L G E E L D L R R V T W R L P P E L I P R L S A S S G R S D
+    1411 E D G S V A G G V E G E G S G W I R G A T P R P P G E H L V
+    1441 N G R M D F A Y P G S A N S L H R M T A A N V A Y G T H L S
+    1471 P H L S H R V L S T S S T L T R D Y H S L T R T E H S H S G
+    1501 T L P R D Y S T L T S L S S Q D S R G A V G V P D T P T R L
+    1531 V F S A L G P T S L K V S W Q E P Q C D R M L L G Y S V E Y
+    1561 Q L L N G G E M H R L N I P N P G Q T S V V V E D L L P N H
+    1591 S Y V F R V R A Q S Q E G W G R E R E G V I T I E S Q V H P
+    1621 Q S P L C P L P G S A F T L S T P S A P G P L V F T A L S P
+    1651 D S L Q L S W E R P R R P N G D I L G Y L V T C E M A Q G G
+    1681 A P A R T F R V D G D N P E S R L T V P G L S E N V P Y K F
+    1711 K V Q A R T T E G F G P E R E G I I T I E S Q V G G P F P Q
+    1741 L G S H S G L F Q N P V Q S E F S S V T S T H S T T T E P F
+    1771 L M D G L T L G T Q R L E A G G S L T R H V T Q E F V T R T
+    1801 L T A S G S L S T H M D Q Q F F Q T
+///

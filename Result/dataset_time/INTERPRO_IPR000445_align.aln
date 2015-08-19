@@ -1,0 +1,134 @@
+CLUSTAL 2.1 multiple sequence alignment
+
+
+B0K101          -------------------------MNYYSTSIAKLIEELSKLPG--VGPKTAQRLAFFI
+B0K800          -------------------------MNYYSTSIAKLIEELSKLPG--IGPKTAQRLAFFI
+B0TB20          -------------------------MRYYAEPVGRLIEELSKLPG--VGPKTAQRLAFHL
+A0LWH7          ---------------------------MYEGVIQDLIDELGKLPG--IGPKSAQRIAFHI
+A5IKM1          ----------------MVPQELIEK-IKLISPGTELRKALDDIINANFG--ALIFLVDDP
+A6W5K2          -------------MPDRTPDEVLRQTLAILAPGTDLRDGLERILRGRTG--ALIVLGFD-
+A3MYZ9          MFDAKAFLADVPHLPGVYRMYDAKNTIIYVGKAKDLKKRLSSYFRSQLASKKTEALVANI
+B0BT25          MFDAKAFLADVPHLPGVYRMYDAKNTIIYVGKAKDLKKRLSSYFRSQLASKKTEALVANI
+A7M7B9          ----MCAAAPRGGGRAARRLGAATAGSRVPSAAPRYSRRTRRVPIAYEAEPKPESPGPKW
+A0R567          -----------------MSISPVELLSWYDHARRDLPWRRPGVSAWQILVSEFMLQQTPV
+                                                                            
+
+B0K101          INMP--------------------------------------------------LEEVKS
+B0K800          INMP--------------------------------------------------LEEVKS
+B0TB20          LHVP--------------------------------------------------RNEAVA
+A0LWH7          LGAD--------------------------------------------------PSQVRR
+A5IKM1          KKYEDIIQG----GFWLDTDFSAEK-----------------------------LYELSK
+A6W5K2          RVVDSLSTG----GFALDVEFSATR-----------------------------LRELAK
+A3MYZ9          HHIETTITHSETEALLLEHNYIKENQPKYNVLLRDDKSYPYILLTKHQHPRITSFRGSKK
+B0BT25          HHIETTITHSETEALLLEHNYIKENQPKYNVLLRDDKSYPYILLTKHQHPRITSFRGSKK
+A7M7B9          EPENWQQQLER-------------------------------------------IREMRR
+A0R567          SRVEPIWS-------------------------------------------AWIERWPTA
+                                                                            
+
+B0K101          LSQAIIDAKEKIKYCRICYN--ITDT--EVCNICSDKERDHSLICVVSHP----------
+B0K800          LSQAIIDAKEKIKYCRICYN--ITDT--EVCNICSDKERDHSLICVVSHP----------
+B0TB20          LAKAIVEAHDKTLYCSVCTN--LTDR--DPCRICSDANRDRAVICVVEEP----------
+A0LWH7          LAEVLLDVKERIRFCAICGN--VAEH--EQCRICADPRRDPTVLCVVEEP----------
+A5IKM1          MDGAIVLSEDITKIYYANVH--LVPD--PTIPTGETGTRHRTAERLAKQTGKVVIAVSR-
+A6W5K2          MDGAIVLDRDVSRIVRAAVQ--LVPD--SSIETSESGTRHRTAERVAKQTGFPVISVSQ-
+A3MYZ9          VAGEYFGPYPNAGAVRETLN--LLQKLFPIRQCEDSYYKNRSRPCLQYQIGRCLAPCVEG
+B0BT25          VAGEYFGPYPNAGAVRETLN--LLQKLFPIRQCEDSYYKNRSRPCLQYQIGRCLAPCVES
+A7M7B9          HRDAPVDEMGVDKCYDTSAPPQVMRYQVLLSLMLSSQTKDQVTSAAMLRLRQRGLTVDS-
+A0R567          SATAAAGPAEVLRAWGKLGYPRRAKRLHECAVVIASEYDDVVPRDVDTLLTLPGIGAYTA
+                                                       .                    
+
+B0K101          -------------------------------------------------MDVVAMEKIRE
+B0K800          -------------------------------------------------MDVVAMEKIRE
+B0TB20          -------------------------------------------------RDVVAVEKTRE
+A0LWH7          -------------------------------------------------KDVVAIEKTRE
+A5IKM1          ---------RRNIISLYYKNY-----KYVVNQVD-----------FLISKVTQAISTLEK
+A6W5K2          ---------SMRIVAVYTGNR-----RYVLEGSD-----------AILGRANQALQTLER
+A3MYZ9          YYSQAEYDNQVNLVRLFLQGKDGQVVEHLVQKMENAAQELDFEAAARFRDQIQSVRAVQE
+B0BT25          YYSQAEYDNQVNLVRLFLQGKDGQVIEHLVQKMENAAQELDFEAAARFRDQIQSVRAVQE
+A7M7B9          ------------------------------------------ILQMDDATLGQIIYPVGF
+A0R567          R-----------------------------------------AVACFAYQASVPVVDTNV
+                                                                      :     
+
+B0K101          YKGVYHVLHGVISPIEGVGPEDIK------------------------------------
+B0K800          YKGVYHVLHGVISPIEGVGPEDIK------------------------------------
+B0TB20          YRGHYHVLHGALSPIEGVGPEQLR------------------------------------
+A0LWH7          FHGRYHVLGGAISPIDGIGPDDLR------------------------------------
+A5IKM1          YKDNFNKLLSELEVLELENRVTLADVVRTLAKGFELLR----------------------
+A6W5K2          YRARLDEVTGTLSALEIEDLVTVRDVCSVVQRIEMVSR----------------------
+A3MYZ9          KQFVSNERLDDLDIISIAYQHGIACVHILFVRHGKVLGNRSYFPKVPNNTDLSELADTFV
+B0BT25          KQFVSNERLDDLDIISIAYQHGIACVHILFVRHGKVLGNRSYFPKVPNNTDLSELADTFV
+A7M7B9          WRNKVKYIKQTTAILKQKYGGDIPG-----------------------------------
+A0R567          RRVVTRAVHGAADAPASTRDLDMVAALLPPDTTAPTFS----------------------
+                 :                    :                                     
+
+B0K101          ------------------------------------------------------------
+B0K800          ------------------------------------------------------------
+B0TB20          ------------------------------------------------------------
+A0LWH7          ------------------------------------------------------------
+A5IKM1          -------------------------------IVEEIRPYIVELGEE--------------
+A6W5K2          -------------------------------IADEISGYVVELGVD--------------
+A3MYZ9          GQFYLQMNQHRTIPNQIIIDQSLSEVTALANVLSEQAGHKVSIADKNIRGDKSRYLALAK
+B0BT25          GQFYLQMNQHRTIPNQIIIDQPLSESAALADVLSEQAGHKVSIADKNIRGDKSRYLALAK
+A7M7B9          ------------------------------------------------------------
+A0R567          ------------------------------------------------------------
+                                                                            
+
+B0K101          -------------------------------------IKELLDRVKNGNVKEVILATNP-
+B0K800          -------------------------------------IKELLDRVKNGNVKEVILATNP-
+B0TB20          -------------------------------------ISQLMARLADPELKEVIVATNP-
+A0LWH7          -------------------------------------IRELLQRLADGTVKELILATDP-
+A5IKM1          ------------------------------GRLARMQLRELTEDVDDLLVLLVMDYSSE-
+A6W5K2          ------------------------------GRLLSLQLDELVGGVGPDRELVVRDYLEA-
+A3MYZ9          TNAEAALTLQLKQDTHIRQRYDSLKALLNLAEIKRMECFDISHTMGNQTVASCVVFDKNG
+B0BT25          TNAEAALTLQLKQDTHIRQRYDSLKTLLNLAEIKRMECFDISHTMGNQTVASCVVFDENG
+A7M7B9          ------------------------------------TVEELVKLPGVGPKMAHLAMNIAW
+A0R567          -----------------------------------AALMELGATVCTARSPRCGICPLSH
+                                                       ::                   
+
+B0K101          ------------------------------------------------------------
+B0K800          ------------------------------------------------------------
+B0TB20          ------------------------------------------------------------
+A0LWH7          ------------------------------------------------------------
+A5IKM1          ----------------------------------------------EVDEEAAQDIMQDF
+A6W5K2          ----------------------------------------------SRYEGPLEAVLESL
+A3MYZ9          PLKSDYRRFNIEGITGGDDYAAMEQALLKLYDRNLEEEKIPDIIFIDGGKGQLNRALETF
+B0BT25          PLKSDYRRFNIEGITGGDDYAAMEQALLKRYSRHLEEEKIPDIIFIDGGKGQLNRALETF
+A7M7B9          N-----------------------------------------------------------
+A0R567          CR----------------------------------------------------------
+                                                                            
+
+B0K101          -------------------------DIEGEATAMYIAKLLKPLGIKVTRIAHGVPVG---
+B0K800          -------------------------DIEGEATAMYIAKLLKPLGIKVTRIAHGVPVG---
+B0TB20          -------------------------TVEGEATAAYLARLIKPMGVKVTRIAHGLPVG---
+A0LWH7          -------------------------NLEGEATATYLARLVKPLGVRVTRLASGLPVG---
+A5IKM1          VKK------RDPSPISIS----RALGYDVQQVAQLDDVLVSARGYRLLKTVARIPLSIGY
+A6W5K2          AGL------HQSDLVDLSQ-VARVLGFSVG--GDSLDSAVSPKGFRLLNRVPRLPGAIVE
+A3MYZ9          TSLNVSWDKRKPLLVGVAKGVERKAGLETLLISKWDKEIHLPPDSPALHLIQHIRDESHN
+B0BT25          ASLNVSWDKRKPLLIGVAKGVERKAGLETLLISKWDKEIHLPPDSPALHLIQHIRDESHN
+A7M7B9          -------------------------SVSGIAVDTHVHRITN--RLKWVKKETRYPEETRV
+A0R567          ---------------------WRSAGFPAGTVARRVQRYAGTDRQVRGKLLDVLRDSTTP
+                                                                .           
+
+B0K101          -----------------GDLEYTDVVTLSRALEGRREL----------------------
+B0K800          -----------------GDLEYTDVVTLSRALEGRREL----------------------
+B0TB20          -----------------GDLEYADQVTLLRAMEGRREL----------------------
+A0LWH7          -----------------GDLEYADEVTLGRALEGRRQLDV--------------------
+A5IKM1          NVVRMFKTLDQISKASVEDLKKVEGIGEKRARAISESISSLKHRKTSE------------
+A6W5K2          RLVDQFGDLQKLLAASIDDLMTVDGVGEQRARAVREGLSRLAESSILERYV---------
+A3MYZ9          HAITGHRKKRQK-AFTESGLESIAGVGAKRRQALLKYLGGMQGVKAATLEEIQSVPGISK
+B0BT25          HAITGHRKKRQK-AFTESGLESIAGVGAKRRQALLKYLGGMQGVKAATLEEIQSVPGISK
+A7M7B9          ALEDWLPRDLWR-----EINWLLVGFGQQTCLPVNPRCKECLNQDICPTAKRF-------
+A0R567          VTRAQLDVVWLSDPAQRDRALDSLLVDGLVEQTADGRFALAGEGETGRPA----------
+                                         .                                  
+
+B0K101          -------------
+B0K800          -------------
+B0TB20          -------------
+A0LWH7          -------------
+A5IKM1          -------------
+A6W5K2          -------------
+A3MYZ9          QLAEVIFDTLQHS
+B0BT25          QLAEVIFDTLQHS
+A7M7B9          -------------
+A0R567          -------------
+                             

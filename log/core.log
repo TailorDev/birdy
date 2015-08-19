@@ -1,0 +1,183 @@
+08/12/2015 05:03:04 PM INFO:Arguments validation
+08/12/2015 05:03:04 PM INFO:Checks arguments
+08/12/2015 05:03:04 PM INFO:Arguments validation ... ok
+
+08/12/2015 05:03:04 PM INFO:Started : fetcher
+08/12/2015 05:03:04 PM INFO:PDB database
+08/12/2015 05:03:04 PM INFO:Fetches PDB IDs
+08/12/2015 05:03:04 PM INFO:Fetches PDB IDs on PDB Database
+08/12/2015 05:03:04 PM INFO:Starting new HTTP connection (1): www.rcsb.org
+08/12/2015 05:03:08 PM INFO:Writes in PDB_ID.txt file
+08/12/2015 05:03:08 PM INFO:Writes ok
+08/12/2015 05:03:08 PM INFO:Fetches on database ok
+08/12/2015 05:03:08 PM INFO:Fetches ok
+08/12/2015 05:03:08 PM INFO:Fetches PDB datas about IDs on pdb format
+08/12/2015 05:03:09 PM INFO:3kfx ... ok
+08/12/2015 05:03:09 PM INFO:3ca4 ... ok
+08/12/2015 05:03:09 PM INFO:pdb format ... ok
+08/12/2015 05:03:09 PM INFO:Fetches PDB datas about IDs on pdb format
+08/12/2015 05:03:10 PM INFO:3ino ... ok
+08/12/2015 05:03:11 PM INFO:2x7b ... ok
+08/12/2015 05:03:11 PM INFO:mmCIF format ... ok
+08/12/2015 05:03:11 PM INFO:PDB database ... ok
+
+08/12/2015 05:03:11 PM INFO:NCBI database
+08/12/2015 05:03:11 PM INFO:Fetches NCBI IDs on nucleotide database
+08/12/2015 05:03:11 PM INFO:Fetches NCBI ok
+08/12/2015 05:03:11 PM INFO:Fetches NCBI datas about IDs on nucleotide database and ['fasta', 'gb', 'gp'] format(s)
+08/12/2015 05:03:11 PM INFO:format fasta range 0 ok
+08/12/2015 05:03:12 PM INFO:format fasta range 1 ok
+08/12/2015 05:03:12 PM INFO:format gb range 0 ok
+08/12/2015 05:03:12 PM INFO:format gb range 1 ok
+08/12/2015 05:03:13 PM INFO:format gp range 0 ok
+08/12/2015 05:03:13 PM INFO:format gp range 1 ok
+08/12/2015 05:03:13 PM INFO:Fetches NCBI datas ok
+08/12/2015 05:03:13 PM INFO:NCBI database ... ok
+
+08/12/2015 05:03:13 PM INFO:KEGG database
+08/12/2015 05:03:13 PM INFO:Fetches KEGG IDs
+08/12/2015 05:03:13 PM INFO:Fetches KEGG IDs on pathway database
+08/12/2015 05:03:13 PM INFO:Starting new HTTP connection (1): rest.kegg.jp
+08/12/2015 05:03:14 PM WARNING:Problem with KEGG databases
+08/12/2015 05:03:14 PM INFO:Fetches on database ok
+08/12/2015 05:03:14 PM INFO:Fetches ok
+08/12/2015 05:03:14 PM INFO:Fetches KEGG datas about IDs
+08/12/2015 05:03:14 PM INFO:Starting new HTTP connection (1): rest.kegg.jp
+08/12/2015 05:03:14 PM INFO:path:map00740 ... ok
+08/12/2015 05:03:14 PM INFO:Starting new HTTP connection (1): rest.kegg.jp
+08/12/2015 05:03:15 PM INFO:path:map00100 ... ok
+08/12/2015 05:03:15 PM INFO:KEGG database ... ok
+
+08/12/2015 05:03:15 PM INFO:DSSP database
+08/12/2015 05:03:15 PM INFO:Reads on DSSP_ID.txt file
+08/12/2015 05:03:15 PM INFO:Reads ok
+08/12/2015 05:03:15 PM INFO:Fetches DSSP datas about IDs
+08/12/2015 05:03:16 PM INFO:1cmf ... ok
+08/12/2015 05:03:16 PM INFO:1c1j ... ok
+08/12/2015 05:03:16 PM INFO:DSSP database ... ok
+
+08/12/2015 05:03:16 PM INFO:Fetcher ... ok
+
+08/12/2015 05:03:16 PM INFO:Started : converter
+08/12/2015 05:03:16 PM INFO:Data loading
+08/12/2015 05:03:16 PM INFO:Fetches InterPro IDs
+08/12/2015 05:03:16 PM INFO:Fetches on InterPro database
+08/12/2015 05:03:18 PM INFO:Fetches InterPro IDs ... ok
+08/12/2015 05:03:18 PM INFO:Fetches data on InterPro databases
+08/12/2015 05:03:18 PM INFO:Starting new HTTP connection (1): www.ebi.ac.uk
+08/12/2015 05:03:31 PM INFO:Write in file Result/dataset_0.1/INTERPRO_IPR030840.fasta
+08/12/2015 05:03:31 PM INFO:Write in file Result/dataset_0.1/INTERPRO_IPR030840_align.fasta
+08/12/2015 05:03:31 PM INFO:Family IPR030840 ... ok
+08/12/2015 05:03:31 PM INFO:Starting new HTTP connection (1): www.ebi.ac.uk
+08/12/2015 05:04:06 PM INFO:Write in file Result/dataset_0.1/INTERPRO_IPR015526.fasta
+08/12/2015 05:04:06 PM INFO:Write in file Result/dataset_0.1/INTERPRO_IPR015526_align.fasta
+08/12/2015 05:04:06 PM INFO:Family IPR015526 ... ok
+08/12/2015 05:04:06 PM INFO:Fetches data on InterPro databases ... ok
+08/12/2015 05:04:06 PM INFO:Data loading ... ok
+
+08/12/2015 05:04:06 PM INFO:Sequence convertion
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840.fasta in CODATA format
+08/12/2015 05:04:06 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR030840.fasta in CODATA format and write in Result/dataset_0.1/INTERPRO_IPR030840.codata
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840.fasta in CODATA format ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840.fasta in EMBL format
+08/12/2015 05:04:06 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR030840.fasta in EMBL format and write in Result/dataset_0.1/INTERPRO_IPR030840.embl
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840.fasta in EMBL format ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840.fasta in GCG format
+08/12/2015 05:04:06 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR030840.fasta in GCG format and write in Result/dataset_0.1/INTERPRO_IPR030840.gcg
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840.fasta in GCG format ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840.fasta in GDE format
+08/12/2015 05:04:06 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR030840.fasta in GDE format and write in Result/dataset_0.1/INTERPRO_IPR030840.gde
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840.fasta in GDE format ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840.fasta in GENBANK format
+08/12/2015 05:04:06 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR030840.fasta in GENBANK format and write in Result/dataset_0.1/INTERPRO_IPR030840.genbank
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840.fasta in GENBANK format ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840.fasta in IG format
+08/12/2015 05:04:06 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR030840.fasta in IG format and write in Result/dataset_0.1/INTERPRO_IPR030840.ig
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840.fasta in IG format ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840.fasta in NBRF format
+08/12/2015 05:04:06 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR030840.fasta in NBRF format and write in Result/dataset_0.1/INTERPRO_IPR030840.nbrf
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840.fasta in NBRF format ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840.fasta in RAW format
+08/12/2015 05:04:06 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR030840.fasta in RAW format and write in Result/dataset_0.1/INTERPRO_IPR030840.raw
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840.fasta in RAW format ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840.fasta in SWISSPROT format
+08/12/2015 05:04:06 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR030840.fasta in SWISSPROT format and write in Result/dataset_0.1/INTERPRO_IPR030840.swissprot
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840.fasta in SWISSPROT format ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840.fasta ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526.fasta in CODATA format
+08/12/2015 05:04:06 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR015526.fasta in CODATA format and write in Result/dataset_0.1/INTERPRO_IPR015526.codata
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526.fasta in CODATA format ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526.fasta in EMBL format
+08/12/2015 05:04:06 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR015526.fasta in EMBL format and write in Result/dataset_0.1/INTERPRO_IPR015526.embl
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526.fasta in EMBL format ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526.fasta in GCG format
+08/12/2015 05:04:06 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR015526.fasta in GCG format and write in Result/dataset_0.1/INTERPRO_IPR015526.gcg
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526.fasta in GCG format ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526.fasta in GDE format
+08/12/2015 05:04:06 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR015526.fasta in GDE format and write in Result/dataset_0.1/INTERPRO_IPR015526.gde
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526.fasta in GDE format ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526.fasta in GENBANK format
+08/12/2015 05:04:06 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR015526.fasta in GENBANK format and write in Result/dataset_0.1/INTERPRO_IPR015526.genbank
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526.fasta in GENBANK format ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526.fasta in IG format
+08/12/2015 05:04:06 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR015526.fasta in IG format and write in Result/dataset_0.1/INTERPRO_IPR015526.ig
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526.fasta in IG format ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526.fasta in NBRF format
+08/12/2015 05:04:06 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR015526.fasta in NBRF format and write in Result/dataset_0.1/INTERPRO_IPR015526.nbrf
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526.fasta in NBRF format ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526.fasta in RAW format
+08/12/2015 05:04:06 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR015526.fasta in RAW format and write in Result/dataset_0.1/INTERPRO_IPR015526.raw
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526.fasta in RAW format ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526.fasta in SWISSPROT format
+08/12/2015 05:04:06 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR015526.fasta in SWISSPROT format and write in Result/dataset_0.1/INTERPRO_IPR015526.swissprot
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526.fasta in SWISSPROT format ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526.fasta ... ok
+08/12/2015 05:04:06 PM INFO:Sequence convertion ... ok
+
+08/12/2015 05:04:06 PM INFO:Alignment convertion
+08/12/2015 05:04:06 PM INFO:Alignment of Result/dataset_0.1/INTERPRO_IPR030840_align.fasta
+08/12/2015 05:04:06 PM INFO:Alignment of Result/dataset_0.1/INTERPRO_IPR030840_align.fasta ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840_align.aln in MEGA format
+08/12/2015 05:04:06 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR030840_align.aln in MEGA format and write in Result/dataset_0.1/INTERPRO_IPR030840_align.mega
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840_align.aln in MEGA format ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840_align.aln in MSF format
+08/12/2015 05:04:06 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR030840_align.aln in MSF format and write in Result/dataset_0.1/INTERPRO_IPR030840_align.msf
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840_align.aln in MSF format ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840_align.aln in NEXUS format
+08/12/2015 05:04:06 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR030840_align.aln in NEXUS format and write in Result/dataset_0.1/INTERPRO_IPR030840_align.nexus
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840_align.aln in NEXUS format ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840_align.aln in PHYLIP format
+08/12/2015 05:04:06 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR030840_align.aln in PHYLIP format and write in Result/dataset_0.1/INTERPRO_IPR030840_align.phylip
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840_align.aln in PHYLIP format ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840_align.aln in STOCKHOLM format
+08/12/2015 05:04:06 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR030840_align.aln in STOCKHOLM format and write in Result/dataset_0.1/INTERPRO_IPR030840_align.stockholm
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840_align.aln in STOCKHOLM format ... ok
+08/12/2015 05:04:06 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR030840_align.aln ... ok
+08/12/2015 05:04:06 PM INFO:Alignment of Result/dataset_0.1/INTERPRO_IPR015526_align.fasta
+08/12/2015 05:04:07 PM INFO:Alignment of Result/dataset_0.1/INTERPRO_IPR015526_align.fasta ... ok
+08/12/2015 05:04:07 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526_align.aln in MEGA format
+08/12/2015 05:04:07 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR015526_align.aln in MEGA format and write in Result/dataset_0.1/INTERPRO_IPR015526_align.mega
+08/12/2015 05:04:07 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526_align.aln in MEGA format ... ok
+08/12/2015 05:04:07 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526_align.aln in MSF format
+08/12/2015 05:04:07 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR015526_align.aln in MSF format and write in Result/dataset_0.1/INTERPRO_IPR015526_align.msf
+08/12/2015 05:04:07 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526_align.aln in MSF format ... ok
+08/12/2015 05:04:07 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526_align.aln in NEXUS format
+08/12/2015 05:04:07 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR015526_align.aln in NEXUS format and write in Result/dataset_0.1/INTERPRO_IPR015526_align.nexus
+08/12/2015 05:04:07 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526_align.aln in NEXUS format ... ok
+08/12/2015 05:04:07 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526_align.aln in PHYLIP format
+08/12/2015 05:04:07 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR015526_align.aln in PHYLIP format and write in Result/dataset_0.1/INTERPRO_IPR015526_align.phylip
+08/12/2015 05:04:07 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526_align.aln in PHYLIP format ... ok
+08/12/2015 05:04:07 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526_align.aln in STOCKHOLM format
+08/12/2015 05:04:07 PM INFO:Converts Result/dataset_0.1/INTERPRO_IPR015526_align.aln in STOCKHOLM format and write in Result/dataset_0.1/INTERPRO_IPR015526_align.stockholm
+08/12/2015 05:04:07 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526_align.aln in STOCKHOLM format ... ok
+08/12/2015 05:04:07 PM INFO:Convertion of Result/dataset_0.1/INTERPRO_IPR015526_align.aln ... ok
+08/12/2015 05:04:07 PM INFO:Alignment convertion ... ok
+
+08/12/2015 05:04:07 PM INFO:Converter ... ok
+
+08/12/2015 05:04:07 PM INFO:The End
+
+
+
+
+

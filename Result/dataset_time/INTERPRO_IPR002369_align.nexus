@@ -1,0 +1,347 @@
+#NEXUS
+begin data;
+  dimensions ntax=10 nchar=1857;
+  format datatype=protein interleave;
+  matrix
+A5Z1X6  ---MNLQLIFWIGLIS-SVCCVFGQADEDRCLKANAKSCGECIQAGPNCGWCTNSTFLQE
+B0FYY4  ---MNLQLIFWIGLIS-SVCCVFGQADENRCLKANAKSCGECIQAGPNCGWCTNSTFLQE
+P05556  ---MNLQPIFWIGLIS-SVCCVFAQTDENRCLKANAKSCGECIQAGPNCGWCTNSTFLQE
+P09055  ---MNLQLVSWIGLIS-LICSVFGQTDKNRCLKANAKSCGECIQAGPNCGWCTNTTFLQE
+P07228  MAETNLTLLTWAGILCCLIWSGSAQQGGSDCIKANAKSCGECIQAGPNCGWCKKTDFLQE
+P05107  MLGLRPPLLALVGLLS--LGCVLSQ----ECTKFKVSSCRECIESGPGCTWCQKLNFTGP
+O54890  MRAQ-WPGQLWAALLALGALAGVVVGESNICTTRGVNSCQQCLAVSPVCAWCSDETLSQG
+P05106  MRARPRPRPLWATVLALGALAGVGVGGPNICTTRGVSSCQQCLAVSPMCAWCSDEALPLG
+O70309  --MPRVPATLYACLLGLCALVPRLAG-LNICTSGSATSCEECLLIHPKCAWCSKEYFGNP
+A2A863  MAGPCCSPWVKLLLLAAMLSASLPGDLANRCKKAQVKSCTECIRVDKSCAYCTDELFKER
+
+A5Z1X6  GMPTSARCDDLEALKKKGCHPNDTENPRGSKDIKKNKNVTNRSKGTAEKLQPEDITQIQP
+B0FYY4  GMPTSARCDDLEALKKKGCHPNDIENPRGSKDIKKNKNVTNRSKGTAEKLQPEDITQIQP
+P05556  GMPTSARCDDLEALKKKGCPPDDIENPRGSKDIKKNKNVTNRSKGTAEKLKPEDITQIQP
+P09055  GMPTSARCDDLEALKKKGCQPSDIENPRGSQTIKKNKNVTNRSKGMAEKLRPEDITQIQP
+P07228  GEPTSARCDDLAALKSKGCPEQDIENPRGSKRVLEDREVTNRKIGAAEKLKPEAITQIQP
+P05107  GDPDSIRCDTRPQLLMRGCAADDIMDPTSLAETQEDHNGGQK--------------QLSP
+O54890  ----SPRCNLKENLLKDNCAPESIEFPVSEAQILEARPLSSKGSGSS-----AQITQVSP
+P05106  ----SPRCDLKENLLKDNCAPESIEFPVSEARVLEDRPLSDKGSGDS-----SQVTQVSP
+O70309  R-SITSRCDLKANLIRNGCEGE-IESPASSTHVLRNLPLSSKGSSATG----SDVIQMTP
+A2A863  ------RCNTQAELLAAGCRGESILVMESSLEITENTQIDTSLHR----------SQVSP
+
+A5Z1X6  QQLVLQLRSGEPQTFTLKFKRAEDYPIDLYYLMDLSYSMKDDLENVKSLGTDLMNEMRRI
+B0FYY4  QQLVLQLRSGEPQTFTLKFKRAEDYPIDLYYLMDLSYSMKDDLENVKSLGTDLMNEMRRI
+P05556  QQLVLRLRSGEPQTFTLKFKRAEDYPIDLYYLMDLSYSMKDDLENVKSLGTDLMNEMRRI
+P09055  QQLLLKLRSGEPQKFTLKFKRAEDYPIDLYYLMDLSYSMKDDLENVKSLGTDLMNEMRRI
+P07228  QKLVLQLRVGEPQTFSLKFKRAEDYPIDLYYLMDLSYSMKDDLENVKSLGTALMREMEKI
+P05107  QKVTLYLRPGQAAAFNVTFRRAKGYPIDLYYLMDLSYSMLDDLRNVKKLGGDLLRALNEI
+O54890  QRIALRLRPDDSKIFSLQVRQVEDYPVDIYYLMDLSFSMKDDLSSIQTLGTKLASQMRKL
+P05106  QRIALRLRPDDSKNFSIQVRQVEDYPVDIYYLMDLSYSMKDDLWSIQNLGTKLATQMRKL
+O70309  QEIAVSLRPGEQTTFQLQVRQVEDYPVDLYYLMDLSLSMKDDLENIRSLGTKLAEEMRKL
+A2A863  QGLQVRLRPGEERSFVFQVFEPLESPVDLYILMDFSNSMSDDLDNLKQMGQNLAKILRQL
+
+A5Z1X6  TSDFRIGFGSFVEKTVMPYISTTP-AKLRNPCT--N-EQNCTSPFSYKNVLSLTDKGEVF
+B0FYY4  TSDFRIGFGSFVEKTVMPYISTTP-AKLRNPCT--N-EQNCTSPFSYKNVLSLTDKGEVF
+P05556  TSDFRIGFGSFVEKTVMPYISTTP-AKLRNPCT--S-EQNCTSPFSYKNVLSLTNKGEVF
+P09055  TSDFRIGFGSFVEKTVMPYISTTP-AKLRNPCT--S-EQNCTSPFSYKNVLSLTDRGEFF
+P07228  TSDFRIGFGSFVEKTVMPYISTTP-AKLRNPCT--G-DQNCTSPFSYKNVLSLTSEGNKF
+P05107  TESGRIGFGSFVDKTVLPFVNTHP-DKLRNPCP--NKEKECQPPFAFRHVLKLTNNSNQF
+O54890  TSNLRIGFGAFVDKPVSPYMYISPPQAIKNPC--YNMKNACLPMFGYKHVLTLTDQVSRF
+P05106  TSNLRIGFGAFVDKPVSPYMYISPPEALENPC--YDMKTTCLPMFGYKHVLTLTDQVTRF
+O70309  TSNFRLGFGSFVDKDISPFSYTAP-RYQTNPCIGYKLFPNCVPSFGFRHLLPLTDRVDSF
+A2A863  TSDYTIGFGKFVDKVSVPQTDMRP-EKLKEPWP------NSDPPFSFKNVISLTENVEEF
+
+A5Z1X6  NELVGKQRISGNLDSPEGGFDAIMQVAVCGSLIGWR-NVTRLLVFSTDAGFHFAGDGK--
+B0FYY4  NELVGKQRISGNLDSPEGGFDAIMQVAVCGSLIGWR-NVTRLLVFSTDAGFHFAGDGK--
+P05556  NELVGKQRISGNLDSPEGGFDAIMQVAVCGSLIGWR-NVTRLLVFSTDAGFHFAGDGK--
+P09055  NELVGQQRISGNLDSPEGGFDAIMQVAVCGSLIGWR-NVTRLLVFSTDAGFHFAGDGK--
+P07228  NELVGKQHISGNLDSPEGGFDAIMQVAVCGDQIGWR-NVTRLLVFSTDAGFHFAGDGK--
+P05107  QTEVGKQLISGNLDAPEGGLDAMMQVAACPEEIGWR-NVTRLLVFATDDGFHFAGDGK--
+O54890  NEEVKKQSVSRNRDAPEGGFDAIMQATVCDEKIGWRNDASHLLVFTTDAKTHIALDGR--
+P05106  NEEVKKQSVSRNRDAPEGGFDAIMQATVCDEKIGWRNDASHLLVFTTDAKTHIALDGR--
+O70309  NEEVRKQRVSRNRDAPEGGFDAVLQAAVCKEKIGWRKDALHLLVFTTDDVPHIALDGK--
+A2A863  WNKLQGERISGNLDAPEGGFDAILQTAVCTRDIGWRADSTHLLVFSTESAFHYEADGANV
+
+A5Z1X6  LGGIVLPNDGQCHLKN-DVYTMSHYYDYPSIAHLVQKLSENNIQTIFAVTEEFQPVYKEL
+B0FYY4  LGGIVLPNDGQCHLEN-DMYTMSHYYDYPSIAHLVQKLSENNIQTIFAVTEEFQPVYKEL
+P05556  LGGIVLPNDGQCHLEN-NMYTMSHYYDYPSIAHLVQKLSENNIQTIFAVTEEFQPVYKEL
+P09055  LGGIVLPNDGQCHLEN-NVYTMSHYYDYPSIAHLVQKLSENNIQTIFAVTEEFQPVYKEL
+P07228  LGGIVLPNDGKCHLEN-NMYTMSHYYDYPSIAHLVQKLSENNIQTIFAVTEEFQAVYKEL
+P05107  LGAILTPNDGRCHLED-NLYKRSNEFDYPSVGQLAHKLAENNIQPIFAVTSRMVKTYEKL
+O54890  LAGIVLPNDGHCHIGTDNHYSASTTMDYPSLGLMTEKLSQKNINLIFAVTENVVSLYQNY
+P05106  LAGIVQPNDGQCHVGSDNHYSASTTMDYPSLGLMTEKLSQKNINLIFAVTENVVNLYQNY
+O70309  LGGLVQPHDGQCHLNEANEYTASNQMDYPSLALLGEKLAENNINLIFAVTKNHYMLYKNF
+A2A863  LAGIMNRNDEKCHLDASGAYTQYKTQDYPSVPTLVRLLAKHNIIPIFAVTNYSYSYYEKL
+
+A5Z1X6  KNLIPKSAVGTLSANSSNVIQLIIDAYNSLSSEVILENSKLPEGVTINYKSYCKNGVNGT
+B0FYY4  KNLIPKSAVGTLSANSGNVIQLIIDAYNSLSSEVILENSKLPEGVTINYKSYCKNGVNGT
+P05556  KNLIPKSAVGTLSANSSNVIQLIIDAYNSLSSEVILENGKLSEGVTISYKSYCKNGVNGT
+P09055  KNLIPKSAVGTLSGNSSNVIQLIIDAYNSLSSEVILENSKLPDGVTINYKSYCKNGVNGT
+P07228  KNLIPKSAVGTLSSNSSNVIQLIIDAYNSLSSEVILENSKLPKEVTISYKSYCKNGVNDT
+P05107  TEIIPKSAVGELSEDSSNVVQLIKNAYNKLSSRVFLDHNALPDTLKVTYDSFCSNGVTHR
+O54890  SELIPGTTVGVLSDDSSNVLQLIVDAYGKIRSKVELEVRDLPEELSLSFNATCLNNEVIP
+P05106  SELIPGTTVGVLSMDSSNVLQLIVDAYGKIRSKVELEVRDLPEELSLSFNATCLNNEVIP
+O70309  TALIPGTTVEILHGDSKNIIQLIINAYSSIRAKVELSVWDQPEDLNLFFTATCQDGISYP
+A2A863  HKYFPVSSLGVLQEDSSNIVELLEEAFYRIRSNLDIRALDSPRGLRTEVTSDTLQKTETG
+
+A5Z1X6  GENGRKCSN--ISIGDEVQFEISITANKCPDK-NSETIKIKPLGFTEEVEIILQFICECE
+B0FYY4  GENGRKCSN--ISIGDEVQFEISITANKCPNK-NSETIKIKPLGFTEEVEIILQFICECE
+P05556  GENGRKCSN--ISIGDEVQFEISITSNKCPKK-DSDSFKIRPLGFTEEVEVILQYICECE
+P09055  GENGRKCSN--ISIGDEVQFEISITANKCPNK-ESETIKIKPLGFTEEVEVVLQFICKCN
+P07228  QEDGRKCSN--ISIGDEVRFEINVTANECPKKGQNETIKIKPLGFTEEVEIHLQFICDCL
+P05107  NQPRGDCDG--VQINVPITFQVKVTATECIQE---QSFVIRALGFTDIVTVQVLPQCECR
+O54890  GL--KSCVG--LKIGDTVSFSIEAKVRGCP-QEKEQSFTIKPVGFKDSLTVQVTFDCDCA
+P05106  GL--KSCMG--LKIGDTVSFSIEAKVRGCP-QEKEKSFTIKPVGFKDSLIVQVTFDCDCA
+O70309  GQ--RKCEG--LKIGDTASFEVSVEARSCPGRQAAQSFTLRPVGFRDSLQVEVAYNCTCG
+A2A863  SFHIKRGEVGTYNVHLRAVEDIDGTHVCQLAKEDQGGNIHLKPSFSDGLRMDASVICDVC
+
+A5Z1X6  CQGEGIPGSPKCHDGNGTFECGACRCNEGRVGRHCECSTDEVNSEDMDAYCRKENSSEIC
+B0FYY4  CQSEGIPGSPKCHDGNGTFECGACRCNEGRVGRHCECSTDEVNSEDMDAYCRKENSSEIC
+P05556  CQSEGIPESPKCHEGNGTFECGACRCNEGRVGRHCECSTDEVNSEDMDAYCRKENSSEIC
+P09055  CQSHGIPASPKCHEGNGTFECGACRCNEGRVGRHCECSTDEVNSEDMDAYCRKENSSEIC
+P07228  CQSEGEPNSPACHDGNGTFECGACRCNEGRIGRLCECSTDEVNSEDMDAYCRRENSTEIC
+P05107  CRDQSRDRS-LCH-GKGFLECGICRCDTGYIGKNCECQTQGRSSQELEGSCRKDNNSIIC
+O54890  CQAFAQPSSPRCNNGNGTFECGVCRCDQGWLGSMCECSEEDYRP-SQQEECSPKEGQPIC
+P05106  CQAQAEPNSHRCNNGNGTFECGVCRCGPGWLGSQCECSEEDYRP-SQQDECSPREGQPVC
+O70309  CSTGLEPNSARCS-GNGTYTCGLCECDPGYLGTRCECQEGENQS-GYQNLCREAEGKPLC
+A2A863  PCELQKEVRSARCHFRGDFMCGHCVCNEGWSGKTCNCSTG---SLSDTQPCLREGEDKPC
+
+A5Z1X6  SNNGECVCGQCVCRKRDNTNEIYSGKFCECDNFNCDRSNGLICGG--NGVCKCRVCECNP
+B0FYY4  SNNGECVCGQCVCRKRDNTNEIYSGKFCECDNFNCDRSNGLICGG--NGVCKCRVCECNP
+P05556  SNNGECVCGQCVCRKRDNTNEIYSGKFCECDNFNCDRSNGLICGG--NGVCKCRVCECNP
+P09055  SNNGECVCGQCVCRKRDNTNEIYSGKFCECDNFNCDRSNGLICGG--NGVCRCRVCECYP
+P07228  SNNGECICGQCVCKKRENTNEVYSGKYCECDNFNCDRSNGLICGG--NGICKCRVCECFP
+P05107  SGLGDCVCGQCLCHTSDVPGKLIYGQYCECDTINCERYNGQVCGGPGRGLCFCGKCRCHP
+O54890  SQRGECLCGQCVCHSSDFG--KITGKYCECDDFSCVRYKGEMCSG--HGQCNCGDCVCDS
+P05106  SQRGECLCGQCVCHSSDFG--KITGKYCECDDFSCVRYKGEMCSG--HGQCSCGDCLCDS
+O70309  SGRGECSCNQCSCFESEFG--RIYGPFCECDSFSCARNKGVLCSG--HGECHCGECKCHA
+A2A863  SGHGECQCGRCVCYG----EGRYEGHFCEYDNFQCPRTSGFLCND--RGRCSMGECVCEP
+
+A5Z1X6  NYTGSACDCSLDTTSCMAVNGQICNGRGVCECGACKCTDPKFQGPT---CEMCQTCLGVC
+B0FYY4  NYTGSACDCSLDTTSCMAVNGQICNGRGVCECGACKCTDPKFQGPT---CEMCQTCLGVC
+P05556  NYTGSACDCSLDTSTCEASNGQICNGRGICECGVCKCTDPKFQGQT---CEMCQTCLGVC
+P09055  NYTGSACDCSLDTGPCLASNGQICNGRGICECGACKCTDPKFQGPT---CETCQTCLGVC
+P07228  NFTGSACDCSLDTTPCMAGNGQICNGRGTCECGTCNCTDPKFQGPT---CEMCQTCLGVC
+P05107  GFEGSACQCERTTEGCLNPRRVECSGRGRCRCNVCECHS-GYQLPL---CQECPGCPSPC
+O54890  DWTGYYCNCTTRTDTCMSTNGLLCSGRGNCECGSCVCVQPGSYGDT---CEKCPTCPDAC
+P05106  DWTGYYCNCTTRTDTCMSSNGLLCSGRGKCECGSCVCIQPGSYGDT---CEKCPTCPDAC
+O70309  GYIGDNCNCSTDVSTCKAKDGQICSDRGRCVCGQCQCTEPGAFGET---CEKCPTCPDAC
+A2A863  GWTGRSCDCPLSNATCIDSNGGICNGRGYCECGRCHCNQQSLYTDTTCEINYSAIRLGLC
+
+A5Z1X6  AEHKECVQCRAFNKG--EKKDTCAQECSHFNITKVENRDKLPQPGQVDPLSHCKEKDVDD
+B0FYY4  AEHKECVQCRAFNKG--EKKDTCAQECSHFNITKVENRDKLPQPGQVDPLSHCKEKDVDD
+P05556  AEHKECVQCRAFNKG--EKKDTCTQECSYFNITKVESRDKLPQPVQPDPVSHCKEKDVDD
+P09055  AEHKECVQCRAFNKG--EKKDTCAQECSHFNLTKVESREKLPQPVQVDPVTHCKEKDIDD
+P07228  AEHKDCVQCRAFEKG--EKKETCSQECMHFNMTRVESRGKLPQPVHPDPLSHCKEKDVGD
+P05107  GKYISCAECLKFEKG--PFGKNCSAACPGLQLSNNPVKG-----------RTCKERDSEG
+O54890  SFKKECVECKKFNRGTLHEENTCSRYCRDDIEQ-VKELTDTGKN-----AVNCTYKNEDD
+P05106  TFKKECVECKKFDRGALHDENTCNRYCRDEIES-VKELKDTGKD-----AVNCTYKNEDD
+O70309  SSKRDCVECLLLHQGKPDNQ-TCHHQCKDEVITWVDTIVKDDQE-----AVLCFYKTAKD
+A2A863  EDLRSCVQCQAWGTG--EKKGRACDDCPFKVKMVDELKKAEEVV-----EYCSFRDEDDD
+
+A5Z1X6  CWFYFTYS-VNGNNEATVHVVETPECPTGPDIIPIVAGVVAGIVLIGLALLLIWKLLMII
+B0FYY4  CWFYFTYS-VNGNNEATVHVVETPECPTGPDIIPIVAGVVAGIVLIGPALLLIWKLLMII
+P05556  CWFYFTYS-VNGNNEVMVHVVENPECPTGPDIIPIVAGVVAGIVLIGLALLLIWKLLMII
+P09055  CWFYFTYS-VNGNNEAIVHVVETPDCPTGPDIIPIVAGVVAGIVLIGLALLLIWKLLMII
+P07228  CWFYFTYS-VNSNGEASVHVVETPECPSGPDIIPIVAGVVAGIVLIGLALLLIWKLLMII
+P05107  CWVAYTLEQQDGMDRYLIYVDESRECVAGPNIAAIVGGTVAGIVLIGILLLVIWKALIHL
+O54890  CVVRFQYY-EDTSGRAVLYVVEEPECPKGPDILVVLLSVMGAILLIGLATLLIWKLLITI
+P05106  CVVRFQYY-EDSSGKSILYVVEEPECPKGPDILVVLLSVMGAILLIGLAALLIWKLLITI
+O70309  CVMMFSYT-ELPNGRSNLTVLREPECGSAPNAMTILLAVVGSILLIGMALLAIWKLLVTI
+A2A863  CTYSYNVEGDGSPGPNSTVLVHKKKDCPPGSFWWLIPLLIFLLLLLALLLLLCWKYCACC
+
+A5Z1X6  HDRR--------------------------------------------------------
+B0FYY4  HDRR--------------------------------------------------------
+P05556  HDRR--------------------------------------------------------
+P09055  HDRR--------------------------------------------------------
+P07228  HDRR--------------------------------------------------------
+P05107  SDLR--------------------------------------------------------
+O54890  HDRK--------------------------------------------------------
+P05106  HDRK--------------------------------------------------------
+O70309  HDRR--------------------------------------------------------
+A2A863  KACLGLLPCCNRGHMVGFKEDHYMLRENLMASDHLDTPMLRSGNLKGRDTVRWKITNNVQ
+
+A5Z1X6  ----------------------------------EFAKFEKERMNAKWDTGENPIYKSAV
+B0FYY4  ----------------------------------EFAKFEKEKMNAKWDTGENPIYKSAV
+P05556  ----------------------------------EFAKFEKEKMNAKWDTGENPIYKSAV
+P09055  ----------------------------------EFAKFEKEKMNAKWDTGENPIYKSAV
+P07228  ----------------------------------EFAKFEKEKMNAKWDTGENPIYKSAV
+P05107  ----------------------------------EYRRFEKEKLKSQWNN-DNPLFKSAT
+O54890  ----------------------------------EFAKFEEERARAKWDTANNPLYKEAT
+P05106  ----------------------------------EFAKFEEERARAKWDTANNPLYKEAT
+O70309  ----------------------------------EFAKFQSERSRARYEMASNPLYRKPI
+A2A863  RPGFATHAASTSPTELVPYGLSLRLGRLCTENLMKPGTRECDQLRQEVEENLNEVYRQVS
+
+A5Z1X6  TTVV--------NPKYEGK-----------------------------------------
+B0FYY4  TTVV--------NPKYEGK-----------------------------------------
+P05556  TTVV--------NPKYEGK-----------------------------------------
+P09055  TTVV--------NPKYEGK-----------------------------------------
+P07228  TTVV--------NPKYEGK-----------------------------------------
+P05107  TTVM--------NPKFAES-----------------------------------------
+O54890  STFT--------NITYRGT-----------------------------------------
+P05106  STFT--------NITYRGT-----------------------------------------
+O70309  STHTVDFAFNKFNKSYNGSV----------------------------------------
+A2A863  GAHKLQQTKFRQQPNTGKKQDHTIVDTVLLAPRSAKQMLLKLTEKQVEQGSFHELKVAPG
+
+A5Z1X6  ------------------------------------------------------------
+B0FYY4  ------------------------------------------------------------
+P05556  ------------------------------------------------------------
+P09055  ------------------------------------------------------------
+P07228  ------------------------------------------------------------
+P05107  ------------------------------------------------------------
+O54890  ------------------------------------------------------------
+P05106  ------------------------------------------------------------
+O70309  ------------------------------------------------------------
+A2A863  YYTVTAEQDARGMVEFQEGVELVDVRVPLFIRPEDDDEKQLLVEAIDVPVGTATLGRRLV
+
+A5Z1X6  ------------------------------------------------------------
+B0FYY4  ------------------------------------------------------------
+P05556  ------------------------------------------------------------
+P09055  ------------------------------------------------------------
+P07228  ------------------------------------------------------------
+P05107  ------------------------------------------------------------
+O54890  ------------------------------------------------------------
+P05106  ------------------------------------------------------------
+O70309  ------------------------------------------------------------
+A2A863  NITIIKEQASGVVSFEQPEYSVSRGDQVARIPVIRHILDNGKSQVSYSTQDNTAHGHRDY
+
+A5Z1X6  ------------------------------------------------------------
+B0FYY4  ------------------------------------------------------------
+P05556  ------------------------------------------------------------
+P09055  ------------------------------------------------------------
+P07228  ------------------------------------------------------------
+P05107  ------------------------------------------------------------
+O54890  ------------------------------------------------------------
+P05106  ------------------------------------------------------------
+O70309  ------------------------------------------------------------
+A2A863  VPVEGELLFHPGETWKELQVKLLELQEVDSLLRGRQVRRFQVQLSNPKFGARLGQPSTTT
+
+A5Z1X6  ------------------------------------------------------------
+B0FYY4  ------------------------------------------------------------
+P05556  ------------------------------------------------------------
+P09055  ------------------------------------------------------------
+P07228  ------------------------------------------------------------
+P05107  ------------------------------------------------------------
+O54890  ------------------------------------------------------------
+P05106  ------------------------------------------------------------
+O70309  ------------------------------------------------------------
+A2A863  VILGEHDETDRSLINQTLSSPPPPHGDLGAPQNPNAKAAGSRKIHFNWLPPPGKPMGYRV
+
+A5Z1X6  ------------------------------------------------------------
+B0FYY4  ------------------------------------------------------------
+P05556  ------------------------------------------------------------
+P09055  ------------------------------------------------------------
+P07228  ------------------------------------------------------------
+P05107  ------------------------------------------------------------
+O54890  ------------------------------------------------------------
+P05106  ------------------------------------------------------------
+O70309  ------------------------------------------------------------
+A2A863  KYWIQGDSESEAHLLDSKVPSVELTNLYPYCDYEMKVCAYGAQGEGPYSSLVSCRTHQEV
+
+A5Z1X6  ------------------------------------------------------------
+B0FYY4  ------------------------------------------------------------
+P05556  ------------------------------------------------------------
+P09055  ------------------------------------------------------------
+P07228  ------------------------------------------------------------
+P05107  ------------------------------------------------------------
+O54890  ------------------------------------------------------------
+P05106  ------------------------------------------------------------
+O70309  ------------------------------------------------------------
+A2A863  PSEPGRLAFNVVSSTVTQLSWAEPAETNGEITAYEVCYGLVNEDNRPIGPMKKVLVDNPK
+
+A5Z1X6  ------------------------------------------------------------
+B0FYY4  ------------------------------------------------------------
+P05556  ------------------------------------------------------------
+P09055  ------------------------------------------------------------
+P07228  ------------------------------------------------------------
+P05107  ------------------------------------------------------------
+O54890  ------------------------------------------------------------
+P05106  ------------------------------------------------------------
+O70309  ------------------------------------------------------------
+A2A863  NRMLLIENLRESQPYRYTVKARNGAGWGPEREAIINLATQPKRPMSIPIIPDIPIVDAQG
+
+A5Z1X6  ------------------------------------------------------------
+B0FYY4  ------------------------------------------------------------
+P05556  ------------------------------------------------------------
+P09055  ------------------------------------------------------------
+P07228  ------------------------------------------------------------
+P05107  ------------------------------------------------------------
+O54890  ------------------------------------------------------------
+P05106  ------------------------------------------------------------
+O70309  ------------------------------------------------------------
+A2A863  GEDYENFLMYSDDVLRSPASSQRPSVSDDTGCGWKFEPLLGEELDLRRVTWRLPPELIPR
+
+A5Z1X6  ------------------------------------------------------------
+B0FYY4  ------------------------------------------------------------
+P05556  ------------------------------------------------------------
+P09055  ------------------------------------------------------------
+P07228  ------------------------------------------------------------
+P05107  ------------------------------------------------------------
+O54890  ------------------------------------------------------------
+P05106  ------------------------------------------------------------
+O70309  ------------------------------------------------------------
+A2A863  LSASSGRSDEDGSVAGGVEGEGSGWIRGATPRPPGEHLVNGRMDFAYPGSANSLHRMTAA
+
+A5Z1X6  ------------------------------------------------------------
+B0FYY4  ------------------------------------------------------------
+P05556  ------------------------------------------------------------
+P09055  ------------------------------------------------------------
+P07228  ------------------------------------------------------------
+P05107  ------------------------------------------------------------
+O54890  ------------------------------------------------------------
+P05106  ------------------------------------------------------------
+O70309  ------------------------------------------------------------
+A2A863  NVAYGTHLSPHLSHRVLSTSSTLTRDYHSLTRTEHSHSGTLPRDYSTLTSLSSQDSRGAV
+
+A5Z1X6  ------------------------------------------------------------
+B0FYY4  ------------------------------------------------------------
+P05556  ------------------------------------------------------------
+P09055  ------------------------------------------------------------
+P07228  ------------------------------------------------------------
+P05107  ------------------------------------------------------------
+O54890  ------------------------------------------------------------
+P05106  ------------------------------------------------------------
+O70309  ------------------------------------------------------------
+A2A863  GVPDTPTRLVFSALGPTSLKVSWQEPQCDRMLLGYSVEYQLLNGGEMHRLNIPNPGQTSV
+
+A5Z1X6  ------------------------------------------------------------
+B0FYY4  ------------------------------------------------------------
+P05556  ------------------------------------------------------------
+P09055  ------------------------------------------------------------
+P07228  ------------------------------------------------------------
+P05107  ------------------------------------------------------------
+O54890  ------------------------------------------------------------
+P05106  ------------------------------------------------------------
+O70309  ------------------------------------------------------------
+A2A863  VVEDLLPNHSYVFRVRAQSQEGWGREREGVITIESQVHPQSPLCPLPGSAFTLSTPSAPG
+
+A5Z1X6  ------------------------------------------------------------
+B0FYY4  ------------------------------------------------------------
+P05556  ------------------------------------------------------------
+P09055  ------------------------------------------------------------
+P07228  ------------------------------------------------------------
+P05107  ------------------------------------------------------------
+O54890  ------------------------------------------------------------
+P05106  ------------------------------------------------------------
+O70309  ------------------------------------------------------------
+A2A863  PLVFTALSPDSLQLSWERPRRPNGDILGYLVTCEMAQGGAPARTFRVDGDNPESRLTVPG
+
+A5Z1X6  ------------------------------------------------------------
+B0FYY4  ------------------------------------------------------------
+P05556  ------------------------------------------------------------
+P09055  ------------------------------------------------------------
+P07228  ------------------------------------------------------------
+P05107  ------------------------------------------------------------
+O54890  ------------------------------------------------------------
+P05106  ------------------------------------------------------------
+O70309  ------------------------------------------------------------
+A2A863  LSENVPYKFKVQARTTEGFGPEREGIITIESQVGGPFPQLGSHSGLFQNPVQSEFSSVTS
+
+A5Z1X6  ---------------------------------------------------------
+B0FYY4  ---------------------------------------------------------
+P05556  ---------------------------------------------------------
+P09055  ---------------------------------------------------------
+P07228  ---------------------------------------------------------
+P05107  ---------------------------------------------------------
+O54890  ---------------------------------------------------------
+P05106  ---------------------------------------------------------
+O70309  ---------------------------------------------------------
+A2A863  THSTTTEPFLMDGLTLGTQRLEAGGSLTRHVTQEFVTRTLTASGSLSTHMDQQFFQT
+  ;
+endblock;

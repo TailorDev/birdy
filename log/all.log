@@ -1,0 +1,529 @@
+08/06/2015 09:20:53 AM INFO:Started : fetcher
+08/06/2015 09:20:53 AM INFO:Started
+08/06/2015 09:20:53 AM INFO:Checks arguments
+08/06/2015 09:20:53 AM INFO:PDB database
+08/06/2015 09:20:53 AM INFO:Fetches PDB IDs
+08/06/2015 09:20:53 AM INFO:Fetches PDB datas about IDs on pdb format
+08/06/2015 09:21:02 AM INFO:NCBI database
+08/06/2015 09:21:02 AM INFO:Fetches NCBI IDs on nucleotide database
+08/06/2015 09:21:47 AM INFO:Started : fetcher
+08/06/2015 09:21:47 AM INFO:Started
+08/06/2015 09:21:47 AM INFO:Checks arguments
+08/06/2015 09:21:47 AM INFO:PDB database
+08/06/2015 09:21:47 AM INFO:Fetches PDB IDs
+08/06/2015 09:21:47 AM INFO:Fetches PDB datas about IDs on pdb format
+08/06/2015 09:22:01 AM INFO:NCBI database
+08/06/2015 09:22:01 AM INFO:Fetches NCBI IDs on nucleotide database
+08/06/2015 09:22:58 AM INFO:Started : fetcher
+08/06/2015 09:22:58 AM INFO:Started
+08/06/2015 09:22:58 AM INFO:Checks arguments
+08/06/2015 09:22:58 AM INFO:PDB database
+08/06/2015 09:22:58 AM INFO:Fetches PDB IDs
+08/06/2015 09:22:58 AM INFO:Fetches PDB datas about IDs on pdb format
+08/06/2015 09:23:03 AM INFO:NCBI database
+08/06/2015 09:23:03 AM INFO:Fetches NCBI IDs on nucleotide database
+08/06/2015 09:23:04 AM INFO:Fetches NCBI datas about IDs on nucleotide database and ['gb', 'gp'] format(s)
+08/06/2015 09:23:11 AM INFO:KEGG database
+08/06/2015 09:25:11 AM INFO:Started : fetcher
+08/06/2015 09:25:11 AM INFO:Started
+08/06/2015 09:25:11 AM INFO:Checks arguments
+08/06/2015 09:25:11 AM INFO:PDB database
+08/06/2015 09:25:11 AM INFO:Fetches PDB IDs
+08/06/2015 09:25:11 AM INFO:Fetches PDB datas about IDs on pdb format
+08/06/2015 09:25:17 AM INFO:NCBI database
+08/06/2015 09:25:17 AM INFO:Fetches NCBI IDs on nucleotide database
+08/06/2015 09:25:17 AM INFO:Fetches NCBI datas about IDs on nucleotide database and ['gb', 'gp'] format(s)
+08/06/2015 09:25:30 AM INFO:KEGG database
+08/06/2015 09:25:30 AM INFO:Fetches KEGG IDs on pathway database
+08/06/2015 09:27:40 AM INFO:Started : fetcher
+08/06/2015 09:27:40 AM INFO:Started
+08/06/2015 09:27:40 AM INFO:Checks arguments
+08/06/2015 09:27:40 AM INFO:PDB database
+08/06/2015 09:27:40 AM INFO:Fetches PDB IDs
+08/06/2015 09:27:40 AM INFO:Fetches PDB datas about IDs on pdb format
+08/06/2015 09:27:54 AM INFO:NCBI database
+08/06/2015 09:27:54 AM INFO:Fetches NCBI IDs on nucleotide database
+08/06/2015 09:27:55 AM INFO:Fetches NCBI datas about IDs on nucleotide database and ['gb', 'gp'] format(s)
+08/06/2015 09:28:11 AM INFO:KEGG database
+08/06/2015 09:28:11 AM INFO:Fetches KEGG IDs on pathway database
+08/06/2015 09:28:11 AM INFO:Fetches KEGG datas about IDs
+08/06/2015 09:28:12 AM INFO:Starting new HTTP connection (1): rest.kegg.jp
+08/06/2015 09:28:13 AM INFO:Starting new HTTP connection (1): rest.kegg.jp
+08/06/2015 09:28:14 AM INFO:Starting new HTTP connection (1): rest.kegg.jp
+08/06/2015 09:28:14 AM INFO:Starting new HTTP connection (1): rest.kegg.jp
+08/06/2015 09:28:16 AM INFO:Starting new HTTP connection (1): rest.kegg.jp
+08/06/2015 09:28:17 AM INFO:Starting new HTTP connection (1): rest.kegg.jp
+08/06/2015 09:28:18 AM INFO:Starting new HTTP connection (1): rest.kegg.jp
+08/06/2015 09:28:20 AM INFO:Starting new HTTP connection (1): rest.kegg.jp
+08/06/2015 09:28:20 AM INFO:Starting new HTTP connection (1): rest.kegg.jp
+08/06/2015 09:28:22 AM INFO:Starting new HTTP connection (1): rest.kegg.jp
+08/06/2015 09:28:23 AM ERROR:Databases pathway not alowed. Try with "pathway", "brite", "module", "ko", "genome", "compound", "glycan", "reaction", "rpair", "rclass", "enzyme", "disease", "drug", "dgroup", "environ" or "organism"
+08/06/2015 09:28:23 AM INFO:Fetches DSSP datas about IDs
+08/06/2015 09:28:29 AM INFO:Finished
+08/06/2015 09:28:29 AM INFO:Started : loadfamily
+08/06/2015 09:28:29 AM INFO:Started
+08/06/2015 09:28:29 AM INFO:Checks arguments
+08/06/2015 09:28:29 AM INFO:Fetches InterPro IDs
+08/06/2015 09:28:29 AM INFO:Fetches data on InterPro databases
+08/06/2015 09:28:29 AM INFO:Starting new HTTP connection (1): www.ebi.ac.uk
+08/06/2015 09:28:34 AM INFO:Write in file Result/dataset_0.1/FamilyIPR006479_1.fasta
+08/06/2015 09:28:34 AM INFO:Write in file Result/dataset_0.1/FamilyIPR006479_2.fasta
+08/06/2015 09:28:34 AM INFO:Starting new HTTP connection (1): www.ebi.ac.uk
+08/06/2015 09:28:34 AM INFO:Write in file Result/dataset_0.1/FamilyIPR005332_1.fasta
+08/06/2015 09:28:34 AM INFO:Write in file Result/dataset_0.1/FamilyIPR005332_2.fasta
+08/06/2015 09:28:34 AM INFO:Starting new HTTP connection (1): www.ebi.ac.uk
+08/06/2015 09:30:28 AM INFO:Write in file Result/dataset_0.1/FamilyIPR000555_1.fasta
+08/06/2015 09:30:28 AM INFO:Write in file Result/dataset_0.1/FamilyIPR000555_2.fasta
+08/06/2015 09:30:28 AM INFO:Starting new HTTP connection (1): www.ebi.ac.uk
+08/06/2015 09:30:29 AM INFO:Write in file Result/dataset_0.1/FamilyIPR008444_1.fasta
+08/06/2015 09:30:29 AM INFO:Write in file Result/dataset_0.1/FamilyIPR008444_2.fasta
+08/06/2015 09:30:29 AM INFO:Starting new HTTP connection (1): www.ebi.ac.uk
+08/06/2015 09:30:29 AM INFO:Write in file Result/dataset_0.1/FamilyIPR021583_1.fasta
+08/06/2015 09:30:29 AM INFO:Write in file Result/dataset_0.1/FamilyIPR021583_2.fasta
+08/06/2015 09:30:29 AM INFO:Starting new HTTP connection (1): www.ebi.ac.uk
+08/06/2015 09:30:30 AM INFO:Write in file Result/dataset_0.1/FamilyIPR007689_1.fasta
+08/06/2015 09:30:30 AM INFO:Write in file Result/dataset_0.1/FamilyIPR007689_2.fasta
+08/06/2015 09:30:30 AM INFO:Starting new HTTP connection (1): www.ebi.ac.uk
+08/06/2015 09:30:33 AM INFO:Write in file Result/dataset_0.1/FamilyIPR028155_1.fasta
+08/06/2015 09:30:33 AM INFO:Write in file Result/dataset_0.1/FamilyIPR028155_2.fasta
+08/06/2015 09:30:33 AM INFO:Starting new HTTP connection (1): www.ebi.ac.uk
+08/06/2015 09:30:34 AM INFO:Write in file Result/dataset_0.1/FamilyIPR024994_1.fasta
+08/06/2015 09:30:34 AM INFO:Write in file Result/dataset_0.1/FamilyIPR024994_2.fasta
+08/06/2015 09:30:34 AM INFO:Starting new HTTP connection (1): www.ebi.ac.uk
+08/06/2015 09:30:47 AM INFO:Write in file Result/dataset_0.1/FamilyIPR006304_1.fasta
+08/06/2015 09:30:47 AM INFO:Write in file Result/dataset_0.1/FamilyIPR006304_2.fasta
+08/06/2015 09:30:47 AM INFO:Starting new HTTP connection (1): www.ebi.ac.uk
+08/06/2015 09:30:49 AM INFO:Write in file Result/dataset_0.1/FamilyIPR008864_1.fasta
+08/06/2015 09:30:49 AM INFO:Write in file Result/dataset_0.1/FamilyIPR008864_2.fasta
+08/06/2015 09:30:49 AM INFO:Write in file Family_file.txt
+08/06/2015 09:30:49 AM INFO:Finished
+08/06/2015 09:30:49 AM INFO:Started : converter
+08/06/2015 09:30:49 AM INFO:Started
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR006479_1.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR006479_1.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR006479_1.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR006479_1.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR006479_1.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR006479_1.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR006479_1.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR006479_1.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR006479_1.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR006479_2.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR006479_2.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR006479_2.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR006479_2.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR006479_2.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR006479_2.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR006479_2.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR006479_2.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR006479_2.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR005332_1.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR005332_1.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR005332_1.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR005332_1.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR005332_1.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR005332_1.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR005332_1.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR005332_1.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR005332_1.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR005332_2.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR005332_2.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR005332_2.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR005332_2.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR005332_2.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR005332_2.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR005332_2.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR005332_2.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR005332_2.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR000555_1.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR000555_1.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR000555_1.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR000555_1.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR000555_1.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR000555_1.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR000555_1.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR000555_1.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR000555_1.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR000555_2.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR000555_2.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR000555_2.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR000555_2.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR000555_2.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR000555_2.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR000555_2.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR000555_2.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR000555_2.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR008444_1.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR008444_1.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR008444_1.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR008444_1.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR008444_1.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR008444_1.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR008444_1.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR008444_1.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR008444_1.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR008444_2.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR008444_2.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR008444_2.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR008444_2.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR008444_2.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR008444_2.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR008444_2.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR008444_2.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR008444_2.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR021583_1.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR021583_1.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR021583_1.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR021583_1.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR021583_1.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR021583_1.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR021583_1.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR021583_1.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR021583_1.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR021583_2.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR021583_2.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR021583_2.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR021583_2.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR021583_2.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR021583_2.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR021583_2.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR021583_2.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR021583_2.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR007689_1.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR007689_1.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR007689_1.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR007689_1.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR007689_1.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR007689_1.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR007689_1.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR007689_1.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR007689_1.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR007689_2.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR007689_2.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR007689_2.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR007689_2.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR007689_2.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR007689_2.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR007689_2.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR007689_2.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR007689_2.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR028155_1.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR028155_1.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR028155_1.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR028155_1.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR028155_1.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR028155_1.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR028155_1.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR028155_1.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR028155_1.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:30:49 AM INFO:Converts Result/dataset_0.1/FamilyIPR028155_2.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR028155_2.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR028155_2.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR028155_2.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR028155_2.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR028155_2.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR028155_2.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR028155_2.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR028155_2.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR024994_1.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR024994_1.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR024994_1.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR024994_1.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR024994_1.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR024994_1.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR024994_1.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR024994_1.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR024994_1.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR024994_2.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR024994_2.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR024994_2.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR024994_2.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR024994_2.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR024994_2.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR024994_2.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR024994_2.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR024994_2.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR006304_1.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR006304_1.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR006304_1.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR006304_1.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR006304_1.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR006304_1.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR006304_1.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR006304_1.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR006304_1.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR006304_2.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR006304_2.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR006304_2.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR006304_2.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR006304_2.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR006304_2.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR006304_2.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR006304_2.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR006304_2.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR008864_1.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR008864_1.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR008864_1.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR008864_1.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR008864_1.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR008864_1.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR008864_1.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR008864_1.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR008864_1.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR008864_2.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR008864_2.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR008864_2.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR008864_2.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR008864_2.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR008864_2.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR008864_2.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR008864_2.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:30:50 AM INFO:Converts Result/dataset_0.1/FamilyIPR008864_2.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:30:50 AM INFO:Finished
+08/06/2015 09:30:50 AM INFO:Finished
+08/06/2015 09:40:50 AM INFO:Started : fetcher
+08/06/2015 09:40:50 AM INFO:Started
+08/06/2015 09:40:50 AM INFO:Checks arguments
+08/06/2015 09:40:50 AM INFO:PDB database
+08/06/2015 09:40:50 AM INFO:Fetches PDB IDs
+08/06/2015 09:40:50 AM INFO:Fetches PDB datas about IDs on pdb format
+08/06/2015 09:40:58 AM INFO:NCBI database
+08/06/2015 09:40:58 AM INFO:Fetches NCBI IDs on nucleotide database
+08/06/2015 09:40:59 AM INFO:Fetches NCBI datas about IDs on nucleotide database and ['gb', 'gp'] format(s)
+08/06/2015 09:41:06 AM INFO:KEGG database
+08/06/2015 09:41:06 AM INFO:Fetches KEGG IDs on pathway database
+08/06/2015 09:41:06 AM INFO:Fetches KEGG datas about IDs
+08/06/2015 09:41:06 AM INFO:Starting new HTTP connection (1): rest.kegg.jp
+08/06/2015 09:41:07 AM INFO:Starting new HTTP connection (1): rest.kegg.jp
+08/06/2015 09:41:10 AM INFO:Starting new HTTP connection (1): rest.kegg.jp
+08/06/2015 09:41:11 AM INFO:Starting new HTTP connection (1): rest.kegg.jp
+08/06/2015 09:41:12 AM INFO:Starting new HTTP connection (1): rest.kegg.jp
+08/06/2015 09:41:13 AM INFO:Starting new HTTP connection (1): rest.kegg.jp
+08/06/2015 09:41:14 AM INFO:Starting new HTTP connection (1): rest.kegg.jp
+08/06/2015 09:41:15 AM INFO:Starting new HTTP connection (1): rest.kegg.jp
+08/06/2015 09:41:16 AM INFO:Starting new HTTP connection (1): rest.kegg.jp
+08/06/2015 09:41:17 AM INFO:Starting new HTTP connection (1): rest.kegg.jp
+08/06/2015 09:41:18 AM ERROR:Databases pathway not alowed. Try with "pathway", "brite", "module", "ko", "genome", "compound", "glycan", "reaction", "rpair", "rclass", "enzyme", "disease", "drug", "dgroup", "environ" or "organism"
+08/06/2015 09:41:18 AM INFO:Fetches DSSP datas about IDs
+08/06/2015 09:41:24 AM INFO:Finished
+08/06/2015 09:41:24 AM INFO:Started : loadfamily
+08/06/2015 09:41:24 AM INFO:Started
+08/06/2015 09:41:24 AM INFO:Checks arguments
+08/06/2015 09:41:24 AM INFO:Fetches InterPro IDs
+08/06/2015 09:41:24 AM INFO:Fetches data on InterPro databases
+08/06/2015 09:41:24 AM INFO:Starting new HTTP connection (1): www.ebi.ac.uk
+08/06/2015 09:41:33 AM INFO:Write in file Result/dataset_0.2/FamilyIPR019876_1.fasta
+08/06/2015 09:41:33 AM INFO:Write in file Result/dataset_0.2/FamilyIPR019876_2.fasta
+08/06/2015 09:41:33 AM INFO:Starting new HTTP connection (1): www.ebi.ac.uk
+08/06/2015 09:41:35 AM INFO:Write in file Result/dataset_0.2/FamilyIPR003633_1.fasta
+08/06/2015 09:41:35 AM INFO:Write in file Result/dataset_0.2/FamilyIPR003633_2.fasta
+08/06/2015 09:41:35 AM INFO:Starting new HTTP connection (1): www.ebi.ac.uk
+08/06/2015 09:41:39 AM INFO:Write in file Result/dataset_0.2/FamilyIPR024183_1.fasta
+08/06/2015 09:41:39 AM INFO:Write in file Result/dataset_0.2/FamilyIPR024183_2.fasta
+08/06/2015 09:41:39 AM INFO:Starting new HTTP connection (1): www.ebi.ac.uk
+08/06/2015 09:41:52 AM INFO:Write in file Result/dataset_0.2/FamilyIPR007266_1.fasta
+08/06/2015 09:41:52 AM INFO:Write in file Result/dataset_0.2/FamilyIPR007266_2.fasta
+08/06/2015 09:41:52 AM INFO:Starting new HTTP connection (1): www.ebi.ac.uk
+08/06/2015 09:41:57 AM INFO:Write in file Result/dataset_0.2/FamilyIPR026071_1.fasta
+08/06/2015 09:41:57 AM INFO:Write in file Result/dataset_0.2/FamilyIPR026071_2.fasta
+08/06/2015 09:41:57 AM INFO:Starting new HTTP connection (1): www.ebi.ac.uk
+08/06/2015 09:42:07 AM INFO:Write in file Result/dataset_0.2/FamilyIPR015419_1.fasta
+08/06/2015 09:42:07 AM INFO:Write in file Result/dataset_0.2/FamilyIPR015419_2.fasta
+08/06/2015 09:42:07 AM INFO:Starting new HTTP connection (1): www.ebi.ac.uk
+08/06/2015 09:42:33 AM INFO:Write in file Result/dataset_0.2/FamilyIPR012756_1.fasta
+08/06/2015 09:42:33 AM INFO:Write in file Result/dataset_0.2/FamilyIPR012756_2.fasta
+08/06/2015 09:42:33 AM INFO:Starting new HTTP connection (1): www.ebi.ac.uk
+08/06/2015 09:42:35 AM INFO:Write in file Result/dataset_0.2/FamilyIPR020227_1.fasta
+08/06/2015 09:42:35 AM INFO:Write in file Result/dataset_0.2/FamilyIPR020227_2.fasta
+08/06/2015 09:42:35 AM INFO:Starting new HTTP connection (1): www.ebi.ac.uk
+08/06/2015 09:42:45 AM INFO:Write in file Result/dataset_0.2/FamilyIPR007594_1.fasta
+08/06/2015 09:42:45 AM INFO:Write in file Result/dataset_0.2/FamilyIPR007594_2.fasta
+08/06/2015 09:42:45 AM INFO:Starting new HTTP connection (1): www.ebi.ac.uk
+08/06/2015 09:42:47 AM INFO:Write in file Result/dataset_0.2/FamilyIPR018887_1.fasta
+08/06/2015 09:42:47 AM INFO:Write in file Result/dataset_0.2/FamilyIPR018887_2.fasta
+08/06/2015 09:42:47 AM INFO:Write in file Family_file.txt
+08/06/2015 09:42:47 AM INFO:Finished
+08/06/2015 09:42:47 AM INFO:Started : converter
+08/06/2015 09:42:47 AM INFO:Started
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR019876_1.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR019876_1.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR019876_1.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR019876_1.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR019876_1.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR019876_1.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR019876_1.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR019876_1.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR019876_1.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR019876_2.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR019876_2.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR019876_2.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR019876_2.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR019876_2.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR019876_2.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR019876_2.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR019876_2.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR019876_2.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR003633_1.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR003633_1.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR003633_1.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR003633_1.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR003633_1.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR003633_1.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR003633_1.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR003633_1.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR003633_1.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR003633_2.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR003633_2.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR003633_2.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR003633_2.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR003633_2.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR003633_2.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR003633_2.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR003633_2.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR003633_2.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR024183_1.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR024183_1.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR024183_1.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR024183_1.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR024183_1.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR024183_1.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR024183_1.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR024183_1.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR024183_1.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR024183_2.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR024183_2.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR024183_2.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR024183_2.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR024183_2.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR024183_2.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR024183_2.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR024183_2.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR024183_2.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR007266_1.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR007266_1.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR007266_1.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR007266_1.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR007266_1.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR007266_1.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR007266_1.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR007266_1.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR007266_1.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR007266_2.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR007266_2.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR007266_2.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR007266_2.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR007266_2.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR007266_2.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR007266_2.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR007266_2.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR007266_2.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR026071_1.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR026071_1.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR026071_1.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR026071_1.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR026071_1.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR026071_1.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR026071_1.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR026071_1.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR026071_1.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR026071_2.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR026071_2.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR026071_2.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR026071_2.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR026071_2.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR026071_2.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR026071_2.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR026071_2.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR026071_2.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR015419_1.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR015419_1.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR015419_1.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR015419_1.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR015419_1.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR015419_1.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR015419_1.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR015419_1.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR015419_1.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR015419_2.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR015419_2.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR015419_2.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR015419_2.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR015419_2.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR015419_2.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR015419_2.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR015419_2.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR015419_2.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR012756_1.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR012756_1.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR012756_1.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR012756_1.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR012756_1.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR012756_1.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR012756_1.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR012756_1.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR012756_1.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR012756_2.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR012756_2.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR012756_2.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR012756_2.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR012756_2.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR012756_2.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR012756_2.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR012756_2.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR012756_2.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR020227_1.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR020227_1.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR020227_1.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR020227_1.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR020227_1.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR020227_1.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR020227_1.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR020227_1.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR020227_1.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR020227_2.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR020227_2.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR020227_2.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR020227_2.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR020227_2.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR020227_2.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR020227_2.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR020227_2.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR020227_2.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:42:47 AM INFO:Converts Result/dataset_0.2/FamilyIPR007594_1.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR007594_1.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR007594_1.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR007594_1.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR007594_1.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR007594_1.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR007594_1.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR007594_1.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR007594_1.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR007594_2.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR007594_2.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR007594_2.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR007594_2.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR007594_2.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR007594_2.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR007594_2.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR007594_2.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR007594_2.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR018887_1.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR018887_1.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR018887_1.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR018887_1.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR018887_1.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR018887_1.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR018887_1.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR018887_1.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR018887_1.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR018887_2.fasta in CODATA format and write in Result/dataset_0.codata
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR018887_2.fasta in EMBL format and write in Result/dataset_0.embl
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR018887_2.fasta in GCG format and write in Result/dataset_0.gcg
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR018887_2.fasta in GDE format and write in Result/dataset_0.gde
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR018887_2.fasta in GENBANK format and write in Result/dataset_0.genbank
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR018887_2.fasta in IG format and write in Result/dataset_0.ig
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR018887_2.fasta in NBRF format and write in Result/dataset_0.nbrf
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR018887_2.fasta in RAW format and write in Result/dataset_0.raw
+08/06/2015 09:42:48 AM INFO:Converts Result/dataset_0.2/FamilyIPR018887_2.fasta in SWISSPROT format and write in Result/dataset_0.swissprot
+08/06/2015 09:42:48 AM INFO:Finished
+08/06/2015 09:42:48 AM INFO:Finished
