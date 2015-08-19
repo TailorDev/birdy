@@ -36,9 +36,9 @@ def ID_InterPro(cache):
     IDs = IDs[1:]
     logging.info('Fetches InterPro IDs ... ok')
 
-    ## ligne a supprimer !!! ############################################################################################
+    # ligne a supprimer !!! ################################################
     # IDs = config.INTERPRO_ID
-    #####################################################################################################################
+    # ######################################################################
     return IDs
 
 
@@ -58,11 +58,17 @@ def fetch(number, maximum, IDs, path):
         fastas = r.text
         output = fastas.split('>')
         writting_f = ''
-        filefamily_name = config.IPR_name.format(path=path, ID=ID, indice="_align", fmt='fasta')
-        file_name = config.IPR_name.format(path=path, ID=ID, indice="", fmt='fasta')
+        filefamily_name = config.IPR_name.format(
+            path=path, ID=ID, indice="_align", fmt='fasta'
+        )
+        file_name = config.IPR_name.format(
+            path=path, ID=ID, indice="", fmt='fasta'
+        )
         filesf_name.append(filefamily_name)
         files_name.append(file_name)
-        logging.info('number of gene in the family{0} : {1}'.format(ID, len(output)))
+        logging.info(
+            'number of gene in the family{0} : {1}'.format(ID, len(output))
+        )
         logging.info('Write in file {0}'.format(file_name))
         writting = '>' + output[1]
         with open(file_name, 'w') as f:
@@ -92,17 +98,26 @@ def fetch(number, maximum, IDs, path):
 def convert(formats, fmts, filename, suffix):
     for fmt in formats:
         if fmt in fmts:
-            logging.info('Convertion of {0} in {1} format'.format(filename, fmt))
+            logging.info(
+                'Convertion of {0} in {1} format'.format(filename, fmt)
+            )
             extension = '.' + fmt.lower()
             logging.debug(extension)
             output = filename.replace(suffix, extension)
             logging.debug(output)
             logging.info(
-                'Converts {0} in {1} format and write in {2}'.format(filename, fmt, output))
+                'Converts {0} in {1} format and write in {2}'.format(
+                    filename, fmt, output
+                )
+            )
             command = 'squizz -c ' + fmt + ' ' + filename + ' > ' + output
             logging.debug(command)
             call(command, shell=True)
-            logging.info('Convertion of {0} in {1} format ... ok'.format(filename, fmt))
+            logging.info(
+                'Convertion of {0} in {1} format ... ok'.format(
+                    filename, fmt
+                )
+            )
     logging.info('Convertion of {0} ... ok'.format(filename))
 
 
@@ -113,11 +128,12 @@ def clustal_align(filename):
         call(command, shell=True)
         filename_align = filename.replace('.fasta', '.aln')
         logging.info('Alignment of {0} ... ok'.format(filename))
-    except not found:
+    except:
         logging.error('Alignment failed')
         filename_align = filename
 
     return filename_align
+
 
 def main(path, cache):
     family_number = config.family_file_nb
@@ -134,21 +150,6 @@ def main(path, cache):
     logging.info('Data loading')
     ID = ID_InterPro(cache)
     file_name = fetch(family_number, nb_align, ID, path)
-
-    ############################################################""
-    # filesf_name = []
-    # files_name = []
-    # IDs = [
-    #     'IPR002351', 'IPR002366', 'IPR002369', 'IPR023418', 'IPR002404',
-    #     'IPR002420', 'IPR031145', 'IPR023266', 'IPR002363', 'IPR016271']
-    # for ID in IDs:
-    #     filefamily_name = config.IPR_name.format(path=path, ID=ID, indice="_align", fmt='fasta')
-    #     file_nameseq = config.IPR_name.format(path=path, ID=ID, indice="", fmt='fasta')
-    #     filesf_name.append(filefamily_name)
-    #     files_name.append(file_nameseq)
-
-    # file_name = [files_name, filesf_name]
-    ##########################################################################################
 
     logging.info('Data loading ... ok\n')
 

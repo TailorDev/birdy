@@ -35,9 +35,9 @@ def id_NCBI(db, search, file_per_format, formats):
     nb_file = file_per_format * (len(formats))
     i = random.randint(1, 1000)
 
-    ########################################################################################################################
+    #######################################################################
     # i = 1
-    ########################################################################################################################
+    #######################################################################
 
     handle = Entrez.esearch(db=db, retmax=nb_file, retstart=i, term=search)
     pub_search = Entrez.read(handle)
@@ -105,9 +105,9 @@ def id_PDB(cache):
 
     logging.info('Fetches ok')
 
-    ## ligne a supprimer !!! ############################################################################################
+    # ligne a supprimer !!! ###############################################
     # IDs = config.PDB_ID
-    #####################################################################################################################
+    #######################################################################
     return IDs
 
 
@@ -131,9 +131,9 @@ def id_DSSP():
     f.closed
     IDs = IDs[:-1]
     logging.info('Reads ok')
-    ## ligne a supprimer !!! ############################################################################################
+    # ligne a supprimer !!! ###############################################
     # IDs = config.DSSP_ID
-    #####################################################################################################################
+    #######################################################################
     return IDs
 
 
@@ -190,8 +190,6 @@ def id_KEGG(db, cache):
             IDs = IDs[:-1]
 
         logging.info('Fetches on database ok')
-
-
     else:
         logging.info('Reads on {0} file'.format(file_name))
         with open(file_name, 'r') as f:
@@ -203,11 +201,10 @@ def id_KEGG(db, cache):
 
     logging.info('Fetches ok')
 
-    ## ligne a supprimer !!! ############################################################################################
+    # ligne a supprimer !!! ################################################
     # IDs = config.KEGG_ID
-    #####################################################################################################################
+    ########################################################################
     return IDs
-
 
 
 def fetch_NCBI(db, IDs, formats, file_per_format, path):
@@ -290,7 +287,7 @@ def fetch_PDB(IDs, file_per_format, path, fmt, end, extension):
             logging.error('ftp error with url {0} on PDB database'.format(url))
 
 
-def fetch_KEGG(IDs, file_per_format, path,db):
+def fetch_KEGG(IDs, file_per_format, path, db):
     """Fetches datas about random IDs
 
     Retrieves datas about a random list of n IDs, in KEGG data
@@ -464,9 +461,9 @@ def run_KEGG(databases, file_per_format, cache, path):
         else:
             logging.error(
                 'Databases %s not alowed. Try with "pathway", "brite",' +
-                ' "module", "ko", "genome", "compound", "glycan", "reaction",' +
-                ' "rpair", "rclass", "enzyme", "disease", "drug", "dgroup",' +
-                ' "environ" or "organism"', database)
+                ' "module", "ko", "genome", "compound", "glycan", ' +
+                ' "reaction", "rpair", "rclass", "enzyme", "disease", ' +
+                ' "drug", "dgroup", "environ" or "organism"', database)
     logging.info('KEGG database ... ok\n')
 
 
