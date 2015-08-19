@@ -170,8 +170,3 @@ def main(path, cache):
     if count:
         message = ('Hoho, no message =(')
         logging.error(message)
-
-
-if __name__ == "__main__":
-    # execute only if run as a script
-    main()
