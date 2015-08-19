@@ -6,7 +6,8 @@ A biological formats compilation tool.
 
 TODO
 
-* [clustalw](ftp://ftp.ebi.ac.uk/pub/software/clustalw2/)
+* [clustalw](http://www.clustal.org/clustal2/)
+* [squizz](ftp://ftp.pasteur.fr/pub/gensoft/projects/squizz/)
 
 ## Installation
 
