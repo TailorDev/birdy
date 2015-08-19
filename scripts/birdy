@@ -1,6 +1,14 @@
 #!/usr/bin/env python
+import os
+import logging
 
-doc = """Birdy.
+from docopt import docopt
+from schema import Schema, And, Use, SchemaError, Optional
+from subprocess import call
+
+from birdy import fetcher, config, converter
+
+doc = """Birdy
 
 Usage:
   core [-v | -d ] [-f] [PATH] [DIRECTORY] [--nocache]
@@ -20,14 +28,6 @@ Options:
   -f         Print logs (if not, print logs in file 'converter.log')
   --nocache  Reload all ID.
 """
-
-from docopt import docopt
-from schema import Schema, And, Use, SchemaError, Optional
-from subprocess import call
-from birdy import fetcher, config, converter
-
-import os
-import logging
 
 
 def mkdir(path):

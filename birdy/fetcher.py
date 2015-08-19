@@ -1,13 +1,11 @@
-#!usr/bin/python
-
-
-from Bio_Eutils import Entrez
-from . import config
-
 import random
 import requests
 import urllib.request
 import logging
+
+from Bio_Eutils import Entrez
+
+from . import config
 
 
 def id_NCBI(db, search, file_per_format, formats):

@@ -1,13 +1,11 @@
-#!/usr/bin/env python
-
-
-from subprocess import call
-from . import config
-
 import random
 import requests
 import urllib.request
 import logging
+
+from subprocess import call
+
+from . import config
 
 
 def ID_InterPro(cache):

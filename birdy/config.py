@@ -1,3 +1,5 @@
+import os.path
+
 # search:
 # Allowed values: any key words.
 search = 'gene'
@@ -36,6 +38,9 @@ dataset = 'dataset_time'
 
 # log file :
 log_name = 'birdy.log'
+
+# Cache
+CACHE_ROOT = os.path.join(os.path.expanduser('~'), '.birdy/cache')
 
 # URL
 # PDB:
