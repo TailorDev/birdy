@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 
-doc = """Core.
+doc = """Birdy.
 
 Usage:
   core [-v | -d ] [-f] [PATH] [DIRECTORY] [--nocache]
   core (-h | --help)
 
 Examples:
-  core -i ~/home/foo/
+  birdy -i ~/home/foo/
 
 Arguments
   PATH       Out pathway
@@ -19,13 +19,12 @@ Options:
   -d         Debug, print DEBUGG, INFO, WARNING, ERROR and CRITICAL logs
   -f         Print logs (if not, print logs in file 'converter.log')
   --nocache  Reload all ID.
-
 """
 
 from docopt import docopt
 from schema import Schema, And, Use, SchemaError, Optional
 from subprocess import call
-from db_fetcher import fetcher, config, converter
+from birdy import fetcher, config, converter
 
 import os
 import logging
@@ -144,11 +143,11 @@ def main():
 
     logging.info('Started : fetcher')
     fetcher.main(directory, cache)
-    logging.info('Fetcher ... ok\n')    
+    logging.info('Fetcher ... ok\n')
 
     logging.info('Started : converter')
     converter.main(directory, cache)
-    logging.info('Converter ... ok\n') 
+    logging.info('Converter ... ok\n')
 
     logging.info('The End\n\n')
 
