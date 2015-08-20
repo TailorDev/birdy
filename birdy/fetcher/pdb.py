@@ -1,7 +1,6 @@
 import logging
 import os
 import os.path
-import random
 import requests
 import sys
 import urllib.request
@@ -103,7 +102,11 @@ def fetch_pdb(ID, fmt='pdb', output_path='.'):
         raise
 
 
-def run_PDB(output_path, count, formats, IDs=None, use_cache=True):
+def generate_pdb_set(output_path,
+                     count,
+                     formats,
+                     input_ids=None,
+                     use_cache=True):
     """Generate PDB files sample
 
     Args:
@@ -116,12 +119,15 @@ def run_PDB(output_path, count, formats, IDs=None, use_cache=True):
 
     logging.info('Handling PDB file format...')
 
-    if not IDs:
-        IDs = get_random_pdb_ids_set(count, use_cache=use_cache)
+    for fmt in formats.keys():
+        if input_ids is None:
+            ids = get_random_pdb_ids_set(formats[fmt], use_cache=use_cache)
+        else:
+            ids = input_ids
 
-    for fmt in formats:
-        for i, ID in enumerate(IDs):
-            fetch_pdb(ID, fmt=fmt, output_path=output_path)
+        for i, pdb_id in enumerate(ids):
+            fetch_pdb(pdb_id, fmt=fmt, output_path=output_path)
+
         logging.info("{} {} files have been fetched".format(i + 1, fmt))
 
     logging.info('PDB file format done\n')

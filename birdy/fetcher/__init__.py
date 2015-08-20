@@ -2,7 +2,7 @@ from .. import config
 from .dssp import run_DSSP
 from .kegg import run_KEGG
 from .ncbi import run_NCBI
-from .pdb import run_PDB
+from .pdb import generate_pdb_set
 
 
 def main(output_path, cache):
@@ -22,7 +22,13 @@ def main(output_path, cache):
         if fmt in NCBIformat:
             NCBI = True
     if pdb:
-        run_PDB(output_path, file_per_format, formats, cache)
+        generate_pdb_set(
+            output_path,
+            file_per_format,
+            config.FORMATS.get('PDB', None),
+            input_ids=None,
+            use_cache=cache
+        )
     if NCBI:
         run_NCBI(formats, search, file_per_format, db_NCBI, output_path)
     if 'keg' in formats:

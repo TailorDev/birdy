@@ -7,6 +7,7 @@ search = 'gene'
 # file_per_format:
 # Allowed values: integer between 1 and 99.
 file_per_format = 10
+FILES_PER_FORMAT = 10
 
 # db_NCBI:
 # Allowed values: 'protein', 'nucleotide', 'nuccore', 'nucgss', 'homologene',
@@ -75,8 +76,20 @@ IPR_name = "{path}INTERPRO_{ID}{indice}.{fmt}"
 formats_converter = [
     'CODATA', 'EMBL', 'GCG', 'GDE', 'GENBANK', 'IG', 'NBRF', 'RAW',
     'SWISSPROT', 'CLUSTAL', 'MEGA', 'MSF', 'NEXUS', 'PHYLIP', 'STOCKHOLM']
-# formats_fetcher = ['pdb', 'mmCIF', 'fasta', 'gb', 'gp', 'keg', 'dssp']
-formats_fetcher = ['pdb', 'mmCIF']
+formats_fetcher = ['pdb', 'mmCIF', 'fasta', 'gb', 'gp', 'keg', 'dssp']
+FORMATS = {
+    # Service
+    'PDB': {
+        # Format
+        'pdb': 3,
+        'mmCIF': 5
+    },
+    'NCBI': {
+        'fasta': FILES_PER_FORMAT,
+        'gb': FILES_PER_FORMAT,
+        'gp': FILES_PER_FORMAT
+    }
+}
 
 # ID test
 KEGG_ID = [
