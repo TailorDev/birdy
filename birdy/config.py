@@ -29,6 +29,7 @@ family_file_nb = file_per_format
 
 # pathway:
 path = 'Result/'
+OUTPUT_PATH = ''
 
 # dataset:
 # defined the directory to load files.
@@ -41,11 +42,15 @@ log_name = 'birdy.log'
 
 # Cache
 CACHE_ROOT = os.path.join(os.path.expanduser('~'), '.birdy/cache')
+IDS_LIST_CACHE_ROOT = os.path.join(CACHE_ROOT, 'ids')
+DSSP_IDS_LIST_CACHE = os.path.join(IDS_LIST_CACHE_ROOT, 'dssp')
+PDB_IDS_LIST_CACHE = os.path.join(IDS_LIST_CACHE_ROOT, 'pdb')
+INTERPRO_IDS_LIST_CACHE = os.path.join(IDS_LIST_CACHE_ROOT, 'interpro')
 
 # URL
 # PDB:
-url_id_pdb = 'http://www.rcsb.org/pdb/rest/customReport.csv?pdbids=*&customReportColumns=structureId&format=csv&service=wsfile'  # NOPEP8
-url_data_pdb = 'ftp://ftp.ebi.ac.uk/pub/databases/rcsb/pdb-remediated/data/structures/divided/{fmt}/{code}/{end}'  # NOPEP8
+PDB_IDS_URL = 'http://www.rcsb.org/pdb/rest/customReport.csv?pdbids=*&customReportColumns=structureId&format=csv&service=wsfile'  # NOPEP8
+PDB_ID_URL = 'ftp://ftp.ebi.ac.uk/pub/databases/rcsb/pdb-remediated/data/structures/divided/{fmt}/{idx}/{filename}'  # NOPEP8
 
 # KEGG
 url_kegg = 'http://rest.kegg.jp/{type}/{data}'
@@ -70,7 +75,8 @@ IPR_name = "{path}INTERPRO_{ID}{indice}.{fmt}"
 formats_converter = [
     'CODATA', 'EMBL', 'GCG', 'GDE', 'GENBANK', 'IG', 'NBRF', 'RAW',
     'SWISSPROT', 'CLUSTAL', 'MEGA', 'MSF', 'NEXUS', 'PHYLIP', 'STOCKHOLM']
-formats_fetcher = ['pdb', 'mmCIF', 'fasta', 'gb', 'gp', 'keg', 'dssp']
+# formats_fetcher = ['pdb', 'mmCIF', 'fasta', 'gb', 'gp', 'keg', 'dssp']
+formats_fetcher = ['pdb', 'mmCIF']
 
 # ID test
 KEGG_ID = [

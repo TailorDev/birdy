@@ -5,7 +5,7 @@ from .ncbi import run_NCBI
 from .pdb import run_PDB
 
 
-def main(path, cache):
+def main(output_path, cache):
     formats = config.formats_fetcher
     search = config.search
     file_per_format = config.file_per_format
@@ -22,10 +22,10 @@ def main(path, cache):
         if fmt in NCBIformat:
             NCBI = True
     if pdb:
-        run_PDB(file_per_format, formats, cache, path)
+        run_PDB(output_path, file_per_format, formats, cache)
     if NCBI:
-        run_NCBI(formats, search, file_per_format, db_NCBI, path)
+        run_NCBI(formats, search, file_per_format, db_NCBI, output_path)
     if 'keg' in formats:
-        run_KEGG(db_KEGG, file_per_format, cache, path)
+        run_KEGG(db_KEGG, file_per_format, cache, output_path)
     if 'dssp' in formats:
-        run_DSSP(file_per_format, path)
+        run_DSSP(file_per_format, output_path)
