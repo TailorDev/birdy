@@ -59,7 +59,9 @@ def get_pdb_ids(use_cache=True):
 
 def get_random_pdb_ids_set(count, use_cache=True):
     """Get random PDB ids set"""
+
     logging.info('Generating PDB ids sample')
+
     return get_random_ids(get_pdb_ids(use_cache), count)
 
 
@@ -68,7 +70,7 @@ def fetch_pdb(ID, fmt='pdb', output_path='.'):
 
     Args:
         ID: PDB ID
-        fmt: file format (pdb and mmCIF are supported)
+        fmt: file format
         output_path: path to output downloaded files
     """
 
@@ -123,6 +125,7 @@ def generate_pdb_set(output_path,
         else:
             ids = input_ids
 
+        i = 0
         for i, pdb_id in enumerate(ids):
             fetch_pdb(pdb_id, fmt=fmt, output_path=output_path)
 

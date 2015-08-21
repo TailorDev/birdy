@@ -4,8 +4,9 @@
   birdy [options] <output-path>
 
 Options:
-  --pdb <num>    Fetch num PDBs
-  --mmCIF <num>  Fetch num mmCIFs
+  --pdb <num>    Fetch num PDBs [default: 0]
+  --mmCIF <num>  Fetch num mmCIFs [default: 0]
+  --fasta <num>  Fetch num fastas [default: 0]
   -h  --help     Show this screen.
   -v  --verbose  Verbose mode
   -d  --debug    Debug mode
@@ -45,7 +46,9 @@ def check_command_arguments(arguments):
         Optional('mmCIF'): And(
             Use(int), error='mmCIF should be an integer'
         ),
-
+        Optional('fasta'): And(
+            Use(int), error='fasta should be an integer'
+        ),
     })
 
     try:
@@ -63,6 +66,7 @@ def main():
     use_cache = not arguments['-n']
     pdb = arguments['--pdb']
     mmCIF = arguments['--mmCIF']
+    fasta = arguments['--fasta']
     output_path = arguments['<output-path>']
 
     if arguments['-v']:
@@ -82,6 +86,7 @@ def main():
         'use_cache': use_cache,
         'pdb': pdb,
         'mmCIF': mmCIF,
+        'fasta': fasta,
     })
 
     # Formats
@@ -94,6 +99,10 @@ def main():
     # -- mmCIF
     if cleaned_arguments.get('mmCIF', None):
         formats['PDB']['mmCIF'] = cleaned_arguments['mmCIF']
+
+    # -- mmCIF
+    if cleaned_arguments.get('fasta', None):
+        formats['NCBI']['fasta'] = cleaned_arguments['fasta']
 
     logging.info('Started : fetcher')
     fetcher.main(output_path, formats, use_cache)

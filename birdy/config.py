@@ -1,18 +1,17 @@
+import os
 import os.path
 
-# search:
-# Allowed values: any key words.
-search = 'gene'
+# Entrez
+ENTREZ_SEARCH = 'gene'
+ENTREZ_EMAIL = os.environ.get('ENTREZ_EMAIL', None)
+ENTREZ_DATABASES = [
+    'protein', 'nucleotide', 'nuccore', 'nucgss', 'homologene',
+    'popset', 'nucest', 'sequences', 'snp'
+]
 
-# file_per_format:
-# Allowed values: integer between 1 and 99.
-file_per_format = 10
-FILES_PER_FORMAT = 10
-
-# db_NCBI:
-# Allowed values: 'protein', 'nucleotide', 'nuccore', 'nucgss', 'homologene',
-# 'popset', 'nucest', 'sequences', 'snp'
-db_NCBI = ['nucleotide']
+NCBI_DATABASES = [
+    'protein', 'nucleotide'
+]
 
 # db_KEGG:
 # Allowed values: 'pathway', 'brite', 'module', 'ko', 'genome', 'compound',
@@ -26,10 +25,9 @@ nb_align = 10
 
 # family_file_nb:
 # Allowed values: integer between 1 and 50.
-family_file_nb = file_per_format
+# family_file_nb = file_per_format
 
-# pathway:
-path = 'Result/'
+
 OUTPUT_PATH = ''
 
 # dataset:
