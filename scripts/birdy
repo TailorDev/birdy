@@ -8,7 +8,7 @@ Options:
   -v  --verbose  Verbose mode
   -d  --debug    Debug mode
   -n  --no-cache Do not use cache at all
-
+  --all <num>    Collect num files for all supported file formats
 Formats:
 """
 
@@ -37,10 +37,10 @@ def check_command_arguments(arguments):
     Checks arguments
 
     Args:
-        args : all arguments
+        args : cli arguments
 
     Returns:
-        right arguments
+        Cleaned arguments
     """
 
     logging.info('Checking command line arguments...')
@@ -51,6 +51,7 @@ def check_command_arguments(arguments):
         Optional('-h'): Use(bool),
         Optional('-d'): Use(bool),
         Optional('-v'): Use(bool),
+        Optional('--all'): Or(Use(int), None),
     })
 
     # Add supported formats
@@ -88,12 +89,15 @@ def main():
 
     cleaned_arguments = check_command_arguments(arguments)
     use_cache = not cleaned_arguments['-n']
+    collect_all = cleaned_arguments['--all']
 
     # Set per format counter
     formats = config.FORMATS
     for service in formats:
         for fmt in formats.get(service):
             count = cleaned_arguments['--{}'.format(fmt)]
+            if collect_all:
+                formats[service][fmt] = collect_all
             if count:
                 formats[service][fmt] = count
 
