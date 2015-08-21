@@ -2,6 +2,7 @@ import os
 import os.path
 
 from itertools import chain
+from urllib.parse import urljoin
 
 
 # Entrez
@@ -59,7 +60,9 @@ PDB_ID_URL = 'ftp://ftp.ebi.ac.uk/pub/databases/rcsb/pdb-remediated/data/structu
 KEGG_API_URL = 'http://rest.kegg.jp/{operation}/{argument}'
 
 # DSSP
-DSSP_ID_URL = 'ftp://ftp.cmbi.ru.nl/pub/molbio/data/dssp/{id}.dssp'
+DSSP_FTP_HOST = 'ftp.cmbi.ru.nl'
+DSSP_FTP_PATH = '/pub/molbio/data/dssp/'
+DSSP_ID_URL = 'ftp://' + DSSP_FTP_HOST + DSSP_FTP_PATH + '{id}.dssp'
 
 # InterProScan
 url_data_interpro = 'http://www.ebi.ac.uk/interpro/entry/{0}/proteins-matched\

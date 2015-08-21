@@ -3,8 +3,63 @@ import os.path
 import sys
 import urllib.request
 
+from ftplib import FTP
+
 from .. import config
-from .pdb import get_random_pdb_ids_set
+from ..utils import get_random_ids
+
+
+def get_dssp_ids(use_cache=True):
+    """Get dssp IDs
+
+    Retrieves all DSSP files from:
+    http://www.cmbi.ru.nl/dssp.html
+
+    Args:
+        use_cache: boolean, if False force cache update
+
+    Returns:
+        A list of DSSP/PDB IDs.
+        For exemple :
+
+        ['4z1s.dssp', '4z1y.dssp', '4z24.dssp', '4z25.dssp',
+         '4z28.dssp', '4z2b.dssp', '4z2f.dssp', '4z2g.dssp',
+         '4z2i.dssp', '4z2k.dssp', '4z2l.dssp', '4z2o.dssp']
+    """
+
+    # Update cache
+    if not os.path.exists(config.DSSP_IDS_LIST_CACHE) or use_cache is False:
+        logging.info("Updating DSSP ids cache...")
+
+        # Create cache directory if it does not exists
+        os.makedirs(config.IDS_LIST_CACHE_ROOT, exist_ok=True)
+
+        # Fetch ids
+        ftp = FTP(config.DSSP_FTP_HOST)
+        ftp.login()
+        ftp.cwd(config.DSSP_FTP_PATH)
+        files = ftp.nlst()
+        ids = [f.replace('.dssp', '') for f in files]
+
+        # Update cache file
+        with open(config.DSSP_IDS_LIST_CACHE, 'w') as f:
+            f.write('\n'.join(ids))
+    # Use the cache
+    else:
+        logging.info("Loading DSSP ids from cache...")
+
+        with open(config.DSSP_IDS_LIST_CACHE, 'r') as f:
+            ids = [l.replace('\n', '') for l in f.readlines()]
+
+    return ids
+
+
+def get_random_dssp_ids_set(count, use_cache=True):
+    """Get random DSSP ids set"""
+
+    logging.info('Generating DSSP ids sample')
+
+    return get_random_ids(get_dssp_ids(use_cache), count)
 
 
 def fetch_dssp(ID, output_path='.'):
@@ -54,7 +109,7 @@ def generate_dssp_set(output_path, formats, input_ids=None, use_cache=True):
 
     fmt = 'dssp'
     if input_ids is None:
-        ids = get_random_pdb_ids_set(formats[fmt], use_cache=use_cache)
+        ids = get_random_dssp_ids_set(formats[fmt], use_cache=use_cache)
     else:
         ids = input_ids
 
@@ -63,5 +118,3 @@ def generate_dssp_set(output_path, formats, input_ids=None, use_cache=True):
         fetch_dssp(pdb_id, output_path=output_path)
     if i:
         logging.info("{} {} files have been fetched".format(i + 1, fmt))
-
-    logging.info('DSSP file format done\n')
