@@ -81,7 +81,7 @@ def main():
         level = logging.WARNING
 
     logging.basicConfig(
-        format='%(asctime)s %(levelname)s:%(message)s',
+        format='%(asctime)s %(levelname)s: %(message)s',
         datefmt='%m/%d/%Y %I:%M:%S %p',
         level=level
     )
@@ -107,9 +107,7 @@ def main():
     # converter.main(directory, use_cache)
     # logging.info('Converter ... ok\n')
 
-    logging.info('The End\n\n')
-
 if __name__ == "__main__":
     with Timer() as t:
         main()
-    logging.info("Execution time was {:.3f} s".format(t.secs))
+    logging.info("BIRDY | Execution time was {:.3f} s".format(t.secs))
