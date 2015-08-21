@@ -1,142 +1,131 @@
-import random
-import requests
-import urllib.request
 import logging
+import os
+import os.path
+import requests
+import sys
+import urllib.request
+
 
 from .. import config
+from ..exceptions import NetworkError, UnsupportedFormatError
+from ..utils import get_random_ids
 
 
-def id_PDB(cache):
-    """Fetches PDB IDs.
+def get_pdb_ids(use_cache=True):
+    """Get PDB IDs
 
-    Retrieves all IDs from PDB data base.
+    Retrieves all IDs from the PDB.
 
     Args:
-        cache : boulean, if True, reloads all IDs, if False,
-            use IDs in file "PDB_ID.txt"
+        use_cache: boolean, if False force cache update
 
     Returns:
-        A list of all IDs.
+        A list of PDB IDs.
         For exemple :
 
-        ['4Z1S', '4Z1X', '4Z1Y', '4Z24', '4Z25', '4Z26',
-         '4Z28', '4Z29', '4Z2B', '4Z2F', '4Z2G', '4Z2H',
-         '4Z2I', '4Z2J', '4Z2K', '4Z2L', '4Z2O', '4Z2P']
+        ['4z1s', '4z1x', '4z1y', '4z24', '4z25', '4z26',
+         '4z28', '4z29', '4z2b', '4z2f', '4z2g', '4z2h',
+         '4z2i', '4z2j', '4z2k', '4z2l', '4z2o', '4z2p']
     """
 
-    logging.info('Fetches PDB IDs')
+    # Update cache
+    if not os.path.exists(config.PDB_IDS_LIST_CACHE) or use_cache is False:
+        logging.info("Updating PDB ids cache...")
 
-    if cache:
-        logging.info('Fetches PDB IDs on PDB Database')
-        url = config.url_id_pdb
-        r = requests.get(url)
-        IDs = r.text.split('"\n"')
-        IDs[0] = IDs[0].split('"')
-        IDs[0] = IDs[0][1]
-        IDs[-1] = IDs[-1].split('"')
-        IDs[-1] = IDs[-1][0]
+        # Create cache directory if it does not exists
+        os.makedirs(config.IDS_LIST_CACHE_ROOT, exist_ok=True)
 
-        if IDs != []:
-            logging.info('Writes in PDB_ID.txt file')
-            with open('ID/PDB_ID.txt', 'w') as f:
-                for ID in IDs:
-                    output = ID + '\t'
-                    f.write(output)
-            f.closed
-            logging.info('Writes ok')
-        else:
-            logging.warning('Problem with PDB database')
-            with open('ID/PDB_ID.txt', 'r') as f:
-                ID = f.read()
-                IDs = ID.split('\t')
-            f.closed
-            IDs = IDs[:-1]
-        logging.info('Fetches on database ok')
+        # Fetch PDB ids
+        response = requests.get(config.PDB_IDS_URL)
+        csv = response.text
+        if not len(csv):
+            msg = "Got an empty response from pdb.org"
+            logging.error(msg)
+            raise NetworkError(msg)
+        ids = [pdb_id.replace('"', '').lower() for pdb_id in csv.split()[1:]]
 
+        # Update cache file
+        with open(config.PDB_IDS_LIST_CACHE, 'w') as f:
+            f.write('\n'.join(ids))
+    # Use the cache
     else:
-        logging.info('Reads on PDB_ID.txt file')
-        with open('ID/PDB_ID.txt', 'r') as f:
-            ID = f.read()
-            IDs = ID.split('\t')
-        f.closed
-        IDs = IDs[:-1]
+        logging.info("Loading PDB ids from cache...")
 
-    logging.info('Fetches ok')
+        with open(config.PDB_IDS_LIST_CACHE, 'r') as f:
+            ids = [l.replace('\n', '') for l in f.readlines()]
 
-    # ligne a supprimer !!! ###############################################
-    # IDs = config.PDB_ID
-    #######################################################################
-    return IDs
+    return ids
 
 
-def fetch_PDB(IDs, file_per_format, path, fmt, end, extension):
-    """Fetches datas about random IDs
+def get_random_pdb_ids_set(count, use_cache=True):
+    """Get random PDB ids set"""
+    logging.info('Generating PDB ids sample')
+    return get_random_ids(get_pdb_ids(use_cache), count)
 
-    Retrieves datas about a random list of n IDs, in pdb or mmCIF formats,
-    in PDB data bases and load it in "path" directory. "n" is
-    the number of files per formats
-    --- /!\ gzipped format /!\ ---
+
+def fetch_pdb(ID, fmt='pdb', output_path='.'):
+    """Fetch a PDB file from pdb.org ftp
 
     Args:
-        IDs : IDs list
-        file_per_format : number of files per formats
-        path : pathway where data will be load
-        fmt : pdb or mmCIF formats, used in url
-        end : extension for url
+        ID: PDB ID
+        fmt: file format (pdb and mmCIF are supported)
+        output_path: path to output downloaded files
     """
 
-    logging.info('Fetches PDB datas about IDs on pdb format')
-    rand_list = random.sample(list(range(len(IDs))), file_per_format)
+    logging.info('Fetching PDB {} with format {}...'.format(ID, fmt))
 
-    for i in range(file_per_format):
-        ID = IDs[rand_list[i]]
-        ID = ID.lower()
-        code = ID[:-1]
-        code = code[1:]
-        final_end = end.format(ID, extension)
-        url = config.url_data_pdb.format(fmt=fmt, code=code, end=final_end)
-        file_name = config.PDB_name.format(
-            path=path, ID=ID, extension=extension)
-        try:
-            urllib.request.urlretrieve(url, file_name)
-            logging.info('{0} ... ok'.format(ID))
-        except urllib.error.URLError:
-            logging.error('ftp error with url {0} on PDB database'.format(url))
+    if fmt == 'pdb':
+        filename = 'pdb{id}.ent.gz'.format(id=ID)
+    elif fmt == 'mmCIF':
+        filename = '{id}.cif.gz'.format(id=ID)
+    else:
+        msg = "{} format is not yet supported for PDB".format(fmt)
+        logging.error(msg)
+        raise UnsupportedFormatError(msg)
+
+    fmt_path = os.path.join(output_path, fmt)
+    output_file = os.path.join(fmt_path, filename)
+
+    os.makedirs(fmt_path, exist_ok=True)
+
+    url = config.PDB_ID_URL.format(fmt=fmt, idx=ID[1:3], filename=filename)
+
+    try:
+        urllib.request.urlretrieve(url, output_file)
+    except:
+        logging.error(
+            "Cannot fetch id {id} from the PDB. Request url was: {url}".format(
+                id=ID, url=url
+            )
+        )
+        logging.debug(sys.exc_info()[0])
+        raise
 
 
-def run_PDB(file_per_format, formats, cache, path):
-    """Result
-
-    Manages fonctions about PDB database
+def generate_pdb_set(output_path,
+                     formats,
+                     input_ids=None,
+                     use_cache=True):
+    """Generate PDB files sample
 
     Args:
-        file_per_format : number of files per formats
-        formats : List of formats
+        output_path: the output path
+        formats: a dict of format/counter {'fmt': 10}
+        IDs: we are able to force PDB IDs to download
+        use_cache: if False PDB ids list cache will be updated
     """
 
-    logging.info('PDB database')
+    logging.info('Handling PDB file format...')
 
-    IDs = id_PDB(cache)
-    count = True
+    for fmt in formats.keys():
+        if input_ids is None:
+            ids = get_random_pdb_ids_set(formats[fmt], use_cache=use_cache)
+        else:
+            ids = input_ids
 
-    if 'pdb' in formats:
-        fmt = 'pdb'
-        end = 'pdb{0}.{1}'
-        extension = 'ent.gz'
-        fetch_PDB(IDs, file_per_format, path, fmt, end, extension)
-        logging.info('pdb format ... ok')
-        count = False
+        for i, pdb_id in enumerate(ids):
+            fetch_pdb(pdb_id, fmt=fmt, output_path=output_path)
 
-    if 'mmCIF' in formats:
-        fmt = 'mmCIF'
-        end = '{0}.{1}'
-        extension = 'cif.gz'
-        fetch_PDB(IDs, file_per_format, path, fmt, end, extension)
-        logging.info('mmCIF format ... ok')
-        count = False
+        logging.info("{} {} files have been fetched".format(i + 1, fmt))
 
-    # Error messages
-    if count:
-        logging.info('No pdb or mmCIF formats load')
-
-    logging.info('PDB database ... ok\n')
+    logging.info('PDB file format done\n')
