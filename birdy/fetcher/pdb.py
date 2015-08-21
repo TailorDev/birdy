@@ -104,10 +104,7 @@ def fetch_pdb(ID, fmt='pdb', output_path='.'):
         raise
 
 
-def generate_pdb_set(output_path,
-                     formats,
-                     input_ids=None,
-                     use_cache=True):
+def generate_pdb_set(output_path, formats, input_ids=None, use_cache=True):
     """Generate PDB files sample
 
     Args:

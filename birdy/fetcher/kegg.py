@@ -1,19 +1,20 @@
-import random
-import requests
 import logging
+import os.path
+import requests
 
 from .. import config
+from ..exceptions import NetworkError
+from ..utils import get_random_ids
 
 
-def id_KEGG(db, cache):
+def get_kegg_ids(db, use_cache=True):
     """Fetches KEGG IDs.
 
-    Retrieves all IDs from specified KEGG data base like 'pathway'.
+    Retrieves all IDs from specified KEGG database, e.g. 'pathway'.
 
     Args:
         db : KEGG database
-        cache : boulean, if True, reloads all IDs, if False,
-            use IDs in file "KEGG_(database)_ID.txt"
+        use_cache: boolean, if False force cache update
 
     Returns:
         A list of IDs corresponding on the databases.
@@ -23,112 +24,105 @@ def id_KEGG(db, cache):
          'path:map00121', 'path:map00130', 'path:map00140', 'path:map00190',
          'path:map00195', 'path:map00196', 'path:map00220', 'path:map00230',
          'path:map00231', 'path:map00232', 'path:map00240', 'path:map00250']
-
     """
-    logging.info('Fetches KEGG IDs')
+    ids_list_cache = config.KEGG_IDS_LIST_CACHE_FOR_DB.format(db=db)
 
-    file_name = 'ID/KEGG_' + db + '_ID.txt'
+    # Update cache
+    if not os.path.exists(ids_list_cache) or use_cache is False:
+        logging.info("Updating KEGG ids cache for {} database...".format(db))
 
-    if cache:
-        logging.info('Fetches KEGG IDs on %s database', db)
-        url = config.url_kegg.format(type='list', data=db)
-        logging.debug(url)
-        r = requests.get(url)
+        # Create cache directory if it does not exists
+        os.makedirs(config.KEGG_IDS_LIST_CACHE_ROOT, exist_ok=True)
 
-        IDs = []
-        lines = r.text.split('\n')
-        logging.debug(lines)
-        for line in lines:
-            ID = line.split('\t')
+        url = config.KEGG_API_URL.format(
+            operation='list', argument=db
+        )
 
-            if ID[0] != '':
-                IDs.append(ID[0])
-        if IDs != []:
-            with open(file_name, 'w') as f:
-                for ID in IDs:
-                    output = ID + '\t'
-                    f.write(output)
-            f.closed
-        else:
-            logging.warning('Problem with KEGG databases')
-            with open(file_name, 'r') as f:
-                ID = f.read()
-                IDs = ID.split('\t')
-            f.closed
-            IDs = IDs[:-1]
+        # Fetch PDB ids
+        response = requests.get(url)
+        if not len(response.text):
+            msg = "Got an empty response from rest.kegg.jp"
+            logging.error(msg)
+            raise NetworkError(msg)
+        ids = [l.split('\t')[0] for l in response.text.split('\n') if len(l)]
 
-        logging.info('Fetches on database ok')
+        # Update cache file
+        with open(ids_list_cache, 'w') as f:
+            f.write('\n'.join(ids))
+    # Use the cache
     else:
-        logging.info('Reads on {0} file'.format(file_name))
-        with open(file_name, 'r') as f:
-            ID = f.read()
-            IDs = ID.split('\t')
-        f.closed
-        IDs = IDs[:-1]
-        logging.info('Reads ok')
+        logging.info("Loading KEGG ids from cache...")
 
-    logging.info('Fetches ok')
+        with open(ids_list_cache, 'r') as f:
+            ids = [l.replace('\n', '') for l in f.readlines()]
 
-    # ligne a supprimer !!! ################################################
-    # IDs = config.KEGG_ID
-    ########################################################################
-    return IDs
+    return ids
 
 
-def fetch_KEGG(IDs, file_per_format, path, db):
-    """Fetches datas about random IDs
+def get_random_kegg_ids_set(count, db, use_cache=True):
+    """Get random KEGG ids set"""
 
-    Retrieves datas about a random list of n IDs, in KEGG data
-    bases and load it in "Result/dataset" directory. "n" is the number
-    of files per formats
+    logging.info('Generating KEGG ids sample')
+
+    return get_random_ids(get_kegg_ids(db, use_cache), count)
+
+
+def fetch_kegg(ID, db, output_path='.'):
+    """Fetch a KEGG file from kegg.jp rest API
 
     Args:
-        IDs : IDs list
-        file_per_format : number of files per formats
+        ID: KEGG database entry ID
+        db: KEGG database
+        output_path: path to output downloaded files
     """
+    logging.info('Fetching KEGG {} from database {}...'.format(ID, db))
 
-    logging.info('Fetches KEGG datas about IDs')
+    fmt = 'kegg'
+    filename = '{id}.keg'.format(id=ID)
 
-    rand_list = random.sample(list(range(len(IDs))), file_per_format)
+    db_fmt_path = os.path.join(output_path, fmt, db)
+    output_file = os.path.join(db_fmt_path, filename)
 
-    for i in range(file_per_format):
-        ID = IDs[rand_list[i]]
-        url = config.url_kegg.format(type='get', data=ID)
-        r = requests.get(url)
-        output = r.text
-        file_name = config.KEGG_name.format(path=path, ID=ID)
-        with open(file_name, 'w') as f:
-            f.write(output)
-        f.closed
-        logging.info('{0} ... ok'.format(ID))
+    os.makedirs(db_fmt_path, exist_ok=True)
+
+    url = config.KEGG_API_URL.format(operation='get', argument=ID)
+
+    response = requests.get(url)
+    if not len(response.text):
+        msg = (
+            "Got an empty response from rest.kegg.jp while fetching kegg "
+            "entry"
+        )
+        logging.error(msg)
+        raise NetworkError(msg)
+
+    with open(output_file, 'w') as f:
+        f.write(response.text)
 
 
-def run_KEGG(databases, file_per_format, cache, path):
-    """Result
-
-    Checks databases and manages fonctions about KEGG database
+def generate_kegg_set(output_path, db, formats, input_ids, use_cache=True):
+    """Generate KEGG files sample
 
     Args:
-        file_per_format : number of files per formats
-        databases : NCBI data base
+        output_path: the output path
+        formats: a dict of format/counter {'fmt': 10}
+        IDs: we are able to force IDs to download
+        use_cache: if False ids list cache will be updated
     """
+    logging.info('Handling KEGG compatible file formats...')
 
-    logging.info('KEGG database')
-
-    Kdb = [
-        'pathway', 'brite', 'module', 'ko', 'genome', 'compound', 'glycan',
-        'reaction', 'rpair', 'rclass', 'enzyme', 'disease', 'drug', 'dgroup',
-        'environ', 'organism']
-
-    for database in databases:
-        if database in Kdb:
-            ID = id_KEGG(database, cache)
-            fetch_KEGG(ID, file_per_format, path, database)
-        # Error messages
+    for fmt in formats.keys():
+        if input_ids is None:
+            ids = get_random_kegg_ids_set(
+                formats[fmt], db, use_cache=use_cache
+            )
         else:
-            logging.error(
-                'Databases %s not alowed. Try with "pathway", "brite",' +
-                ' "module", "ko", "genome", "compound", "glycan", ' +
-                ' "reaction", "rpair", "rclass", "enzyme", "disease", ' +
-                ' "drug", "dgroup", "environ" or "organism"', database)
-    logging.info('KEGG database ... ok\n')
+            ids = input_ids
+
+        i = 0
+        for i, kegg_id in enumerate(ids):
+            fetch_kegg(kegg_id, db, output_path=output_path)
+        if i:
+            logging.info("{} {} files have been fetched".format(i + 1, fmt))
+
+    logging.info('KEGG compatible file format done\n')

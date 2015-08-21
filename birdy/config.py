@@ -12,15 +12,14 @@ ENTREZ_DATABASES = [
     'popset', 'nucest', 'sequences', 'snp'
 ]
 
+# NCBI databases that will be queried
 NCBI_DATABASES = [
     'protein', 'nucleotide'
 ]
 
-# db_KEGG:
-# Allowed values: 'pathway', 'brite', 'module', 'ko', 'genome', 'compound',
-# 'glycan', 'reaction', 'rpair', 'rclass', 'enzyme', 'disease', 'drug',
-# 'dgroup', 'environ', 'organism'.
-db_KEGG = ['pathway']
+# Allowed values are listed here:
+# http://www.kegg.jp/kegg/rest/keggapi.html
+KEGG_DATABASES = ['pathway']
 
 # nb_align:
 # Allowed values: integer between 1 and 50.
@@ -48,6 +47,8 @@ IDS_LIST_CACHE_ROOT = os.path.join(CACHE_ROOT, 'ids')
 DSSP_IDS_LIST_CACHE = os.path.join(IDS_LIST_CACHE_ROOT, 'dssp')
 PDB_IDS_LIST_CACHE = os.path.join(IDS_LIST_CACHE_ROOT, 'pdb')
 INTERPRO_IDS_LIST_CACHE = os.path.join(IDS_LIST_CACHE_ROOT, 'interpro')
+KEGG_IDS_LIST_CACHE_ROOT = os.path.join(IDS_LIST_CACHE_ROOT, 'kegg')
+KEGG_IDS_LIST_CACHE_FOR_DB = KEGG_IDS_LIST_CACHE_ROOT + '/{db}'
 
 # URL
 # PDB:
@@ -55,7 +56,7 @@ PDB_IDS_URL = 'http://www.rcsb.org/pdb/rest/customReport.csv?pdbids=*&customRepo
 PDB_ID_URL = 'ftp://ftp.ebi.ac.uk/pub/databases/rcsb/pdb-remediated/data/structures/divided/{fmt}/{idx}/{filename}'  # NOPEP8
 
 # KEGG
-url_kegg = 'http://rest.kegg.jp/{type}/{data}'
+KEGG_API_URL = 'http://rest.kegg.jp/{operation}/{argument}'
 
 # DSSP
 url_data_dssp = 'ftp://ftp.cmbi.ru.nl/pub/molbio/data/dssp/{0}.dssp'
@@ -89,6 +90,9 @@ FORMATS = {
         'fasta': 0,
         'gb': 0,
         'gp': 0
+    },
+    'KEGG': {
+        'kegg': 0
     }
 }
 FORMATS_LIST = sorted([v for v in chain.from_iterable(FORMATS.values())])

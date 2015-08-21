@@ -1,33 +1,43 @@
 from .. import config
-from .pdb import generate_pdb_set
+from .kegg import generate_kegg_set
 from .ncbi import generate_ncbi_set
+from .pdb import generate_pdb_set
 
 
 def main(output_path, formats=None, use_cache=True):
-    # formats = config.formats_fetcher
-    # search = config.search
-    # file_per_format = config.file_per_format
-    # db_NCBI = config.db_NCBI
-    # db_KEGG = config.db_KEGG
 
-    if 'PDB' in formats:
+    # PDB
+    if sum(formats.get('PDB').values()):
+
         generate_pdb_set(
             output_path,
-            formats.get('PDB', None),
+            formats.get('PDB'),
             input_ids=None,
             use_cache=use_cache
         )
-    if 'NCBI' in formats:
+
+    # NCBI
+    if sum(formats.get('NCBI').values()):
+
         for db in config.NCBI_DATABASES:
+
             generate_ncbi_set(
                 output_path,
                 db,
-                formats.get('NCBI', None),
+                formats.get('NCBI'),
                 input_ids=None,
                 use_cache=use_cache
             )
-    #     run_NCBI(formats, search, file_per_format, db_NCBI, output_path)
-    # if 'keg' in formats:
-    #     run_KEGG(db_KEGG, file_per_format, use_cache, output_path)
-    # if 'dssp' in formats:
-    #     run_DSSP(file_per_format, output_path)
+
+    # KEGG
+    if sum(formats.get('KEGG').values()):
+
+        for db in config.KEGG_DATABASES:
+
+            generate_kegg_set(
+                output_path,
+                db,
+                formats.get('KEGG'),
+                input_ids=None,
+                use_cache=use_cache
+            )

@@ -9,7 +9,7 @@ from ..exceptions import ConfigurationError
 from ..utils import get_random_ids
 
 
-def get_random_ncbi_ids_set(db, keyword_search, count):
+def get_random_ncbi_ids_set(count, db, keyword_search):
     """Get random NCBI ids"""
 
     logging.info('Fetching {} NCBI IDs for the {} database'.format(count, db))
@@ -47,7 +47,7 @@ def fetch_ncbi(ID, db, fmt='fasta', output_path='.'):
 
     logging.info('Fetching NCBI ID {} with format {}...'.format(ID, fmt))
 
-    filename = '{id}.{fmt}'.format(db=db, id=ID, fmt=fmt)
+    filename = '{id}.{fmt}'.format(id=ID, fmt=fmt)
 
     db_fmt_path = os.path.join(output_path, fmt, db)
     output_file = os.path.join(db_fmt_path, filename)
@@ -60,11 +60,7 @@ def fetch_ncbi(ID, db, fmt='fasta', output_path='.'):
         f.write(response)
 
 
-def generate_ncbi_set(output_path,
-                      db,
-                      formats,
-                      input_ids,
-                      use_cache=True):
+def generate_ncbi_set(output_path, db, formats, input_ids, use_cache=True):
     """Generate NCBI files sample
 
     Args:
@@ -78,7 +74,7 @@ def generate_ncbi_set(output_path,
     for fmt in formats.keys():
         if input_ids is None:
             ids = get_random_ncbi_ids_set(
-                db, config.ENTREZ_SEARCH, formats[fmt]
+                formats[fmt], db, config.ENTREZ_SEARCH
             )
         else:
             ids = input_ids
