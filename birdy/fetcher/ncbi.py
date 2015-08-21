@@ -1,144 +1,92 @@
-import random
 import logging
+import os.path
+import random
 
 from Bio_Eutils import Entrez
 
 from .. import config
+from ..exceptions import ConfigurationError
+from ..utils import get_random_ids
 
 
-def id_NCBI(db, search, file_per_format, formats):
-    """Fetches NCBI IDs.
+def get_random_ncbi_ids_set(db, keyword_search, count):
+    """Get random NCBI ids"""
 
-    Retrieves IDs from specified NCBI data base like 'nucleotide'
+    logging.info('Fetching {} NCBI IDs for the {} database'.format(count, db))
 
-    Args:
-        db : NCBI data base
-        search : keyword
-        file_per_format : number of file per formats
-        formats : List of formats
+    if not config.ENTREZ_EMAIL:
+        msg = (
+            "ENTREZ_EMAIL environnment variable undefined. "
+            "You must define one with a valid email to use this program."
+        )
+        logging.error(msg)
+        raise ConfigurationError(msg)
 
-    Returns:
-        A list of IDs corresponding on the 'search' keywards.
-        For exemple :
+    Entrez.email = config.ENTREZ_EMAIL
 
-        ['894216361', '894216359', '894216357', '894216355',
-         '894216353', '894216351', '894216349', '894216348']
-    """
+    retstart = random.randint(1, 10000)
+    retmax = count * 10
 
-    logging.info('Fetches NCBI IDs on %s database', db)
-
-    Entrez.email = 'loiseauc48@gmail.com'
-    nb_file = file_per_format * (len(formats))
-    i = random.randint(1, 1000)
-
-    #######################################################################
-    # i = 1
-    #######################################################################
-
-    handle = Entrez.esearch(db=db, retmax=nb_file, retstart=i, term=search)
+    handle = Entrez.esearch(
+        db=db, retmax=retmax, retstart=retstart, term=keyword_search
+    )
     pub_search = Entrez.read(handle)
     handle.close()
 
-    logging.info('Fetches NCBI ok')
-
-    return pub_search['IdList']
+    return get_random_ids(pub_search['IdList'], count)
 
 
-def fetch_NCBI(db, IDs, formats, file_per_format, path):
-    """Fetches datas about IDs
-
-    Retrieves datas about IDs in specified formats in NCBI
-    data bases, in random order and load it in "Result/dataset" directory
+def fetch_ncbi(ID, db, fmt='fasta', output_path='.'):
+    """Fetch a ncbi entity
 
     Args:
-        db : NCBI data base
-        IDs : IDs list
-        file_per_format : number of file per formats
-        formats : List of formats
+        ID: NCBI ID
+        fmt: file format
+        output_path: path to output downloaded files
     """
 
-    logging.info(
-        'Fetches NCBI datas about IDs on %s database and %s format(s)',
-        db, formats)
+    logging.info('Fetching NCBI ID {} with format {}...'.format(ID, fmt))
 
-    Entrez.email = 'loiseauc48@gmail.com'
-    rand_list = random.sample(list(range(len(IDs))), len(IDs))
-    i = 0
+    filename = '{id}.{fmt}'.format(db=db, id=ID, fmt=fmt)
 
-    # Fetch matching entries
-    for fmt in formats:
-        for n in range(file_per_format):
-            start = rand_list[i]
-            handle = Entrez.efetch(
-                db=db, id=IDs,
-                retmax=1, retstart=start,
-                rettype=fmt, retmode="text"
-                )
+    db_fmt_path = os.path.join(output_path, fmt, db)
+    output_file = os.path.join(db_fmt_path, filename)
 
-            output = handle.read()
-            num = IDs[start]
-            file_name = config.NCBI_name.format(
-                path=path, db=db, ID=str(num), fmt=fmt)
-            with open(file_name, 'w') as f:
-                f.write(output)
-            f.closed
-            i += 1
-            handle.close()
-            logging.info('format {0} range {1} ok'.format(fmt, n))
+    os.makedirs(db_fmt_path, exist_ok=True)
 
-    logging.info('Fetches NCBI datas ok')
+    handle = Entrez.efetch(db=db, id=ID, rettype=fmt, retmode="text")
+    response = handle.read()
+    with open(output_file, 'w') as f:
+        f.write(response)
 
 
-def run_NCBI(formats, search, file_per_format, databases, path):
-    """Result
-
-    Checks databases and formats and manages fonctions about NCBI database
+def generate_ncbi_set(output_path,
+                      db,
+                      formats,
+                      input_ids,
+                      use_cache=True):
+    """Generate NCBI files sample
 
     Args:
-        file_per_format : number of files per formats
-        formats : List of formats
-        search : keyword
-        db : NCBI data base
+        output_path: the output path
+        formats: a dict of format/counter {'fmt': 10}
+        IDs: we are able to force PDB IDs to download
+        use_cache: if False PDB ids list cache will be updated
     """
+    logging.info('Handling NCBI compatible file formats...')
 
-    logging.info('NCBI database')
+    for fmt in formats.keys():
+        if input_ids is None:
+            ids = get_random_ncbi_ids_set(
+                db, config.ENTREZ_SEARCH, formats[fmt]
+            )
+        else:
+            ids = input_ids
 
-    Kdb = [
-        'protein', 'nucleotide', 'nuccore', 'nucgss', 'homologene',
-        'popset', 'nucest', 'sequences', 'snp']
-    dbs = []
+        i = 0
+        for i, ncbi_id in enumerate(ids):
+            fetch_ncbi(ncbi_id, db, fmt=fmt, output_path=output_path)
+        if i:
+            logging.info("{} {} files have been fetched".format(i + 1, fmt))
 
-    for database in Kdb:
-        if database in databases:
-            dbs.append(database)
-
-    fmts = ['fasta', 'gp', 'gb']
-    form = []
-    for fmt in formats:
-        if fmt in fmts:
-            form.append(fmt)
-
-    if form and dbs:
-        for db in dbs:
-            IDs = id_NCBI(db, search, file_per_format, form)
-            fetch_NCBI(db, IDs, form, file_per_format, path)
-
-    # Error messages
-    elif dbs:
-        logging.error(
-            'Formats %s not alowed. Try with "fasta", "gp", or "gb"',
-            formats)
-    elif form:
-        logging.error(
-            'Database %s not alowed. Try with "protein", "nucleotide",' +
-            '"nuccore", "nucgss", "homologene", "popset", "nucest",' +
-            '"sequences" or "snp"', databases)
-    else:
-        message = (
-            'Formats and databases are not alowed. Expected' +
-            'formats : "fasta", "gp", "gb"; Expected databases :' +
-            '"protein", "nucleotide", "nuccore", "nucgss", "homologene",' +
-            '"popset", "nucest", "sequences", "snp"')
-        logging.error(message)
-
-    logging.info('NCBI database ... ok\n')
+    logging.info('NCBI compatible file format done\n')

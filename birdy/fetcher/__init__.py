@@ -1,8 +1,6 @@
-# from .. import config
-# from .dssp import run_DSSP
-# from .kegg import run_KEGG
-# from .ncbi import run_NCBI
+from .. import config
 from .pdb import generate_pdb_set
+from .ncbi import generate_ncbi_set
 
 
 def main(output_path, formats=None, use_cache=True):
@@ -19,7 +17,15 @@ def main(output_path, formats=None, use_cache=True):
             input_ids=None,
             use_cache=use_cache
         )
-    # if NCBI:
+    if 'NCBI' in formats:
+        for db in config.NCBI_DATABASES:
+            generate_ncbi_set(
+                output_path,
+                db,
+                formats.get('NCBI', None),
+                input_ids=None,
+                use_cache=use_cache
+            )
     #     run_NCBI(formats, search, file_per_format, db_NCBI, output_path)
     # if 'keg' in formats:
     #     run_KEGG(db_KEGG, file_per_format, use_cache, output_path)
