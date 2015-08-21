@@ -77,7 +77,7 @@ def fetch_pdb(ID, fmt='pdb', output_path='.'):
     logging.info('Fetching PDB {} with format {}...'.format(ID, fmt))
 
     if fmt == 'pdb':
-        filename = 'pdb{id}.ent.gz'.format(id=ID)
+        filename = '{id}.ent.gz'.format(id=ID)
     elif fmt == 'mmCIF':
         filename = '{id}.cif.gz'.format(id=ID)
     else:

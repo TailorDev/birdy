@@ -59,7 +59,7 @@ PDB_ID_URL = 'ftp://ftp.ebi.ac.uk/pub/databases/rcsb/pdb-remediated/data/structu
 KEGG_API_URL = 'http://rest.kegg.jp/{operation}/{argument}'
 
 # DSSP
-url_data_dssp = 'ftp://ftp.cmbi.ru.nl/pub/molbio/data/dssp/{0}.dssp'
+DSSP_ID_URL = 'ftp://ftp.cmbi.ru.nl/pub/molbio/data/dssp/{id}.dssp'
 
 # InterProScan
 url_data_interpro = 'http://www.ebi.ac.uk/interpro/entry/{0}/proteins-matched\
@@ -93,6 +93,9 @@ FORMATS = {
     },
     'KEGG': {
         'kegg': 0
+    },
+    'DSSP': {
+        'dssp': 0
     }
 }
 FORMATS_LIST = sorted([v for v in chain.from_iterable(FORMATS.values())])

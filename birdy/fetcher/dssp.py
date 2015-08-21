@@ -1,74 +1,67 @@
-import random
-import urllib.request
 import logging
+import os.path
+import sys
+import urllib.request
 
 from .. import config
+from .pdb import get_random_pdb_ids_set
 
 
-def id_DSSP():
-    """Fetches DSSP IDs.
-
-    Retrieves all IDs from file "DSSP_ID.txt".
-
-    Returns:
-        A list of all IDs.
-        For exemple :
-
-        ['1cdt', '1cdu', '1cdw', '1cdy', '1cdz',
-         '1ce0', '1ce1', '1ce2', '1ce3', '1ce4',
-         '1ce5', '1ce6', '1ce7', '1ce8', '1ce9']
-    """
-    logging.info('Reads on DSSP_ID.txt file')
-    with open('ID/DSSP_ID.txt', 'r') as f:
-        ID = f.read()
-        IDs = ID.split('\t')
-    f.closed
-    IDs = IDs[:-1]
-    logging.info('Reads ok')
-    # ligne a supprimer !!! ###############################################
-    # IDs = config.DSSP_ID
-    #######################################################################
-    return IDs
-
-
-def fetch_DSSP(IDs, file_per_format, path):
-    """Fetches datas about IDs
-
-    Retrieves datas about a random list of n IDs in DSSP data base
-    and load it in "Result/dataset" directory. "n" is the number of files
-    per formats.
+def fetch_dssp(ID, output_path='.'):
+    """Fetch a DSSP file from pdb.org IDs
 
     Args:
-        IDs : IDs list
-        file_per_format : number of file per formats
+        ID: PDB ID
+        output_path: path to output downloaded files
     """
 
-    logging.info('Fetches DSSP datas about IDs')
+    logging.info('Fetching DSSP {}...'.format(ID))
 
-    rand_list = random.sample(list(range(len(IDs))), file_per_format)
+    fmt = 'dssp'
+    filename = '{id}.dssp'.format(id=ID)
 
-    for i in range(file_per_format):
-        ID = IDs[rand_list[i]]
-        ID = ID.lower()
-        url = config.url_data_dssp.format(ID)
-        file_name = config.DSSP_name.format(path=path, ID=ID)
-        try:
-            urllib.request.urlretrieve(url, file_name)
-            logging.info('{0} ... ok'.format(ID))
-        except urllib.error.URLError:
-            logging.error('ftp error with url %s on DSSP database', url)
+    fmt_path = os.path.join(output_path, fmt)
+    output_file = os.path.join(fmt_path, filename)
+
+    os.makedirs(fmt_path, exist_ok=True)
+
+    url = config.DSSP_ID_URL.format(id=ID)
+
+    try:
+        urllib.request.urlretrieve(url, output_file)
+    except:
+        logging.error(
+            "Cannot fetch id {id} from the CMBI. "
+            "Request url was: {url}".format(
+                id=ID, url=url
+            )
+        )
+        logging.debug(sys.exc_info()[0])
+        raise
 
 
-def run_DSSP(file_per_format, path):
-    """Result
-
-    Manages fonctions about DSSP database
+def generate_dssp_set(output_path, formats, input_ids=None, use_cache=True):
+    """Generate PDB files sample
 
     Args:
-        file_per_format : number of files per formats
-
+        output_path: the output path
+        formats: a dict of format/counter {'fmt': 10}
+        IDs: we are able to force PDB/DSSP IDs to download
+        use_cache: if False PDB ids list cache will be updated
     """
-    logging.info('DSSP database')
-    IDs = id_DSSP()
-    fetch_DSSP(IDs, file_per_format, path)
-    logging.info('DSSP database ... ok\n')
+
+    logging.info('Handling DSSP file format...')
+
+    fmt = 'dssp'
+    if input_ids is None:
+        ids = get_random_pdb_ids_set(formats[fmt], use_cache=use_cache)
+    else:
+        ids = input_ids
+
+    i = 0
+    for i, pdb_id in enumerate(ids):
+        fetch_dssp(pdb_id, output_path=output_path)
+    if i:
+        logging.info("{} {} files have been fetched".format(i + 1, fmt))
+
+    logging.info('DSSP file format done\n')
