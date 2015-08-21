@@ -103,7 +103,6 @@ def fetch_pdb(ID, fmt='pdb', output_path='.'):
 
 
 def generate_pdb_set(output_path,
-                     count,
                      formats,
                      input_ids=None,
                      use_cache=True):
@@ -111,8 +110,7 @@ def generate_pdb_set(output_path,
 
     Args:
         output_path: the output path
-        count: number of files per formats
-        formats: List of formats
+        formats: a dict of format/counter {'fmt': 10}
         IDs: we are able to force PDB IDs to download
         use_cache: if False PDB ids list cache will be updated
     """

@@ -4,22 +4,24 @@
   birdy [options] <output-path>
 
 Options:
+  --pdb <num>    Fetch num PDBs
+  --mmCIF <num>  Fetch num mmCIFs
   -h  --help     Show this screen.
   -v  --verbose  Verbose mode
   -d  --debug    Debug mode
   -n  --no-cache Do not use cache at all
 """
 
-import os
 import logging
 
 from docopt import docopt
 from schema import Schema, And, Use, SchemaError, Optional
 
 from birdy import fetcher, config, converter
+from birdy.utils import Timer
 
 
-def validation(args):
+def check_command_arguments(arguments):
     """Data validation
 
     Checks arguments
@@ -31,39 +33,27 @@ def validation(args):
         right arguments
     """
 
-    logging.info('Checks arguments')
+    logging.info('Checking command line arguments...')
 
     schema = Schema({
-        Optional('n'): And(
-            Use(int),
-            lambda n: 1 <= n <= 50,
-            error="'family_file_nb' should be an integer between 1 and 50"),
-        Optional('m'): And(
-            Use(int),
-            lambda n: 1 <= n <= 50,
-            error="'nb_align' should be an integer between 1 and 50"),
-        Optional('fmt_conv'): And(list),
-        Optional('search'): And(str, error='search sould be a string'),
-        Optional('fpf'): And(
-            Use(int), lambda n: 1 <= n <= 99,
-            error='file_per_format should be an integer between 1 and 99'),
-        Optional('dbN'): And(list, error='db_NCBI should be a list'),
-        Optional('dbK'): And(list, error='db_KEGG should be a list'),
-        Optional('use_cache'): And(bool, error='use_cache should be a boolean'),
-        Optional('dataset'): And(
-            str,
-            lambda s: '.fasta' not in s,
-            error="dataset can't contain '.fasta'"),
-        Optional('fmt_fetch'): And(list),
-        Optional('log_name'): And(
-            Use(str), error="'log_name' sould be a string")})
+        Optional('use_cache'): And(
+            Use(bool), error='use_cache should be a boolean'
+        ),
+        Optional('pdb'): And(
+            Use(int), error='pdb should be an integer'
+        ),
+        Optional('mmCIF'): And(
+            Use(int), error='mmCIF should be an integer'
+        ),
+
+    })
 
     try:
-        args = schema.validate(args)
+        cleaned_arguments = schema.validate(arguments)
     except SchemaError as e:
         exit(e)
 
-    return args
+    return cleaned_arguments
 
 
 def main():
@@ -71,6 +61,8 @@ def main():
     arguments = docopt(__doc__)
 
     use_cache = not arguments['-n']
+    pdb = arguments['--pdb']
+    mmCIF = arguments['--mmCIF']
     output_path = arguments['<output-path>']
 
     if arguments['-v']:
@@ -86,23 +78,25 @@ def main():
         level=level
     )
 
-    args = {
-        'n': config.family_file_nb,
-        'm': config.nb_align,
-        'fmt_conv': config.formats_converter,
-        'search': config.search,
-        'fpf': config.file_per_format,
-        'dbN': config.db_NCBI,
-        'dbK': config.db_KEGG,
+    cleaned_arguments = check_command_arguments({
         'use_cache': use_cache,
-        'dataset': config.dataset,
-        'fmt_fetch': config.formats_fetcher,
-        'log_name': config.log_name
-    }
-    args = validation(args)
+        'pdb': pdb,
+        'mmCIF': mmCIF,
+    })
+
+    # Formats
+    formats = config.FORMATS
+
+    # -- PDB
+    if cleaned_arguments.get('pdb', None):
+        formats['PDB']['pdb'] = cleaned_arguments['pdb']
+
+    # -- mmCIF
+    if cleaned_arguments.get('mmCIF', None):
+        formats['PDB']['mmCIF'] = cleaned_arguments['mmCIF']
 
     logging.info('Started : fetcher')
-    fetcher.main(output_path, use_cache)
+    fetcher.main(output_path, formats, use_cache)
     logging.info('Fetcher ... ok\n')
 
     # logging.info('Started : converter')
@@ -112,5 +106,6 @@ def main():
     logging.info('The End\n\n')
 
 if __name__ == "__main__":
-    # execute only if run as a script
-    main()
+    with Timer() as t:
+        main()
+    logging.info("Execution time was {:.3f} s".format(t.secs))

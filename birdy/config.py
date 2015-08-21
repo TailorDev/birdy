@@ -81,13 +81,13 @@ FORMATS = {
     # Service
     'PDB': {
         # Format
-        'pdb': 3,
-        'mmCIF': 5
+        'pdb': 0,
+        'mmCIF': 0
     },
     'NCBI': {
-        'fasta': FILES_PER_FORMAT,
-        'gb': FILES_PER_FORMAT,
-        'gp': FILES_PER_FORMAT
+        'fasta': 0,
+        'gb': 0,
+        'gp': 0
     }
 }
 
