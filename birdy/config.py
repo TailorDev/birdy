@@ -1,6 +1,9 @@
 import os
 import os.path
 
+from itertools import chain
+
+
 # Entrez
 ENTREZ_SEARCH = 'gene'
 ENTREZ_EMAIL = os.environ.get('ENTREZ_EMAIL', None)
@@ -88,6 +91,7 @@ FORMATS = {
         'gp': 0
     }
 }
+FORMATS_LIST = sorted([v for v in chain.from_iterable(FORMATS.values())])
 
 # ID test
 KEGG_ID = [

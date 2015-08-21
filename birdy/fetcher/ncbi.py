@@ -49,7 +49,7 @@ def fetch_ncbi(ID, db, fmt='fasta', output_path='.'):
 
     filename = '{id}.{fmt}'.format(db=db, id=ID, fmt=fmt)
 
-    db_fmt_path = os.path.join(output_path, db, fmt)
+    db_fmt_path = os.path.join(output_path, fmt, db)
     output_file = os.path.join(db_fmt_path, filename)
 
     os.makedirs(db_fmt_path, exist_ok=True)
@@ -86,7 +86,7 @@ def generate_ncbi_set(output_path,
         i = 0
         for i, ncbi_id in enumerate(ids):
             fetch_ncbi(ncbi_id, db, fmt=fmt, output_path=output_path)
-
-        logging.info("{} {} files have been fetched".format(i + 1, fmt))
+        if i:
+            logging.info("{} {} files have been fetched".format(i + 1, fmt))
 
     logging.info('NCBI compatible file format done\n')

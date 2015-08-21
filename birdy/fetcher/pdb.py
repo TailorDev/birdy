@@ -128,7 +128,7 @@ def generate_pdb_set(output_path,
         i = 0
         for i, pdb_id in enumerate(ids):
             fetch_pdb(pdb_id, fmt=fmt, output_path=output_path)
-
-        logging.info("{} {} files have been fetched".format(i + 1, fmt))
+        if i:
+            logging.info("{} {} files have been fetched".format(i + 1, fmt))
 
     logging.info('PDB file format done\n')

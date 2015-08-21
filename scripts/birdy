@@ -4,22 +4,31 @@
   birdy [options] <output-path>
 
 Options:
-  --pdb <num>    Fetch num PDBs [default: 0]
-  --mmCIF <num>  Fetch num mmCIFs [default: 0]
-  --fasta <num>  Fetch num fastas [default: 0]
   -h  --help     Show this screen.
   -v  --verbose  Verbose mode
   -d  --debug    Debug mode
   -n  --no-cache Do not use cache at all
+
+Formats:
 """
 
 import logging
 
 from docopt import docopt
-from schema import Schema, And, Use, SchemaError, Optional
+from schema import And, Optional, Or, Schema, SchemaError, Use
 
 from birdy import fetcher, config, converter
 from birdy.utils import Timer
+
+
+def build_cli():
+    """Automatically build the cli given supported file formats"""
+
+    doc = __doc__
+    for fmt in config.FORMATS_LIST:
+        doc += '  --{fmt} <num>  Fetch num {fmt}s\n'.format(fmt=fmt)
+
+    return doc
 
 
 def check_command_arguments(arguments):
@@ -37,19 +46,20 @@ def check_command_arguments(arguments):
     logging.info('Checking command line arguments...')
 
     schema = Schema({
-        Optional('use_cache'): And(
-            Use(bool), error='use_cache should be a boolean'
-        ),
-        Optional('pdb'): And(
-            Use(int), error='pdb should be an integer'
-        ),
-        Optional('mmCIF'): And(
-            Use(int), error='mmCIF should be an integer'
-        ),
-        Optional('fasta'): And(
-            Use(int), error='fasta should be an integer'
-        ),
+        '<output-path>': Use(str),
+        Optional('-n'): Use(bool),
+        Optional('-h'): Use(bool),
+        Optional('-d'): Use(bool),
+        Optional('-v'): Use(bool),
     })
+
+    # Add supported formats
+    for fmt in config.FORMATS_LIST:
+        schema._schema.update({
+            Optional('--{}'.format(fmt)): And(
+                Or(Use(int), None), error='{} should be an integer'.format(fmt)
+            )
+        })
 
     try:
         cleaned_arguments = schema.validate(arguments)
@@ -61,13 +71,7 @@ def check_command_arguments(arguments):
 
 def main():
 
-    arguments = docopt(__doc__)
-
-    use_cache = not arguments['-n']
-    pdb = arguments['--pdb']
-    mmCIF = arguments['--mmCIF']
-    fasta = arguments['--fasta']
-    output_path = arguments['<output-path>']
+    arguments = docopt(build_cli())
 
     if arguments['-v']:
         level = logging.INFO
@@ -82,31 +86,22 @@ def main():
         level=level
     )
 
-    cleaned_arguments = check_command_arguments({
-        'use_cache': use_cache,
-        'pdb': pdb,
-        'mmCIF': mmCIF,
-        'fasta': fasta,
-    })
+    cleaned_arguments = check_command_arguments(arguments)
+    use_cache = not cleaned_arguments['-n']
 
-    # Formats
+    # Set per format counter
     formats = config.FORMATS
+    for service in formats:
+        for fmt in formats.get(service):
+            count = cleaned_arguments['--{}'.format(fmt)]
+            if count:
+                formats[service][fmt] = count
 
-    # -- PDB
-    if cleaned_arguments.get('pdb', None):
-        formats['PDB']['pdb'] = cleaned_arguments['pdb']
-
-    # -- mmCIF
-    if cleaned_arguments.get('mmCIF', None):
-        formats['PDB']['mmCIF'] = cleaned_arguments['mmCIF']
-
-    # -- mmCIF
-    if cleaned_arguments.get('fasta', None):
-        formats['NCBI']['fasta'] = cleaned_arguments['fasta']
-
-    logging.info('Started : fetcher')
-    fetcher.main(output_path, formats, use_cache)
-    logging.info('Fetcher ... ok\n')
+    fetcher.main(
+        cleaned_arguments['<output-path>'],
+        formats,
+        use_cache
+    )
 
     # logging.info('Started : converter')
     # converter.main(directory, use_cache)
