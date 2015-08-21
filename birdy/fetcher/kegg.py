@@ -4,7 +4,7 @@ import requests
 
 from .. import config
 from ..exceptions import NetworkError
-from ..utils import get_random_ids
+from ..utils import get_random_ids, Timer
 
 
 def get_kegg_ids(db, use_cache=True):
@@ -112,17 +112,26 @@ def generate_kegg_set(output_path, db, formats, input_ids, use_cache=True):
     logging.info('Handling KEGG compatible file formats...')
 
     for fmt in formats.keys():
-        if input_ids is None:
-            ids = get_random_kegg_ids_set(
-                formats[fmt], db, use_cache=use_cache
+
+        with Timer() as t:
+
+            if input_ids is None:
+                ids = get_random_kegg_ids_set(
+                    formats[fmt], db, use_cache=use_cache
+                )
+            else:
+                ids = input_ids
+
+            i = 0
+            for i, kegg_id in enumerate(ids):
+                fetch_kegg(kegg_id, db, output_path=output_path)
+            if i:
+                logging.info(
+                    "{} {} files have been fetched".format(i + 1, fmt)
+                )
+
+        logging.info(
+            "KEGG:{db}:{fmt} | Execution time was {time:.3f} s".format(
+                db=db, fmt=fmt, time=t.secs
             )
-        else:
-            ids = input_ids
-
-        i = 0
-        for i, kegg_id in enumerate(ids):
-            fetch_kegg(kegg_id, db, output_path=output_path)
-        if i:
-            logging.info("{} {} files have been fetched".format(i + 1, fmt))
-
-    logging.info('KEGG compatible file format done\n')
+        )

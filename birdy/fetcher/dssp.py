@@ -6,7 +6,7 @@ import urllib.request
 from ftplib import FTP
 
 from .. import config
-from ..utils import get_random_ids
+from ..utils import get_random_ids, Timer
 
 
 def get_dssp_ids(use_cache=True):
@@ -107,14 +107,18 @@ def generate_dssp_set(output_path, formats, input_ids=None, use_cache=True):
 
     logging.info('Handling DSSP file format...')
 
-    fmt = 'dssp'
-    if input_ids is None:
-        ids = get_random_dssp_ids_set(formats[fmt], use_cache=use_cache)
-    else:
-        ids = input_ids
+    with Timer() as t:
 
-    i = 0
-    for i, pdb_id in enumerate(ids):
-        fetch_dssp(pdb_id, output_path=output_path)
-    if i:
-        logging.info("{} {} files have been fetched".format(i + 1, fmt))
+        fmt = 'dssp'
+        if input_ids is None:
+            ids = get_random_dssp_ids_set(formats[fmt], use_cache=use_cache)
+        else:
+            ids = input_ids
+
+        i = 0
+        for i, pdb_id in enumerate(ids):
+            fetch_dssp(pdb_id, output_path=output_path)
+        if i:
+            logging.info("{} {} files have been fetched".format(i + 1, fmt))
+
+    logging.info("DSSP | Execution time was {:.3f} s".format(t.secs))

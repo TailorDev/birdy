@@ -6,7 +6,7 @@ from Bio_Eutils import Entrez
 
 from .. import config
 from ..exceptions import ConfigurationError
-from ..utils import get_random_ids
+from ..utils import get_random_ids, Timer
 
 
 def get_random_ncbi_ids_set(count, db, keyword_search):
@@ -72,17 +72,26 @@ def generate_ncbi_set(output_path, db, formats, input_ids, use_cache=True):
     logging.info('Handling NCBI compatible file formats...')
 
     for fmt in formats.keys():
-        if input_ids is None:
-            ids = get_random_ncbi_ids_set(
-                formats[fmt], db, config.ENTREZ_SEARCH
+
+        with Timer() as t:
+
+            if input_ids is None:
+                ids = get_random_ncbi_ids_set(
+                    formats[fmt], db, config.ENTREZ_SEARCH
+                )
+            else:
+                ids = input_ids
+
+            i = 0
+            for i, ncbi_id in enumerate(ids):
+                fetch_ncbi(ncbi_id, db, fmt=fmt, output_path=output_path)
+            if i:
+                logging.info(
+                    "{} {} files have been fetched".format(i + 1, fmt)
+                )
+
+        logging.info(
+            "NCBI:{db}:{fmt} | Execution time was {time:.3f} s".format(
+                db=db, fmt=fmt, time=t.secs
             )
-        else:
-            ids = input_ids
-
-        i = 0
-        for i, ncbi_id in enumerate(ids):
-            fetch_ncbi(ncbi_id, db, fmt=fmt, output_path=output_path)
-        if i:
-            logging.info("{} {} files have been fetched".format(i + 1, fmt))
-
-    logging.info('NCBI compatible file format done\n')
+        )

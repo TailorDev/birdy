@@ -8,7 +8,7 @@ import urllib.request
 
 from .. import config
 from ..exceptions import NetworkError, UnsupportedFormatError
-from ..utils import get_random_ids
+from ..utils import get_random_ids, Timer
 
 
 def get_pdb_ids(use_cache=True):
@@ -77,7 +77,7 @@ def fetch_pdb(ID, fmt='pdb', output_path='.'):
     logging.info('Fetching PDB {} with format {}...'.format(ID, fmt))
 
     if fmt == 'pdb':
-        filename = '{id}.ent.gz'.format(id=ID)
+        filename = 'pdb{id}.ent.gz'.format(id=ID)
     elif fmt == 'mmCIF':
         filename = '{id}.cif.gz'.format(id=ID)
     else:
@@ -117,15 +117,23 @@ def generate_pdb_set(output_path, formats, input_ids=None, use_cache=True):
     logging.info('Handling PDB file format...')
 
     for fmt in formats.keys():
-        if input_ids is None:
-            ids = get_random_pdb_ids_set(formats[fmt], use_cache=use_cache)
-        else:
-            ids = input_ids
 
-        i = 0
-        for i, pdb_id in enumerate(ids):
-            fetch_pdb(pdb_id, fmt=fmt, output_path=output_path)
-        if i:
-            logging.info("{} {} files have been fetched".format(i + 1, fmt))
+        with Timer() as t:
 
-    logging.info('PDB file format done\n')
+            if input_ids is None:
+                ids = get_random_pdb_ids_set(formats[fmt], use_cache=use_cache)
+            else:
+                ids = input_ids
+
+            i = 0
+            for i, pdb_id in enumerate(ids):
+                fetch_pdb(pdb_id, fmt=fmt, output_path=output_path)
+            if i:
+                logging.info("{} {} files have been fetched".format(
+                    i + 1, fmt)
+                )
+
+        logging.info("PDB:{fmt} | Execution time was {time:.3f} s".format(
+                fmt=fmt, time=t.secs
+            )
+        )

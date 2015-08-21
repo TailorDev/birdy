@@ -1,3 +1,5 @@
+import logging
+
 from .. import config
 from .dssp import generate_dssp_set
 from .kegg import generate_kegg_set
