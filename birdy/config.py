@@ -48,10 +48,6 @@ INTERPRO_IDS_URL = 'ftp://ftp.ebi.ac.uk/pub/databases/interpro/Current/interpro.
 INTERPRO_ID_URL = 'http://www.ebi.ac.uk/interpro/entry/{id}/proteins-matched?export={fmt}'  # NOPEP8
 INTERPRO_MAX_PROTEIN_COUNT = 50
 
-# A remplacer par EDAM
-formats_converter = [
-    'CODATA', 'EMBL', 'GCG', 'GDE', 'GENBANK', 'IG', 'NBRF', 'RAW',
-    'SWISSPROT', 'CLUSTAL', 'MEGA', 'MSF', 'NEXUS', 'PHYLIP', 'STOCKHOLM']
 FORMATS = {
     # Service
     'PDB': {
@@ -82,6 +78,10 @@ FORMATS_LIST = sorted([v for v in chain.from_iterable(FORMATS.values())])
 # Binaries
 CLUSTALW = "clustalw2"
 SQUIZZ = "squizz"
+SQUIZZ_FORMATS = [
+    'CODATA', 'EMBL', 'GCG', 'GDE', 'GENBANK', 'IG', 'NBRF', 'RAW',
+    'SWISSPROT', 'CLUSTAL', 'MEGA', 'MSF', 'NEXUS', 'PHYLIP', 'STOCKHOLM'
+]
 
 # ID test
 KEGG_ID = [
