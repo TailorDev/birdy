@@ -70,7 +70,9 @@ FORMATS = {
         'clustal': 0
     },
     'SQUIZZ': {
-        'msf': 0
+        'msf': 0,
+        'nexus': 0,
+        'phylip': 0
     }
 }
 FORMATS_LIST = sorted([v for v in chain.from_iterable(FORMATS.values())])

@@ -38,3 +38,5 @@ def generate_clustal_set(output_path, formats, input_ids=None, use_cache=True):
         )
 
     logging.info("CLUSTAL | Execution time was {:.3f} s".format(t.secs))
+
+    return alignements
