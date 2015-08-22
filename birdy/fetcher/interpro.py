@@ -3,7 +3,9 @@ import os
 import os.path
 import requests
 import urllib.request
+import xmltodict
 
+from gzip import GzipFile
 
 from .. import config
 from ..exceptions import NetworkError
@@ -27,24 +29,44 @@ def get_interpro_ids(use_cache=True):
     # Update cache
     if not os.path.exists(config.INTERPRO_IDS_LIST_CACHE) or \
             use_cache is False:
-        logging.info("Updating interpro ids cache...")
+        logging.info("Updating interpro ids cache. This may take minutes...")
 
         # Create cache directory if it does not exists
         os.makedirs(config.IDS_LIST_CACHE_ROOT, exist_ok=True)
 
-        # Fetch ids
-        with urllib.request.urlopen(config.INTERPRO_IDS_URL) as f:
-            response = f.read().decode('utf-8')
+        ids = []
 
-        if not len(response):
-            msg = "Got an empty response from interpro"
-            logging.error(msg)
-            raise NetworkError(msg)
-        ids = [l.split()[0] for l in response.split('\n') if len(l)]
+        def select_interpro_entries(path, item):
+            """Select interpro families (ID) with:
+
+            * less than config.INTERPRO_MAX_PROTEIN_COUNT
+            """
+            # global ids  # this is ugly
+
+            # not an interpro entity
+            if 'interpro' not in path[-1]:
+                # We return True to avoid stopping gzipped xml stream parsing
+                return True
+
+            ipro = path[-1][1]
+            if int(ipro['protein_count']) <= config.INTERPRO_MAX_PROTEIN_COUNT:
+                ids.append(ipro['id'])
+
+            return True
+
+        # Attention, tricky part
+        # We stream ftp response in a GzipFile that is streamed by xmltodict
+        with urllib.request.urlopen(config.INTERPRO_IDS_URL) as f:
+            xmltodict.parse(
+                GzipFile(fileobj=f),
+                item_depth=2,
+                item_callback=select_interpro_entries
+            )
 
         # Update cache file
         with open(config.INTERPRO_IDS_LIST_CACHE, 'w') as f:
             f.write('\n'.join(ids))
+
     # Use the cache
     else:
         logging.info("Loading interpro ids from cache...")

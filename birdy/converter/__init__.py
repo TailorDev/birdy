@@ -170,8 +170,6 @@ def main(output_path, formats=None, use_cache=True):
         generate_clustal_set(
             clustal_path,
             formats.get('CLUSTAL'),
-            input_ids=[
-                'IPR020181', 'IPR027570', 'IPR027669'
-            ],
+            input_ids=None,
             use_cache=use_cache
         )
