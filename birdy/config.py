@@ -22,26 +22,6 @@ NCBI_DATABASES = [
 # http://www.kegg.jp/kegg/rest/keggapi.html
 KEGG_DATABASES = ['pathway']
 
-# nb_align:
-# Allowed values: integer between 1 and 50.
-nb_align = 10
-
-# family_file_nb:
-# Allowed values: integer between 1 and 50.
-# family_file_nb = file_per_format
-
-
-OUTPUT_PATH = ''
-
-# dataset:
-# defined the directory to load files.
-# If the directory already exist, it will be completed
-# /!\, dataset can't contain '.fasta'
-dataset = 'dataset_time'
-
-# log file :
-log_name = 'birdy.log'
-
 # Cache
 CACHE_ROOT = os.path.join(os.path.expanduser('~'), '.birdy/cache')
 IDS_LIST_CACHE_ROOT = os.path.join(CACHE_ROOT, 'ids')
@@ -52,36 +32,26 @@ KEGG_IDS_LIST_CACHE_ROOT = os.path.join(IDS_LIST_CACHE_ROOT, 'kegg')
 KEGG_IDS_LIST_CACHE_FOR_DB = KEGG_IDS_LIST_CACHE_ROOT + '/{db}'
 
 # URL
-# PDB:
+# -- PDB
 PDB_IDS_URL = 'http://www.rcsb.org/pdb/rest/customReport.csv?pdbids=*&customReportColumns=structureId&format=csv&service=wsfile'  # NOPEP8
 PDB_ID_URL = 'ftp://ftp.ebi.ac.uk/pub/databases/rcsb/pdb-remediated/data/structures/divided/{fmt}/{idx}/{filename}'  # NOPEP8
 
-# KEGG
+# -- KEGG
 KEGG_API_URL = 'http://rest.kegg.jp/{operation}/{argument}'
 
-# DSSP
+# -- DSSP
 DSSP_FTP_HOST = 'ftp.cmbi.ru.nl'
 DSSP_FTP_PATH = '/pub/molbio/data/dssp/'
 DSSP_ID_URL = 'ftp://' + DSSP_FTP_HOST + DSSP_FTP_PATH + '{id}.dssp'
 
-# InterProScan
-url_data_interpro = 'http://www.ebi.ac.uk/interpro/entry/{0}/proteins-matched\
-?export=fasta'
-url_id_interpro = 'ftp://ftp.ebi.ac.uk/pub/databases/interpro/Current/entry.l\
-ist'
-
-# File name
-PDB_name = "{path}PDB_{ID}.{extension}.gz"
-NCBI_name = "{path}NCBI_{db}_{ID}.{fmt}"
-DSSP_name = "{path}DSSP_{ID}.dssp"
-KEGG_name = "{path}KEGG_{ID}.keg"
-IPR_name = "{path}INTERPRO_{ID}{indice}.{fmt}"
+# -- InterProScan
+INTERPRO_IDS_URL = 'ftp://ftp.ebi.ac.uk/pub/databases/interpro/Current/entry.list'  # NOPEP8
+INTERPRO_ID_URL = 'http://www.ebi.ac.uk/interpro/entry/{id}/proteins-matched?export={fmt}'  # NOPEP8
 
 # A remplacer par EDAM
 formats_converter = [
     'CODATA', 'EMBL', 'GCG', 'GDE', 'GENBANK', 'IG', 'NBRF', 'RAW',
     'SWISSPROT', 'CLUSTAL', 'MEGA', 'MSF', 'NEXUS', 'PHYLIP', 'STOCKHOLM']
-formats_fetcher = ['pdb', 'mmCIF', 'fasta', 'gb', 'gp', 'keg', 'dssp']
 FORMATS = {
     # Service
     'PDB': {
@@ -99,9 +69,19 @@ FORMATS = {
     },
     'DSSP': {
         'dssp': 0
+    },
+    'CLUSTAL': {
+        'clustal': 0
+    },
+    'SQUIZZ': {
+        'msf': 0
     }
 }
 FORMATS_LIST = sorted([v for v in chain.from_iterable(FORMATS.values())])
+
+# Binaries
+CLUSTALW = "clustalw2"
+SQUIZZ = "squizz"
 
 # ID test
 KEGG_ID = [
