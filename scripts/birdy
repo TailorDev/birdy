@@ -9,6 +9,7 @@ Options:
   -d  --debug    Debug mode
   -n  --no-cache Do not use cache at all
   --all <num>    Collect num files for all supported file formats
+
 Formats:
 """
 
@@ -107,9 +108,11 @@ def main():
         use_cache
     )
 
-    # logging.info('Started : converter')
-    # converter.main(directory, use_cache)
-    # logging.info('Converter ... ok\n')
+    converter.main(
+        cleaned_arguments['<output-path>'],
+        formats,
+        use_cache
+    )
 
 if __name__ == "__main__":
     with Timer() as t:
