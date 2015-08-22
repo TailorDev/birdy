@@ -105,11 +105,8 @@ def fetch_interpro(ID, fmt='fasta', output_path='.'):
     url = config.INTERPRO_ID_URL.format(id=ID, fmt=fmt)
 
     response = requests.get(url)
-    if not len(response.text):
-        msg = (
-            "Got an empty response from rest.kegg.jp while fetching kegg "
-            "entry"
-        )
+    if not response.status_code == 200:
+        msg = "An error occured while fetching interpro entry"
         logging.error(msg)
         raise NetworkError(msg)
 
@@ -141,10 +138,12 @@ def generate_interpro_set(output_path, count, input_ids=None, use_cache=True):
 
         i = 0
         for i, ipro_id in enumerate(ids):
-            output_file = fetch_interpro(ipro_id, output_path=output_path)
+            try:
+                output_file = fetch_interpro(ipro_id, output_path=output_path)
+            except NetworkError:
+                continue
             output_files += [output_file]
-        if i:
-            logging.info("{} files have been fetched".format(i + 1))
+        logging.info("{} files have been fetched".format(len(output_files)))
 
     logging.info(
         "Interpro | Execution time was {time:.3f} s".format(time=t.secs)
