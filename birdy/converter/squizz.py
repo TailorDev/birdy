@@ -26,10 +26,10 @@ def generate_squizz_set(output_path, formats, input_ids=None, use_cache=True):
 
         with Timer() as t:
 
-            output_path = os.path.join(output_path, fmt)
+            fmt_path = os.path.join(output_path, fmt)
 
             alignments = generate_clustal_set(
-                output_path,
+                fmt_path,
                 {'clustal': formats[fmt]},
                 input_ids=input_ids,
                 use_cache=use_cache
