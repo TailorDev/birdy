@@ -1,0 +1,7 @@
+env
+*.pyc
+birdy.egg-info
+birdy.log
+build
+dist
+testdataset_time

@@ -1,0 +1,120 @@
+#!/usr/bin/env python
+
+"""Usage:
+  birdy [options] <output-path>
+
+Options:
+  -h  --help     Show this screen.
+  -v  --verbose  Verbose mode
+  -d  --debug    Debug mode
+  -n  --no-cache Do not use cache at all
+  --all <num>    Collect num files for all supported file formats
+
+Formats:
+"""
+
+import logging
+
+from docopt import docopt
+from schema import And, Optional, Or, Schema, SchemaError, Use
+
+from birdy import fetcher, config, converter
+from birdy.utils import Timer
+
+
+def build_cli():
+    """Automatically build the cli given supported file formats"""
+
+    doc = __doc__
+    for fmt in config.FORMATS_LIST:
+        doc += '  --{fmt} <num>  Fetch num {fmt}s\n'.format(fmt=fmt)
+
+    return doc
+
+
+def check_command_arguments(arguments):
+    """Data validation
+
+    Checks arguments
+
+    Args:
+        args : cli arguments
+
+    Returns:
+        Cleaned arguments
+    """
+
+    logging.info('Checking command line arguments...')
+
+    schema = Schema({
+        '<output-path>': Use(str),
+        Optional('-n'): Use(bool),
+        Optional('-h'): Use(bool),
+        Optional('-d'): Use(bool),
+        Optional('-v'): Use(bool),
+        Optional('--all'): Or(Use(int), None),
+    })
+
+    # Add supported formats
+    for fmt in config.FORMATS_LIST:
+        schema._schema.update({
+            Optional('--{}'.format(fmt)): And(
+                Or(Use(int), None), error='{} should be an integer'.format(fmt)
+            )
+        })
+
+    try:
+        cleaned_arguments = schema.validate(arguments)
+    except SchemaError as e:
+        exit(e)
+
+    return cleaned_arguments
+
+
+def main():
+
+    arguments = docopt(build_cli())
+
+    if arguments['-v']:
+        level = logging.INFO
+    elif arguments['-d']:
+        level = logging.DEBUG
+    else:
+        level = logging.WARNING
+
+    logging.basicConfig(
+        format='%(asctime)s %(levelname)s: %(message)s',
+        datefmt='%m/%d/%Y %I:%M:%S %p',
+        level=level
+    )
+
+    cleaned_arguments = check_command_arguments(arguments)
+    use_cache = not cleaned_arguments['-n']
+    collect_all = cleaned_arguments['--all']
+
+    # Set per format counter
+    formats = config.FORMATS
+    for service in formats:
+        for fmt in formats.get(service):
+            count = cleaned_arguments['--{}'.format(fmt)]
+            if collect_all:
+                formats[service][fmt] = collect_all
+            if count:
+                formats[service][fmt] = count
+
+    fetcher.main(
+        cleaned_arguments['<output-path>'],
+        formats,
+        use_cache
+    )
+
+    converter.main(
+        cleaned_arguments['<output-path>'],
+        formats,
+        use_cache
+    )
+
+if __name__ == "__main__":
+    with Timer() as t:
+        main()
+    logging.info("BIRDY | Execution time was {:.3f} s".format(t.secs))

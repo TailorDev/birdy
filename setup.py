@@ -1,24 +1,29 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
- 
+
+from pip.req import parse_requirements
 from setuptools import setup, find_packages
 
-import db_fetcher
- 
+install_reqs = parse_requirements('requirements.txt')
+requirements = [str(ir.req) for ir in install_reqs]
 
 setup(
-    name='db_fetcher',
-    version="0.1", # db_fetcher.__version__,
+    name='birdy',
+    version=__import__('birdy').__version__,
     packages=find_packages(),
     author="Camille Loiseau",
-    description="Fetches files in biology databases",
+    author_email='loiseauc48@gmail.com',
+    description="A biological formats compilation tool",
     long_description=open('README.md').read(),
-    entry_points = {
-        'console_scripts': [
-            'db-fetcher = db_fetcher.core:main',
+    install_requires=requirements,
+    classifiers=[
+        'Programming Language :: Python :: 3',
+        'Environment :: Other Environment',
+        'Intended Audience :: Developers',
+        'Intended Audience :: Science/Research',
+        'Operating System :: OS Independent',
+        'Topic :: Software Development :: Libraries :: Python Modules',
+        'Topic :: Scientific/Engineering',
         ],
-    },
-
-    # Active la prise en compte du fichier MANIFEST.in
-    #include_package_data=True,
+    scripts=['scripts/birdy']
 )
