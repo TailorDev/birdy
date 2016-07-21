@@ -122,3 +122,8 @@ dataset
 
 3 directories, 10 files
 ```
+
+## License
+
+Birdy is released under the MIT License. See the bundled LICENSE file for
+details.
