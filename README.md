@@ -37,7 +37,7 @@ $ pyvenv venv
 $ source venv/bin/activate
 ```
 
-Install `birdy` in your new
+Install `birdy` in your new virtual environment:
 
 ```
 (venv) $ python setup.py install
@@ -45,7 +45,8 @@ Install `birdy` in your new
 
 ## Development
 
-Install testing tools:
+If you want to contribute to `birdy`, you will need to install testing
+dependencies:
 
 ```
 $ pip install -r requirements-dev.txt
