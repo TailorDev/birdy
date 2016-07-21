@@ -1,0 +1,4 @@
+-r requirements.txt
+
+# lint
+flake8==2.4.1

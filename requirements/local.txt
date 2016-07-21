@@ -1,7 +1,0 @@
-# This file pulls in everything a developer needs. If it's a basic package
-# needed to run the program, it belongs in requirements/production.txt. If
-# it's a package for developers (testing, docs, etc.), it goes in this file.
--r production.txt
-
-# lint
-flake8==2.4.1
