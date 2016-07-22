@@ -66,12 +66,20 @@ def test_gp(entrez, tmpdir, run):
 
 
 def test_pdb(tmpdir, run):
-    """Test PDB files fetching from PDB databases"""
+    """Test PDB files fetching from the PDB database"""
 
     _test_format('pdb', tmpdir, run, num=1, extension='.ent.gz')
 
 
 def test_mmCIF(tmpdir, run):
-    """Test mmCIF files fetching from PDB databases"""
+    """Test mmCIF files fetching from the PDB database"""
 
     _test_format('mmCIF', tmpdir, run, num=1, extension='.cif.gz')
+
+
+def test_kegg(tmpdir, run):
+    """Test kegg files fetching from the kegg database"""
+
+    _test_format(
+        'kegg', tmpdir, run, num=1, biotypes=('pathway', ), extension='.keg'
+    )
