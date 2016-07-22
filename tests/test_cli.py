@@ -91,8 +91,25 @@ def test_dssp(tmpdir, run):
     _test_format('dssp', tmpdir, run, num=1)
 
 
-
 def test_clustal(tmpdir, run):
-    """Test clustal aligment generation from fetched interpro family"""
+    """Test clustal alignment generation from fetched interpro family"""
 
     _test_format('clustal', tmpdir, run, num=1, extension='.aln')
+
+
+def test_msf(tmpdir, run):
+    """Test msf aligment generation from clustalw alignment"""
+
+    _test_format('msf', tmpdir, run, num=1)
+
+
+def test_nexus(tmpdir, run):
+    """Test nexus aligment generation from clustalw alignment"""
+
+    _test_format('nexus', tmpdir, run, num=1)
+
+
+def test_phylip(tmpdir, run):
+    """Test phylip aligment generation from clustalw alignment"""
+
+    _test_format('phylip', tmpdir, run, num=1)
