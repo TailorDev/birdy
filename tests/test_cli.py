@@ -18,19 +18,35 @@ def run():
     return do_run
 
 
+def _test_format(file_format, tmpdir, run, num=1, biotypes=[]):
+
+    args = ['--{}'.format(file_format), str(num), tmpdir.strpath]
+    format_dir = path.join(tmpdir.strpath, file_format)
+
+    assert run(args) == 0
+    assert path.exists(format_dir)
+
+    def _test_format_type(format_type_dir):
+        assert path.exists(format_type_dir)
+        extension = '.{}'.format(file_format)
+        format_type_files = [
+            f for f in listdir(format_type_dir) if f.endswith(extension)
+        ]
+        assert len(format_type_files) == num
+        assert format_type_files[0].endswith(extension)
+        format_type_file = path.join(format_type_dir, format_type_files[0])
+        assert path.getsize(format_type_file) > 0
+
+    if not len(biotypes):
+        _test_format_type(format_dir)
+        return
+
+    for biotype in biotypes:
+        format_type_dir = path.join(format_dir, biotype)
+        _test_format_type(format_type_dir)
+
+
 def test_fasta(entrez, tmpdir, run):
     """Test fasta files fetching from NCBI databases"""
 
-    args = ['--fasta', '1', tmpdir.strpath]
-    fasta_dir = path.join(tmpdir.strpath, 'fasta')
-
-    assert run(args) == 0
-    assert path.exists(fasta_dir)
-
-    for biotype in ('nucleotide', 'protein'):
-        fasta_type_dir = path.join(fasta_dir, biotype)
-        assert path.exists(fasta_type_dir)
-        fasta_type_files = listdir(fasta_type_dir)
-        assert len(fasta_type_files) == 1
-        assert fasta_type_files[0][-6:] == '.fasta'
-        assert path.getsize(path.join(fasta_type_dir, fasta_type_files[0])) > 0
+    _test_format('fasta', tmpdir, run, num=1, biotypes=('nucleotide', 'protein'))
