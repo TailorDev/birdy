@@ -18,17 +18,18 @@ def run():
     return do_run
 
 
-def _test_format(file_format, tmpdir, run, num=1, biotypes=[]):
+def _test_format(file_format, tmpdir, run, num=1, biotypes=[], extension=None):
 
     args = ['--{}'.format(file_format), str(num), tmpdir.strpath]
     format_dir = path.join(tmpdir.strpath, file_format)
+    if extension is None:
+        extension = '.{}'.format(file_format)
 
     assert run(args) == 0
     assert path.exists(format_dir)
 
     def _test_format_type(format_type_dir):
         assert path.exists(format_type_dir)
-        extension = '.{}'.format(file_format)
         format_type_files = [
             f for f in listdir(format_type_dir) if f.endswith(extension)
         ]
@@ -50,3 +51,15 @@ def test_fasta(entrez, tmpdir, run):
     """Test fasta files fetching from NCBI databases"""
 
     _test_format('fasta', tmpdir, run, num=1, biotypes=('nucleotide', 'protein'))
+
+
+def test_gb(entrez, tmpdir, run):
+    """Test gb files fetching from NCBI databases"""
+
+    _test_format('gb', tmpdir, run, num=1, biotypes=('nucleotide', 'protein'))
+
+
+def test_gp(entrez, tmpdir, run):
+    """Test gp files fetching from NCBI databases"""
+
+    _test_format('gp', tmpdir, run, num=1, biotypes=('nucleotide', 'protein'))
