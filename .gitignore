@@ -1,4 +1,5 @@
 *.pyc
+.cache
 birdy.egg-info
 birdy.log
 build
