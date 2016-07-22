@@ -89,3 +89,10 @@ def test_dssp(tmpdir, run):
     """Test dssp files fetching from cmbi"""
 
     _test_format('dssp', tmpdir, run, num=1)
+
+
+
+def test_clustal(tmpdir, run):
+    """Test clustal aligment generation from fetched interpro family"""
+
+    _test_format('clustal', tmpdir, run, num=1, extension='.aln')
