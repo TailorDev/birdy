@@ -50,7 +50,9 @@ def _test_format(file_format, tmpdir, run, num=1, biotypes=[], extension=None):
 def test_fasta(entrez, tmpdir, run):
     """Test fasta files fetching from NCBI databases"""
 
-    _test_format('fasta', tmpdir, run, num=1, biotypes=('nucleotide', 'protein'))
+    _test_format(
+        'fasta', tmpdir, run, num=1, biotypes=('nucleotide', 'protein')
+    )
 
 
 def test_gb(entrez, tmpdir, run):
