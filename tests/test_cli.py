@@ -63,3 +63,15 @@ def test_gp(entrez, tmpdir, run):
     """Test gp files fetching from NCBI databases"""
 
     _test_format('gp', tmpdir, run, num=1, biotypes=('nucleotide', 'protein'))
+
+
+def test_pdb(tmpdir, run):
+    """Test PDB files fetching from PDB databases"""
+
+    _test_format('pdb', tmpdir, run, num=1, extension='.ent.gz')
+
+
+def test_mmCIF(tmpdir, run):
+    """Test mmCIF files fetching from PDB databases"""
+
+    _test_format('mmCIF', tmpdir, run, num=1, extension='.cif.gz')
