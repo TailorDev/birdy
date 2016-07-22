@@ -13,7 +13,7 @@ def entrez():
 @pytest.fixture
 def run():
     def do_run(args):
-        args = ["birdy"] + args
+        args = ["birdy", "-n"] + args
         return subprocess.call(args)
     return do_run
 
