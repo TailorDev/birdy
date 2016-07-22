@@ -30,13 +30,13 @@ def generate_clustal_set(output_path, formats, input_ids=None, use_cache=True):
             use_cache=use_cache
         )
 
-        alignements = []
+        alignments = []
         for ipro in output_files:
-            alignements += [clustalw(ipro)]
+            alignments += [clustalw(ipro)]
         logging.info(
-            "{} files have been aligned with clustalw".format(len(alignements))
+            "{} files have been aligned with clustalw".format(len(alignments))
         )
 
     logging.info("CLUSTAL | Execution time was {:.3f} s".format(t.secs))
 
-    return alignements
+    return alignments

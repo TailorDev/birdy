@@ -13,7 +13,7 @@ def clustalw(filename):
         filename: a multi-fasta file path
 
     Returns:
-        the output alignement filename
+        the output alignment filename
     """
     logging.info("Will align {} file with clustalw".format(filename))
 
