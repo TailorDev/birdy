@@ -5,6 +5,7 @@ import random
 from Bio_Eutils import Entrez
 
 from .. import config
+from ..compat import makedirs
 from ..exceptions import ConfigurationError
 from ..utils import get_random_ids, Timer
 
@@ -52,7 +53,7 @@ def fetch_ncbi(ID, db, fmt='fasta', output_path='.'):
     db_fmt_path = os.path.join(output_path, fmt, db)
     output_file = os.path.join(db_fmt_path, filename)
 
-    os.makedirs(db_fmt_path, exist_ok=True)
+    makedirs(db_fmt_path, exist_ok=True)
 
     handle = Entrez.efetch(db=db, id=ID, rettype=fmt, retmode="text")
     response = handle.read()

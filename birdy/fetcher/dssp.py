@@ -6,6 +6,7 @@ from ftplib import FTP
 from six.moves.urllib import request
 
 from .. import config
+from ..compat import makedirs
 from ..utils import get_random_ids, Timer
 
 
@@ -32,7 +33,7 @@ def get_dssp_ids(use_cache=True):
         logging.info("Updating DSSP ids cache...")
 
         # Create cache directory if it does not exists
-        os.makedirs(config.IDS_LIST_CACHE_ROOT, exist_ok=True)
+        makedirs(config.IDS_LIST_CACHE_ROOT, exist_ok=True)
 
         # Fetch ids
         ftp = FTP(config.DSSP_FTP_HOST)
@@ -78,7 +79,7 @@ def fetch_dssp(ID, output_path='.'):
     fmt_path = os.path.join(output_path, fmt)
     output_file = os.path.join(fmt_path, filename)
 
-    os.makedirs(fmt_path, exist_ok=True)
+    makedirs(fmt_path, exist_ok=True)
 
     url = config.DSSP_ID_URL.format(id=ID)
 

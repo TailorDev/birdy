@@ -8,6 +8,7 @@ from gzip import GzipFile
 from six.moves.urllib import request
 
 from .. import config
+from ..compat import makedirs
 from ..exceptions import NetworkError
 from ..utils import get_random_ids, Timer
 
@@ -32,7 +33,7 @@ def get_interpro_ids(use_cache=True):
         logging.info("Updating interpro ids cache. This may take minutes...")
 
         # Create cache directory if it does not exists
-        os.makedirs(config.IDS_LIST_CACHE_ROOT, exist_ok=True)
+        makedirs(config.IDS_LIST_CACHE_ROOT, exist_ok=True)
 
         ids = []
 
@@ -100,7 +101,7 @@ def fetch_interpro(ID, fmt='fasta', output_path='.'):
 
     output_file = os.path.join(output_path, filename)
 
-    os.makedirs(output_path, exist_ok=True)
+    makedirs(output_path, exist_ok=True)
 
     url = config.INTERPRO_ID_URL.format(id=ID, fmt=fmt)
 

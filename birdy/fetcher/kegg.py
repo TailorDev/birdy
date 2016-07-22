@@ -3,6 +3,7 @@ import os.path
 import requests
 
 from .. import config
+from ..compat import makedirs
 from ..exceptions import NetworkError
 from ..utils import get_random_ids, Timer
 
@@ -32,7 +33,7 @@ def get_kegg_ids(db, use_cache=True):
         logging.info("Updating KEGG ids cache for {} database...".format(db))
 
         # Create cache directory if it does not exists
-        os.makedirs(config.KEGG_IDS_LIST_CACHE_ROOT, exist_ok=True)
+        makedirs(config.KEGG_IDS_LIST_CACHE_ROOT, exist_ok=True)
 
         url = config.KEGG_API_URL.format(
             operation='list', argument=db
@@ -83,7 +84,7 @@ def fetch_kegg(ID, db, output_path='.'):
     db_fmt_path = os.path.join(output_path, fmt, db)
     output_file = os.path.join(db_fmt_path, filename)
 
-    os.makedirs(db_fmt_path, exist_ok=True)
+    makedirs(db_fmt_path, exist_ok=True)
 
     url = config.KEGG_API_URL.format(operation='get', argument=ID)
 

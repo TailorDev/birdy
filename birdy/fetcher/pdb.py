@@ -7,6 +7,7 @@ from six.moves.urllib import request
 
 
 from .. import config
+from ..compat import makedirs
 from ..exceptions import NetworkError, UnsupportedFormatError
 from ..utils import get_random_ids, Timer
 
@@ -33,7 +34,7 @@ def get_pdb_ids(use_cache=True):
         logging.info("Updating PDB ids cache...")
 
         # Create cache directory if it does not exists
-        os.makedirs(config.IDS_LIST_CACHE_ROOT, exist_ok=True)
+        makedirs(config.IDS_LIST_CACHE_ROOT, exist_ok=True)
 
         # Fetch PDB ids
         response = requests.get(config.PDB_IDS_URL)
@@ -88,7 +89,7 @@ def fetch_pdb(ID, fmt='pdb', output_path='.'):
     fmt_path = os.path.join(output_path, fmt)
     output_file = os.path.join(fmt_path, filename)
 
-    os.makedirs(fmt_path, exist_ok=True)
+    makedirs(fmt_path, exist_ok=True)
 
     url = config.PDB_ID_URL.format(fmt=fmt, idx=ID[1:3], filename=filename)
 
