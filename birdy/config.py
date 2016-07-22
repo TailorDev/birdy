@@ -44,7 +44,7 @@ DSSP_FTP_PATH = '/pub/molbio/data/dssp/'
 DSSP_ID_URL = 'ftp://' + DSSP_FTP_HOST + DSSP_FTP_PATH + '{id}.dssp'
 
 # -- InterProScan
-INTERPRO_IDS_URL = 'ftp://ftp.ebi.ac.uk/pub/databases/interpro/Current/interpro.xml.gz'  # NOPEP8
+INTERPRO_IDS_URL = 'ftp://ftp.ebi.ac.uk/pub/databases/interpro/current/interpro.xml.gz'  # NOPEP8
 INTERPRO_ID_URL = 'http://www.ebi.ac.uk/interpro/entry/{id}/proteins-matched?export={fmt}'  # NOPEP8
 INTERPRO_MAX_PROTEIN_COUNT = 50
 
