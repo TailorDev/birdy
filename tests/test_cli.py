@@ -83,3 +83,9 @@ def test_kegg(tmpdir, run):
     _test_format(
         'kegg', tmpdir, run, num=1, biotypes=('pathway', ), extension='.keg'
     )
+
+
+def test_dssp(tmpdir, run):
+    """Test dssp files fetching from cmbi"""
+
+    _test_format('dssp', tmpdir, run, num=1)
