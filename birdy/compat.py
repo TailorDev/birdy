@@ -13,9 +13,9 @@ def makedirs(path, exist_ok=False):
         # Python 2
         try:
             os.makedirs(path)
-        except OSError, e:
+        except OSError as e:
             # We do not care if the directory already exists
-            if e.errno == 17:
+            if e.errno == 17 and exist_ok is True:
                 pass
             else:
                 raise
