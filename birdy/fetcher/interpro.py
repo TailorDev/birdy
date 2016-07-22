@@ -2,10 +2,10 @@ import logging
 import os
 import os.path
 import requests
-import urllib.request
 import xmltodict
 
 from gzip import GzipFile
+from six.moves.urllib import request
 
 from .. import config
 from ..exceptions import NetworkError
@@ -56,7 +56,7 @@ def get_interpro_ids(use_cache=True):
 
         # Attention, tricky part
         # We stream ftp response in a GzipFile that is streamed by xmltodict
-        with urllib.request.urlopen(config.INTERPRO_IDS_URL) as f:
+        with request.urlopen(config.INTERPRO_IDS_URL) as f:
             xmltodict.parse(
                 GzipFile(fileobj=f),
                 item_depth=2,

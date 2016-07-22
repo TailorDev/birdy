@@ -1,9 +1,9 @@
 import logging
 import os.path
 import sys
-import urllib.request
 
 from ftplib import FTP
+from six.moves.urllib import request
 
 from .. import config
 from ..utils import get_random_ids, Timer
@@ -83,7 +83,7 @@ def fetch_dssp(ID, output_path='.'):
     url = config.DSSP_ID_URL.format(id=ID)
 
     try:
-        urllib.request.urlretrieve(url, output_file)
+        request.urlretrieve(url, output_file)
     except:
         logging.error(
             "Cannot fetch id {id} from the CMBI. "

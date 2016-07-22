@@ -3,7 +3,7 @@ import os
 import os.path
 import requests
 import sys
-import urllib.request
+from six.moves.urllib import request
 
 
 from .. import config
@@ -93,7 +93,7 @@ def fetch_pdb(ID, fmt='pdb', output_path='.'):
     url = config.PDB_ID_URL.format(fmt=fmt, idx=ID[1:3], filename=filename)
 
     try:
-        urllib.request.urlretrieve(url, output_file)
+        request.urlretrieve(url, output_file)
     except:
         logging.error(
             "Cannot fetch id {id} from the PDB. Request url was: {url}".format(
