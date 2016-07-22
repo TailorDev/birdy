@@ -20,11 +20,16 @@ def clustalw(filename):
     base, ext = os.path.splitext(filename)
     log_filename = '{base}.{ext}'.format(base=base, ext='log')
 
-    cmd = '{bin} {filename}'.format(bin=config.CLUSTALW, filename=filename)
+    cmd = '{bin} {filename}'.format(
+        bin=config.CLUSTALW,
+        filename=os.path.basename(filename)
+    )
 
     try:
         with open(log_filename, "w+") as log_file:
-            subprocess.call(cmd, stdout=log_file, shell=True)
+            subprocess.call(
+                cmd, stdout=log_file, shell=True, cwd=os.path.dirname(filename)
+            )
     except:
         logging.error('Clustal alignment failed. Command was: {}'.format(cmd))
         logging.debug(sys.exc_info()[0])
