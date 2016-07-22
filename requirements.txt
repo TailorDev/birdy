@@ -2,4 +2,5 @@ Bio-Eutils>=1.65
 docopt>=0.6.1
 requests>=2.7.0
 schema>=0.3.1
+six>=1.10.0
 xmltodict>=0.9.2
