@@ -7,8 +7,8 @@ A biological file formats compilation tool.
 Birdy uses third-party tools to convert or generate some file formats. Please,
 consider installing them first:
 
-* [clustalw](http://www.clustal.org/clustal2/)
-* [squizz](ftp://ftp.pasteur.fr/pub/gensoft/projects/squizz/)
+* clustalw: http://www.clustal.org/clustal2/
+* squizz: ftp://ftp.pasteur.fr/pub/gensoft/projects/squizz/
 
 Once installed, please check that binaries are available in your path:
 
